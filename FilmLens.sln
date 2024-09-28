@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{CB73BCDD-4533-42D7-A200-24CA2918E5F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{93C3B503-B96D-4D43-AA2E-C77A11B13741}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{3985F6B9-2A96-4F21-BA80-ADEE55B637CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{691A4763-F454-4A9F-8033-3683899962CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{2CE67663-0829-441B-B63C-123E2DDF785E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmLens.MVC", "Hosts\FilmLens.MVC\FilmLens.MVC.csproj", "{F7597873-388E-4635-A38E-7FDDB98CC8AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7597873-388E-4635-A38E-7FDDB98CC8AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7597873-388E-4635-A38E-7FDDB98CC8AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7597873-388E-4635-A38E-7FDDB98CC8AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7597873-388E-4635-A38E-7FDDB98CC8AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F7597873-388E-4635-A38E-7FDDB98CC8AA} = {CB73BCDD-4533-42D7-A200-24CA2918E5F1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D1728DF-D61B-40D2-9C4C-45A64CD6B05A}
+	EndGlobalSection
+EndGlobal
