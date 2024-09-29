@@ -18,5 +18,10 @@ namespace FilmLens.Domain.Entities
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Связь с фильмами.
+        /// </summary>
+        public ICollection<MovieGenre> MovieGenres { get; set; }
     }
 }

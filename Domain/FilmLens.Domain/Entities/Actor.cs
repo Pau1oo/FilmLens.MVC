@@ -22,13 +22,16 @@ namespace FilmLens.Domain.Entities
         /// <summary>
         /// Биография.
         /// </summary>
-        public string Bio {  get; set; }
+        public string Bio { get; set; }
 
         /// <summary>
         /// Ссылка на фото.
         /// </summary>
         public string PhotoUrl { get; set; }
 
-
+        /// <summary>
+        /// Связь с фильмами.
+        /// </summary>
+        public ICollection<MovieActor> MovieActors { get; set; }
     }
 }

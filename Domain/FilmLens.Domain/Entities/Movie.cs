@@ -43,5 +43,25 @@ namespace FilmLens.Domain.Entities
         /// Идентификатор фильма в TMDb.
         /// </summary>
         public string TmdbId { get; set; }
+
+        /// <summary>
+        /// Связь с жанрами.
+        /// </summary>
+        public ICollection<MovieGenre> MovieGenres { get; set; }
+
+        /// <summary>
+        /// Связь с актерами.
+        /// </summary>
+        public ICollection<MovieActor> MovieActors { get; set; }
+
+        /// <summary>
+        /// Связь с оценками.
+        /// </summary>
+        public ICollection<Rating> Ratings { get; set; }
+
+        /// <summary>
+        /// Связь с рецензиями.
+        /// </summary>
+        public ICollection<Review> Reviews { get; set; }
     }
 }
