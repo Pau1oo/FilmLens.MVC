@@ -7,4 +7,11 @@
     <UserSecretsId>8eda9cb6-52cb-47e2-b30f-1d59d23c39c5</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\AppServices\FilmLens.AppServices\FilmLens.AppServices.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\FilmLens.ComponentRegistrar\FilmLens.ComponentRegistrar.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\FilmLens.DataAccess\FilmLens.DataAccess.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\FilmLens.Infrastructure\FilmLens.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

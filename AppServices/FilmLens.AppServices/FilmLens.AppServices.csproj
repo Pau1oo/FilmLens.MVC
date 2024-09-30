@@ -13,4 +13,14 @@
     <Folder Include="Users\Repositories\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis" Version="2.8.16" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="10.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Contracts\FilmLens.Contracts\FilmLens.Contracts.csproj" />
+    <ProjectReference Include="..\..\Domain\FilmLens.Domain\FilmLens.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

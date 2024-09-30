@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Npgsql" Version="8.0.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\AppServices\FilmLens.AppServices\FilmLens.AppServices.csproj" />
+    <ProjectReference Include="..\FilmLens.Infrastructure\FilmLens.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

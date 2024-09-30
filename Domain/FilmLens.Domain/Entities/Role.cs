@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace FilmLens.Domain.Entities
 {
     /// <summary>
     /// Роль пользователя.
     /// </summary>
-    public sealed class Role
+    public sealed class Role : IdentityRole<int>
     {
         /// <summary>
         /// Идентификатор роли.

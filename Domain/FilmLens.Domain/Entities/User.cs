@@ -1,11 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace FilmLens.Domain.Entities
 {
     /// <summary>
     /// Пользователь.
     /// </summary>
-    public sealed class User
+    public sealed class User : IdentityUser<int>
     {
         /// <summary>
         /// Идентификатор пользователя.

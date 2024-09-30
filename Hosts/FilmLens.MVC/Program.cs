@@ -1,3 +1,5 @@
+using FilmLens.ComponentRegistrar;
+
 namespace FilmLens.MVC
 {
     public class Program
@@ -8,6 +10,8 @@ namespace FilmLens.MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            FilmLensRegistrar.AddComponents(builder.Services, builder.Configuration);
 
             var app = builder.Build();
 

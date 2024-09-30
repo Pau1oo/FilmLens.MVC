@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Contracts\FilmLens.Contracts\FilmLens.Contracts.csproj" />
+    <ProjectReference Include="..\..\Domain\FilmLens.Domain\FilmLens.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
