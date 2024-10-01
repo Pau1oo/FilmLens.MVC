@@ -11,4 +11,8 @@
     <ProjectReference Include="..\..\Domain\FilmLens.Domain\FilmLens.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+
 </Project>

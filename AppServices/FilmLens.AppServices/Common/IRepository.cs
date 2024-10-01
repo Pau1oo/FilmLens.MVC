@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FilmLens.AppServices.Common
+﻿namespace FilmLens.AppServices.Common
 {
     /// <summary>
     /// Интерфейс общего репозитория.
@@ -22,5 +16,11 @@ namespace FilmLens.AppServices.Common
         /// </summary>
         /// <param name="entity">Сущность.</param>
         Task AddAsync(T entity);
-    }
+
+		/// <summary>
+		/// Получает все записи.
+		/// </summary>
+		/// <returns></returns>
+		Task<List<T>> GetAllAsync();
+	}
 }
