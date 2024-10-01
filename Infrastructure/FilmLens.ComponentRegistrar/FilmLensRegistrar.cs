@@ -2,6 +2,7 @@
 using FilmLens.AppServices.Authentication.Services;
 using FilmLens.AppServices.Common.CacheService;
 using FilmLens.AppServices.Common.Redis;
+using FilmLens.AppServices.Common.TMDb;
 using FilmLens.DataAccess.Common;
 using FilmLens.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -49,6 +50,8 @@ namespace FilmLens.ComponentRegistrar
 			services.AddStackExchangeRedisExtensions<NewtonsoftSerializer>(redisConfiguration);
 
 			services.AddScoped<IAuthenticationService, AuthenticationService>();
+
+			services.AddScoped<ITmdbService, TmdbService>();
 
 			services.AddSingleton<IRedisCache, RedisCache>();
 			services.AddSingleton<ICacheService, RedisCacheService>();
