@@ -1,0 +1,63 @@
+//slick-nav
+.slick-nav {
+    position: relative;
+    z-index: 1;
+    .prev_b1.slick-arrow,
+    .next_b1.slick-arrow,
+    .prev_f1.slick-arrow,
+    .next_f1.slick-arrow,
+    .prev_v1.slick-arrow,
+    .next_v1.slick-arrow,
+    .prev_p1.slick-arrow,
+    .next_p1.slick-arrow {
+        color: $white;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        display: inline-block;
+        line-height: 56px;
+        width: 60px;
+        height: 60px;
+        font-size: 22px;
+        text-align: center;
+        cursor: pointer;
+        z-index: 1;
+        @include transition(0.3s);
+        &::before {
+            content: " ";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            text-align: center;
+            z-index: 1;
+            @include transition(0.3s);
+        }
+        &:hover {
+            color: $white;
+            background: $theme-color;
+        }
+    }
+}
+
+//ul.slick-dots
+ul.slick-dots {
+    text-align: center;
+    padding-top: 60px;
+    li {
+        text-indent: -100000px;
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        margin: 0 7px;
+        cursor: pointer;
+        &.slick-active {
+            background: $theme-color;
+        }
+    }
+}

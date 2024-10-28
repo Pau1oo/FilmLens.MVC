@@ -1,0 +1,27 @@
+//progress-content
+.progressbar-content {
+    .chart {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 18px;
+        span {
+            color: $white;
+            font-size: 32px;
+            font-weight: 600;
+            font-family: $clash-semibold;
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            @media #{$xs} {
+                font-size: 20px;
+            }
+        }
+    }
+}

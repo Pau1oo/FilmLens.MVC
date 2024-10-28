@@ -1,0 +1,26 @@
+//techy-newsletter
+.techy-newsletter {
+    position: relative;
+    z-index: 1;
+    &::before {
+        content: " ";
+        position: absolute;
+        width: 632px;
+        height: 211px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 22%;
+        background: #104cba;
+        opacity: 0.2;
+        filter: blur(100px);
+        z-index: 1;
+        -webkit-filter: blur(100px);
+        -moz-filter: blur(100px);
+        -o-filter: blur(100px);
+        -ms-filter: blur(100px);
+    }
+    .borders {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
