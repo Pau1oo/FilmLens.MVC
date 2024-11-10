@@ -25,11 +25,11 @@ namespace FilmLens.AppServices.Authentication.Services
 		}
 
 		/// <inheritdoc/>
-		public Task<IdentityResult> RegisterAsync(string email, string password, CancellationToken cancellation)
+		public Task<IdentityResult> RegisterAsync(string name, string email, string password, CancellationToken cancellation)
 		{
 			var user = new User
 			{
-				UserName = email,
+				UserName = name,
 				Email = email,
 			};
 

@@ -27,6 +27,6 @@ namespace FilmLens.AppServices.Authentication.Services
 		/// <param name="email">Email пользователя.</param>
 		/// <param name="password">Пароль.</param>
 		/// <param name="cancellation">Токен отмены операции.</param>
-		Task<IdentityResult> RegisterAsync(string email, string password, CancellationToken cancellation);
+		Task<IdentityResult> RegisterAsync(string name, string email, string password, CancellationToken cancellation);
 	}
 }

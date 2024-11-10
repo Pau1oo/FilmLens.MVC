@@ -1,0 +1,159 @@
+﻿@model LoginViewModel
+@{
+	Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<meta name="keywords" content="online solution, it, tech, sass, technology, teaching, learning">
+	<meta name="description"
+		  content="Techy is a it solutions HTML template for all kinds of it, technology, online tech website">
+	<title>FilmLens</title>
+	<meta property="og:site_name" content="FilmLens">
+	<meta property="og:url" content="">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="FilmLens">
+	<meta name='og:image' content='img/ogg.png'>
+	<!-- For IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- For Resposive Device -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- For Window Tab Color -->
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#913BFF">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#913BFF">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#913BFF">
+
+	<!-- <link rel="manifest" href="site.webmanifest" /> -->
+	<link rel="shortcut icon" type="image/x-icon" href="~/img/favicon.png" />
+	<!-- Place favicon.ico in the root directory -->
+	<!-- CSS here -->
+	<link rel="stylesheet" href="~/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/fonts/custom-font/css/clash-display.css" />
+	<link rel="stylesheet" href="~/fonts/bootstrap-icons/font-css.css" />
+	<link rel="stylesheet" href="~/css/slick.css" />
+	<link rel="stylesheet" href="~/css/all.min.css" />
+	<link rel="stylesheet" href="~/css/magnific-popup.css" />
+	<link rel="stylesheet" href="~/css/metisMenu.css" />
+	<link rel="stylesheet" href="~/css/aos.css" />
+	<link rel="stylesheet" href="~/css/spacing.css" />
+	<link rel="stylesheet" href="~/css/main.css" />
+</head>
+
+<body>
+	<div class="main-page-wrapper">
+		<!--[if lte IE 9]> <p class="browserupgrade"> You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security. </p> <![endif]-->
+		<!-- Add your site or application content here -->
+		<!-- preloader -->
+		<div id="preloader">
+			<div class="preloader">
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<!-- preloader end  -->
+		<!-- header-area start -->
+		<header class="theme-main-menu theme-menu-three pt-25">
+			<div class="top-header pb-25">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-xl-4 col-lg-3 text-start d-none d-lg-inline-block">
+							<div class="logo-area">
+								<a href="@Url.Action("Index", "Home")"><img src="~/img/logo/FilmLensLogoRegister.png" alt="Header-logo"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.theme-main-menu -->
+		</header>
+
+	<main>
+		<!--page-title-area start-->
+		<div class="page-title-area pt-210 pb-150 pt-lg-120 pb-lg-125 pb-md-100">
+			<img class="page-title-shape shape-one " src="~/img/shape/star-10d.svg" alt="shape">
+			<img class="page-title-shape shape-three" src="~/img/shape/star-2.svg" alt="shape">
+			<img class="page-title-shape shape-four d-none d-md-inline-block " src="~/img/shape/star-4b.svg"
+				 alt="shape">
+			<img class="page-title-shape shape-five d-none d-lg-inline-block " src="~/img/shape/line-round-9d.svg"
+				 alt="shape">
+			<img class="page-title-shape shape-six" src="~/img/shape/star-5b.svg" alt="shape">
+			<img class="page-title-shape shape-seven" src="~/img/shape/star-5b.svg" alt="shape">
+			<img class="page-title-shape shape-eight d-none d-xl-inline-block" src="~/img/page-title/img-01.png"
+				 alt="img">
+			<img class="page-title-shape shape-nine d-none d-xl-inline-block" src="~/img/page-title/img-02.png"
+				 alt="img">
+
+			<div class="container">
+				<div class="row gx-4 gx-xxl-5 align-items-center">
+					<div class="col-xl-6 col-md-6">
+						<div class="page-title-wrapper text-md-start text-center">
+							<h2 class="page-title mb-20" style="font-size: 72px;">Авторизация</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--page-title-area end-->
+		<!--signup-section start-->
+		<div class="signup-section pt-150 pb-150 pt-lg-60 pb-lg-60">
+			<div class="container">
+				<div class="row gx-4 gx-xxl-5 align-items-center justify-content-center">
+					<div class="col-xl-8 col-lg-10">
+						<div class="signup-form">
+							<h3 class="post-title mb-65 text-center">Войти в аккаунт</h3>
+							<form asp-action="Login" asp-controller="Account" method="post" class="widget-form p-0">
+
+								<div class="input-box mail mb-30">
+									<input asp-for="Email" placeholder="Почта">
+								</div>
+
+								<div class="input-box pass mb-30">
+									<input asp-for="Password" type="password" placeholder="Пароль">
+									<span asp-validation-for="Password"></span>
+								</div>
+
+								<div class="col-12">
+									<button class="theme_btn" asp-controller="Home" asp-action="Index">Войти</button>
+								</div>
+							</form>
+							<div asp-validation-summary="ModelOnly"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--signup-section end-->
+		<!-- JS here -->
+
+		<script src="~/js/vendor/modernizr-3.5.0.min.js"></script>
+		<script src="~/js/vendor/jquery-2.2.4.min.js"></script>
+		<script src="~/js/vendor/popper.min.js"></script>
+		<script src="~/js/vendor/bootstrap.min.js"></script>
+		<script src="~/js/slick.min.js"></script>
+		<script src="~/js/jquery.supermarquee.min.js"></script>
+		<script src="~/js/imagesloaded.pkgd.min.js"></script>
+		<script src="~/js/isotope.pkgd.min.js"></script>
+		<script src="~/js/jquery.magnific-popup.min.js"></script>
+		<script src="~/js/metisMenu.min.js"></script>
+		<script src="~/js/wow.min.js"></script>
+		<script src="~/js/aos.js"></script>
+		<script src="~/js/jquery.counterup.min.js"></script>
+		<script src="~/js/jquery.waypoints.min.js"></script>
+		<script src="~/js/tilt.jquery.min.js"></script>
+		<script src="~/js/jquery.easypiechart.min.js"></script>
+		<script src="~/js/jquery-ui.js"></script>
+		<script src="~/js/jquery.scrollUp.min.js"></script>
+		<script src="~/js/plugins.js"></script>
+
+		<!--Custom JS here -->
+		<script src="~/js/main.js"></script>
+</body>
+
+</html>

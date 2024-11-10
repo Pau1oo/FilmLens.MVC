@@ -15,17 +15,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmLens.MVC", "Hosts\FilmLens.MVC\FilmLens.MVC.csproj", "{F7597873-388E-4635-A38E-7FDDB98CC8AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmLens.Domain", "Domain\FilmLens.Domain\FilmLens.Domain.csproj", "{8B7D92C7-72CF-4DC3-89DF-F2049B3DC78C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmLens.Domain", "Domain\FilmLens.Domain\FilmLens.Domain.csproj", "{8B7D92C7-72CF-4DC3-89DF-F2049B3DC78C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmLens.Contracts", "Contracts\FilmLens.Contracts\FilmLens.Contracts.csproj", "{475808C1-3E54-431A-A1ED-02FD4BD7F7BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmLens.Contracts", "Contracts\FilmLens.Contracts\FilmLens.Contracts.csproj", "{475808C1-3E54-431A-A1ED-02FD4BD7F7BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmLens.AppServices", "AppServices\FilmLens.AppServices\FilmLens.AppServices.csproj", "{AD06DCC8-1A43-4867-AE07-1CF0171E0CE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmLens.AppServices", "AppServices\FilmLens.AppServices\FilmLens.AppServices.csproj", "{AD06DCC8-1A43-4867-AE07-1CF0171E0CE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmLens.ComponentRegistrar", "Infrastructure\FilmLens.ComponentRegistrar\FilmLens.ComponentRegistrar.csproj", "{13CEED67-318E-4F5F-BC83-6490167D5794}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmLens.ComponentRegistrar", "Infrastructure\FilmLens.ComponentRegistrar\FilmLens.ComponentRegistrar.csproj", "{13CEED67-318E-4F5F-BC83-6490167D5794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmLens.Infrastructure", "Infrastructure\FilmLens.Infrastructure\FilmLens.Infrastructure.csproj", "{9A6CFA24-969B-496D-A1C9-70794B667E91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmLens.Infrastructure", "Infrastructure\FilmLens.Infrastructure\FilmLens.Infrastructure.csproj", "{9A6CFA24-969B-496D-A1C9-70794B667E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmLens.DataAccess", "Infrastructure\FilmLens.DataAccess\FilmLens.DataAccess.csproj", "{83BFE2C7-8543-43C5-9145-35AFFD270DA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmLens.DataAccess", "Infrastructure\FilmLens.DataAccess\FilmLens.DataAccess.csproj", "{83BFE2C7-8543-43C5-9145-35AFFD270DA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

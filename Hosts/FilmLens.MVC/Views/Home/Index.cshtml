@@ -77,7 +77,7 @@
 					<div class="row gx-4 gx-xxl-5 align-items-center">
 						<div class="col-xxl-3 col-xl-2 col-lg-2 col-6 text-start">
 							<div class="logo-area">
-								<a href="index.cshtml"><img src="img/logo/FilmLensLogo.png" alt="Header-logo"></a>
+								<a href="@Url.Action("Index", "Home")"><img src="img/logo/FilmLensLogo.png" alt="Header-logo"></a>
 							</div>
 						</div>
 						<div class="col-xxl-6 col-xl-6 col-lg-6 d-none d-lg-block">
@@ -93,101 +93,80 @@
 											<li class="nav-item dropdown">
 												<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOne"
 												   role="button" data-bs-toggle="dropdown" aria-expanded="false">
-													Home
+													Каталог
 												</a>
 												<ul class="dropdown-menu" aria-labelledby="navbarDropdownOne">
 													<li>
-														<a class="dropdown-item" href="index.cshtml">Home Style 1</a>
+														<a class="dropdown-item" href="index.cshtml">Фильмы</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="index-2.cshtml">Home Style 2</a>
+														<a class="dropdown-item" href="index-2.cshtml">Сериалы</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="index-3.cshtml">Home Style 3</a>
+														<a class="dropdown-item" href="index-3.cshtml">Мультфильмы</a>
 													</li>
 												</ul>
 											</li>
 											<li class="nav-item dropdown">
 												<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTwo"
 												   role="button" data-bs-toggle="dropdown" aria-expanded="false">
-													Pages
+													Подборки
 												</a>
 												<ul class="dropdown-menu" aria-labelledby="navbarDropdownTwo">
 													<li>
-														<a class="dropdown-item" href="about.cshtml">About Us</a>
+														<a class="dropdown-item" href="about.cshtml">Подборка1</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="services.cshtml">Services</a>
+														<a class="dropdown-item" href="services.cshtml">Подборка2</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="services-details.cshtml">
-															Services
-															Details
-														</a>
+														<a class="dropdown-item" href="services-details.cshtml">Подборка3</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="product.cshtml">Product</a>
+														<a class="dropdown-item" href="product.cshtml">Подборка4</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="product-details.cshtml">
-															Product
-															Details
-														</a>
+														<a class="dropdown-item" href="product-details.cshtml">Подборка5</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="team.cshtml">Team</a>
+														<a class="dropdown-item" href="team.cshtml">Подборка6</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="team-details.cshtml">
-															Team
-															Details
-														</a>
+														<a class="dropdown-item" href="team-details.cshtml">Подборка7</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="price.cshtml">Price</a>
+														<a class="dropdown-item" href="price.cshtml">Подборка8</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="faq.cshtml">FAQ</a>
+														<a class="dropdown-item" href="faq.cshtml">Подборка9</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="error.cshtml">Error - 404</a>
+														<a class="dropdown-item" href="error.cshtml">Подборка10</a>
 													</li>
 													<li>
-														<a class="dropdown-item" href="login.cshtml">Login</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="signup.cshtml">Signup</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="coming-soon.cshtml">
-															Comming
-															Soon
-														</a>
+														<a class="dropdown-item" href="login.cshtml">Подборка11</a>
 													</li>
 												</ul>
 											</li>
 											<li class="nav-item dropdown">
 												<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 												   role="button" data-bs-toggle="dropdown" aria-expanded="false">
-													Project
+													Жанры
 												</a>
 												<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 													<li>
 														<a class="dropdown-item" href="project-grid.cshtml">
-															Project
-															Grid
+															Жанр1
 														</a>
 													</li>
 													<li>
 														<a class="dropdown-item" href="project-masonry.cshtml">
-															Project
-															Masonry
+															Жанр2
 														</a>
 													</li>
 													<li>
 														<a class="dropdown-item" href="project-details.cshtml">
-															Project
-															Details
+															Жанр3
 														</a>
 													</li>
 												</ul>
@@ -195,40 +174,28 @@
 											<li class="nav-item dropdown">
 												<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownThree"
 												   role="button" data-bs-toggle="dropdown" aria-expanded="false">
-													Blog
+													Лучшее
 												</a>
 												<ul class="dropdown-menu" aria-labelledby="navbarDropdownThree">
 													<li>
-														<a class="dropdown-item" href="blog-grid.cshtml">Blog Grid</a>
+														<a class="dropdown-item" href="blog-grid.cshtml">Лучшие фильмы</a>
 													</li>
 													<li>
 														<a class="dropdown-item" href="blog-masonry.cshtml">
-															Blog
-															Masonry
+															Лучшие
+															сериалы
 														</a>
 													</li>
 													<li>
 														<a class="dropdown-item" href="blog-classic.cshtml">
-															Blog
-															Classic
-														</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="blog-single-v1.cshtml">
-															Blog Details
-															V1
-														</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="blog-single-v2.cshtml">
-															Blog Details
-															V2
+															Лучшие
+															мультфильмы
 														</a>
 													</li>
 												</ul>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="contact.cshtml">contact</a>
+												<a class="nav-link" href="contact.cshtml">Профиль</a>
 											</li>
 										</ul>
 									</div>
@@ -239,30 +206,7 @@
 							<ul class="right-nav mb-0 d-flex align-items-center justify-content-end">
 								<li>
 									<div class="d-none d-xxl-inline-block right-language pr-40">
-										<div class="dropdown">
-											<a class="language-btn dropdown-toggle" href="#" role="button"
-											   id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-												English
-												<i class="fal fa-chevron-down"></i>
-											</a>
-											<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-												<li>
-													<a class="dropdown-item" href="#">Arabic</a>
-												</li>
-												<li>
-													<a class="dropdown-item" href="#">USA</a>
-												</li>
-												<li>
-													<a class="dropdown-item" href="#">German</a>
-												</li>
-												<li>
-													<a class="dropdown-item" href="#">Chaina</a>
-												</li>
-												<li>
-													<a class="dropdown-item" href="#">Spanish</a>
-												</li>
-											</ul>
-										</div>
+										
 									</div>
 								</li>
 								<li class="search-area">
@@ -320,7 +264,10 @@
 					</div>
 				</div>
 				<div class="login-btn text-center">
-					<a class="theme_btn w-100" href="login.cshtml">Войти</a>
+					<a class="theme_btn w-100" asp-controller="Account" asp-action="Login">Войти</a>
+				</div>
+				<div class="login-btn text-center">
+					<a class="theme_btn w-100" asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
 				</div>
 			</div>
 			<!-- offset-sidebar end -->
@@ -458,7 +405,6 @@
 									<span>твой путеводитель</span>
 									<span>в мире кино!</span>
 								</h1>
-								<a class="theme_btn" href="contact.cshtml">Начать сейчас</a>
 							</div>
 						</div>
 					</div>
@@ -472,104 +418,17 @@
 				</div>
 			</div>
 			<!--marque end-->
-			<!--brand-area start-->
-			<section class="brand-area pt-100 pb-125 pt-lg-60 pb-lg-90">
-				<div class="container">
-					<div class="row gx-4 gx-xxl-5">
-						<div class="brand-slider-one">
-							<div class="brand-logo">
-								<a href="#"><img src="img/brand/brand-1.svg" alt="brand"></a>
-							</div>
-							<div class="brand-logo">
-								<a href="#"><img src="img/brand/brand-2.svg" alt="brand"></a>
-							</div>
-							<div class="brand-logo">
-								<a href="#"><img src="img/brand/brand-3.svg" alt="brand"></a>
-							</div>
-							<div class="brand-logo">
-								<a href="#"><img src="img/brand/brand-4.svg" alt="brand"></a>
-							</div>
-							<div class="brand-logo">
-								<a href="#"><img src="img/brand/brand-5.svg" alt="brand"></a>
-							</div>
-							<div class="brand-logo">
-								<a href="#"><img src="img/brand/brand-6.svg" alt="brand"></a>
-							</div>
-							<div class="brand-logo">
-								<a href="#"><img src="img/brand/brand-2.svg" alt="brand"></a>
-							</div>
-							<div class="brand-logo">
-								<a href="#"><img src="img/brand/brand-4.svg" alt="brand"></a>
-							</div>
-							<div class="brand-logo">
-								<a href="#"><img src="img/brand/brand-1.svg" alt="brand"></a>
-							</div>
-							<div class="brand-logo">
-								<a href="#"><img src="img/brand/brand-3.svg" alt="brand"></a>
-							</div>
-							<div class="brand-logo">
-								<a href="#"><img src="img/brand/brand-5.svg" alt="brand"></a>
-							</div>
 
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--brand-area end-->
-			<!--about-techy start-->
-			<section class="about-techy position-realtive pt-115 pb-15">
-				<div class="container">
-					<div class="row gx-4 gx-xxl-5 align-items-center">
-						<div class="col-lg-7" data-aos="fade-right" data-aos-delay="100">
-							<div class="logo-animated-block">
-								<img class="rotate-img" src="img/shape/mask-text.svg" alt="Text Img">
-								<div class="mark-icon">
-									<img src="img/shape/star-11a.svg" alt="Star Icon">
-								</div>
-							</div>
-							<div class="about-img-wrapper position-relative mb-45">
-								<img class="main-img" src="img/about/about-1.png" alt="img">
-								<img class="shape-one" src="img/shape/line-round-2a.svg" alt="shape">
-							</div>
-						</div>
-						<div class="col-lg-5" data-aos="fade-left" data-aos-delay="100">
-							<div class="block-style-one pt-10 mb-45">
-								<h2 class="mb-15">About Our Techy Innovative IT Agency & Solutions</h2>
-								<p>
-									Dramatically supply transparent deliverables before caward comp internal or
-									"organic" sources. Comp transparent and leverage backward other.
-								</p>
-								<ul class="block-box list-none">
-									<li>
-										<a href="contact.cshtml">
-											<span class="img-bg"><img src="img/icon/icon-1a.svg" alt="icon"></span>
-											<span>Money Back Guarantee</span>
-										</a>
-									</li>
-									<li>
-										<a href="contact.cshtml">
-											<span class="img-bg"><img src="img/icon/icon-2a.svg" alt="icon"></span>
-											<span>24/7 Online Support</span>
-										</a>
-									</li>
-								</ul>
-								<a class="theme_btn mt-60" href="about.cshtml">More Details</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--about-techy end-->
 			<!--our-services start-->
 			<section class="our-services pt-80 pb-105 pt-lg-45 pb-lg-15">
 				<div class="container">
 					<div class="row gx-4 gx-xxl-5 justify-content-lg-start justify-content-center">
 						<div class="col-xl-5 col-lg-6 col-md-8">
 							<div class="section-title text-center text-lg-start mb-55">
-								<h3 class="sect-title mb-20" data-aos="fade-upt">Our Services</h3>
+								<h3 class="sect-title mb-20" data-aos="fade-upt">Наши подборки</h3>
 								<p data-aos="fade-right" data-aos-delay="100">
-									Dramatically supply transparent
-									backward deliverables before caward comp internal or "organic" sources.
+									Открой для себя тематические подборки: от фильмов о супергероях до лучших 
+									драматических картин всех времен.
 								</p>
 							</div>
 						</div>
@@ -583,13 +442,12 @@
 								<img class="front-icon" src="img/icon/icon-3a.png" alt="icon">
 								<img class="back-icon" src="img/icon/icon-3w.png" alt="icon">
 								<h2>
-									<a href="services-details.cshtml">Web Design</a>
+									<a href="services-details.cshtml">Подборка1</a>
 								</h2>
 								<p>
-									Dramatically supply transparent backward deliverables before caward comp
-									internal or "organic" sources.
+									Описание
 								</p>
-								<a href="project-grid.cshtml">324 Projects</a>
+								<a href="project-grid.cshtml">324 фильма</a>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
@@ -600,13 +458,12 @@
 								<img class="front-icon" src="img/icon/icon-4a.png" alt="icon">
 								<img class="back-icon" src="img/icon/icon-4w.png" alt="icon">
 								<h2>
-									<a href="services-details.cshtml">Web Developmet</a>
+									<a href="services-details.cshtml">Подборка2</a>
 								</h2>
 								<p>
-									Dramatically supply transparent backward deliverables before caward comp
-									internal or "organic" sources.
+									Описание
 								</p>
-								<a href="project-grid.cshtml">324 Projects</a>
+								<a href="project-grid.cshtml">324 фильма</a>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -617,13 +474,12 @@
 								<img class="front-icon" src="img/icon/icon-5a.png" alt="icon">
 								<img class="back-icon" src="img/icon/icon-5w.png" alt="icon">
 								<h2>
-									<a href="services-details.cshtml">UI/UX Design</a>
+									<a href="services-details.cshtml">Подборка3</a>
 								</h2>
 								<p>
-									Dramatically supply transparent backward deliverables before caward comp
-									internal or "organic" sources.
+									Описание
 								</p>
-								<a href="project-grid.cshtml">324 Projects</a>
+								<a href="project-grid.cshtml">324 фильма</a>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -634,13 +490,12 @@
 								<img class="front-icon" src="img/icon/icon-6a.png" alt="icon">
 								<img class="back-icon" src="img/icon/icon-6w.png" alt="icon">
 								<h2>
-									<a href="services-details.cshtml">Web Security</a>
+									<a href="services-details.cshtml">Подборка4</a>
 								</h2>
 								<p>
-									Dramatically supply transparent backward deliverables before caward comp
-									internal or "organic" sources.
+									Описание
 								</p>
-								<a href="project-grid.cshtml">324 Projects</a>
+								<a href="project-grid.cshtml">324 фильма</a>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
@@ -651,13 +506,12 @@
 								<img class="front-icon" src="img/icon/icon-7a.png" alt="icon">
 								<img class="back-icon" src="img/icon/icon-7w.png" alt="icon">
 								<h2>
-									<a href="services-details.cshtml">Digital Marketing</a>
+									<a href="services-details.cshtml">Подборка5</a>
 								</h2>
 								<p>
-									Dramatically supply transparent backward deliverables before caward comp
-									internal or "organic" sources.
+									Описание
 								</p>
-								<a href="project-grid.cshtml">324 Projects</a>
+								<a href="project-grid.cshtml">324 фильма</a>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
@@ -668,13 +522,12 @@
 								<img class="front-icon" src="img/icon/icon-8a.png" alt="icon">
 								<img class="back-icon" src="img/icon/icon-8w.png" alt="icon">
 								<h2>
-									<a href="services-details.cshtml">Programming</a>
+									<a href="services-details.cshtml">Подборка6</a>
 								</h2>
 								<p>
-									Dramatically supply transparent backward deliverables before caward comp
-									internal or "organic" sources.
+									Описание
 								</p>
-								<a href="project-grid.cshtml">324 Projects</a>
+								<a href="project-grid.cshtml">324 фильма</a>
 							</div>
 						</div>
 					</div>
