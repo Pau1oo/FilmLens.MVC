@@ -21,21 +21,29 @@ namespace FilmLens.DataAccess.Common
 		}
 
 		/// <inheritdoc/>
-		public Task AddAsync(T entity)
+		public async Task AddAsync(T entity, CancellationToken cancellation)
 		{
-			return MutableDbContext.AddAsync(entity).AsTask();
+			await MutableDbContext.AddAsync(entity, cancellation);
+			await MutableDbContext.SaveChangesAsync(cancellation);
 		}
 
 		/// <inheritdoc/>
-		public virtual Task<List<T>> GetAllAsync()
+		public virtual Task<List<T>> GetAllAsync(CancellationToken cancellation)
 		{
-			return ReadOnlyDbContext.Set<T>().ToListAsync();
+			return ReadOnlyDbContext.Set<T>().ToListAsync(cancellation);
 		}
 
 		/// <inheritdoc/>
 		public virtual Task<T> GetAsync(int id)
 		{
 			return MutableDbContext.FindAsync<T>(id).AsTask();
+		}
+
+		/// <inheritdoc/>
+		public Task UpdateAsync(T entity, CancellationToken cancellation)
+		{
+			MutableDbContext.Update(entity);
+			return MutableDbContext.SaveChangesAsync(cancellation);
 		}
 	}
 }

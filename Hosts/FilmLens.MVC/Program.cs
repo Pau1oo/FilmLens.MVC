@@ -1,4 +1,6 @@
+using Hangfire;
 using FilmLens.ComponentRegistrar;
+using FilmLens.MVC.Filters;
 
 namespace FilmLens.MVC
 {
@@ -28,7 +30,14 @@ namespace FilmLens.MVC
 
             app.UseRouting();
 
-            app.UseAuthorization();
+			FilmLensRegistrar.RegisterMiddlewares(app);
+
+			app.UseAuthorization();
+
+            app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            {
+                Authorization = new[] { new HangfireAuthorizationFilter() }
+            });
 
             app.MapControllerRoute(
                 name: "default",

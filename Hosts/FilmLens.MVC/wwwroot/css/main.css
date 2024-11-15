@@ -53,7 +53,7 @@
 /*----------------------------------------*/
 /* 1. Theme default css */
 body {
-    font-family: "ClashDisplay-Regular", Calibri;
+    font-family: "ClashDisplay-Regular", Tahoma;
     font-size: 17px;
     line-height: 30px;
     font-weight: 400;
@@ -134,7 +134,7 @@ h5,
 .h5,
 h6,
 .h6 {
-    font-family: "ClashDisplay-Bold", Calibri;
+    font-family: "ClashDisplay-Bold", Tahoma;
     color: #050d36;
     line-height: 1.1;
     margin-top: 0px;
@@ -188,12 +188,12 @@ li {
 }
 
 p {
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 30px;
-  font-family: "ClashDisplay-Regular", Calibri;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 0;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 30px;
+    font-family: "ClashDisplay-Regular", Tahoma;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
 }
 
 hr {
@@ -602,7 +602,7 @@ label {
 }
     .theme-main-menu .navbar-nav .nav-item .nav-link {
         color: white;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
         font-size: 16px;
         text-transform: uppercase;
         font-weight: 500;
@@ -682,7 +682,7 @@ label {
     .theme-main-menu .navbar .dropdown-menu .dropdown-item {
         color: #050d36;
         font-size: 14px;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
         font-weight: 500;
         padding: 9px 25px;
         display: block;
@@ -884,7 +884,7 @@ label {
     .header-info .header-info-box .text-content span {
         color: white;
         font-size: 16px;
-        font-family: "ClashDisplay-Regular", Calibri;
+        font-family: "ClashDisplay-Regular", Tahoma;
     }
 
 .theme-menu-three .top-header {
@@ -1324,11 +1324,11 @@ ul.breadcrumb li.active {
     - fonts
 -----------------------------------------*/
 .body-font {
-    font-family: "ClashDisplay-Regular", Calibri;
+    font-family: "ClashDisplay-Regular", Tahoma;
 }
 
 .heding-font {
-    font-family: "ClashDisplay-Bold", Calibri;
+    font-family: "ClashDisplay-Bold", Tahoma;
 }
 
 .uppercase {
@@ -1390,7 +1390,7 @@ ul.breadcrumb li.active {
         color: white;
         padding-bottom: 80px;
         font-size: 80px;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
     }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .search-wrap input::placeholder {
@@ -1416,7 +1416,7 @@ ul.breadcrumb li.active {
     color: white;
     padding-bottom: 80px;
     font-size: 80px;
-    font-family: "ClashDisplay-Medium", Calibri;
+    font-family: "ClashDisplay-Medium", Tahoma;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .search-wrap input::-moz-placeholder, .search-wrap input::-webkit-placeholder, .search-wrap input::-o-placeholder, .search-wrap input::-ms-placeholder {
@@ -2149,7 +2149,7 @@ ul.breadcrumb li.active {
     color: white;
     background: #913bff;
     font-size: 14px;
-    font-family: "ClashDisplay-Semibold", Calibri;
+    font-family: "ClashDisplay-Semibold", Tahoma;
     font-weight: 600;
     line-height: 17px;
     padding: 17px 27px 15px 27px;
@@ -2215,7 +2215,7 @@ ul.breadcrumb li.active {
 .sect-title-two {
     color: white;
     font-size: 32px;
-    font-family: "ClashDisplay-Semibold", Calibri;
+    font-family: "ClashDisplay-Semibold", Tahoma;
     font-weight: 600;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
@@ -2243,7 +2243,7 @@ ul.breadcrumb li.active {
     color: white;
     font-size: 17px;
     font-weight: 500;
-    font-family: "ClashDisplay-Medium", Calibri;
+    font-family: "ClashDisplay-Medium", Tahoma;
 }
 
 .sub-title-two {
@@ -2251,20 +2251,20 @@ ul.breadcrumb li.active {
     text-transform: uppercase;
     font-size: 17px;
     font-weight: 500;
-    font-family: "ClashDisplay-Medium", Calibri;
+    font-family: "ClashDisplay-Medium", Tahoma;
 }
 
 .section-title-two .sub-title {
     color: #913bff;
     font-weight: 600;
-    font-family: "ClashDisplay-Semibold", Calibri;
+    font-family: "ClashDisplay-Semibold", Tahoma;
     text-transform: uppercase;
 }
 
 .blog-title {
     color: white;
     font-size: 24px;
-    font-family: "ClashDisplay-Semibold", Calibri;
+    font-family: "ClashDisplay-Semibold", Tahoma;
     font-weight: 600;
     line-height: 1.3;
     display: inline-block;
@@ -2297,7 +2297,7 @@ ul.breadcrumb li.active {
 .semi-title {
     color: white;
     font-size: 24px;
-    font-family: "ClashDisplay-Semibold", Calibri;
+    font-family: "ClashDisplay-Semibold", Tahoma;
     font-weight: 600;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -2360,7 +2360,7 @@ ul.breadcrumb li.active {
     .theme-banner-one .shadow-text {
         font-size: 127px;
         font-weight: 700;
-        font-family: "ClashDisplay-Bold", Calibri;
+        font-family: "ClashDisplay-Bold", Tahoma;
         opacity: 0.1;
         position: absolute;
         left: 13.54%;
@@ -2414,7 +2414,7 @@ ul.breadcrumb li.active {
     .theme__content .main-title-one {
         color: white;
         font-size: 140px;
-        font-family: "ClashDisplay-Bold", Calibri;
+        font-family: "ClashDisplay-Bold", Tahoma;
         line-height: 1.22;
         margin-bottom: 35px;
     }
@@ -2614,7 +2614,7 @@ ul.breadcrumb li.active {
 .hero-sub-title {
     color: white;
     font-size: 24px;
-    font-family: "ClashDisplay-Medium", Calibri;
+    font-family: "ClashDisplay-Medium", Tahoma;
     font-weight: 500;
 }
 @media (max-width: 991.98px) {
@@ -2626,7 +2626,7 @@ ul.breadcrumb li.active {
 .main-title-two {
     color: white;
     font-size: 72px;
-    font-family: "ClashDisplay-Bold", Calibri;
+    font-family: "ClashDisplay-Bold", Tahoma;
     font-weight: 700;
     line-height: 1.21;
     margin-bottom: 62px;
@@ -2684,7 +2684,7 @@ ul.breadcrumb li.active {
     .hero-box .box {
         color: #050d36;
         font-size: 20px;
-        font-family: "ClashDisplay-Semibold", Calibri;
+        font-family: "ClashDisplay-Semibold", Tahoma;
         font-weight: 600;
     }
 .hero-box .box .counter {
@@ -2731,7 +2731,7 @@ ul.breadcrumb li.active {
 .hero-box-two .box {
     color: #050d36;
     font-size: 20px;
-    font-family: "ClashDisplay-Semibold", Calibri;
+    font-family: "ClashDisplay-Semibold", Tahoma;
     font-weight: 600;
     line-height: 25px;
 }
@@ -2846,7 +2846,7 @@ ul.breadcrumb li.active {
 .marquee .supermarquee-inner-container .supermarquee-item-clone {
     font-size: 32px;
     color: #fff;
-    font-family: "ClashDisplay-Semibold", Calibri;
+    font-family: "ClashDisplay-Semibold", Tahoma;
     line-height: 40px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -2935,7 +2935,7 @@ ul.breadcrumb li.active {
         color: #050d36;
         font-size: 20px;
         line-height: 25px;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
         font-weight: 500;
         background: white;
         padding: 11px 22px 10px 20px;
@@ -3141,7 +3141,7 @@ ul.breadcrumb li.active {
     z-index: 1;
     color: rgba(255, 255, 255, 0.7);
     font-size: 17px;
-    font-family: "ClashDisplay-Regular", Calibri;
+    font-family: "ClashDisplay-Regular", Tahoma;
     font-weight: 400;
     padding-bottom: 26px;
     padding-left: 48px;
@@ -4043,7 +4043,7 @@ ul.slick-dots li.slick-active {
         color: rgba(255, 255, 255, 0.7);
         font-size: 20px;
         line-height: 25px;
-        font-family: "ClashDisplay-Regular", Calibri;
+        font-family: "ClashDisplay-Regular", Tahoma;
         font-weight: 400;
         -webkit-transition: all 0.3s ease 0s;
         -moz-transition: all 0.3s ease 0s;
@@ -4058,7 +4058,7 @@ ul.slick-dots li.slick-active {
     .feature-slider-one .feature-item h3 {
         color: white;
         font-size: 32px;
-        font-family: "ClashDisplay-Semibold", Calibri;
+        font-family: "ClashDisplay-Semibold", Tahoma;
     }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .feature-slider-one .feature-item h3 {
@@ -4120,7 +4120,7 @@ ul.slick-dots li.slick-active {
         color: white;
         font-size: 32px;
         line-height: 1.4;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
         font-weight: 500px;
     }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
@@ -4157,7 +4157,7 @@ ul.slick-dots li.slick-active {
     .feedback-style-one .author .author-info h3 {
         color: white;
         font-size: 30px;
-        font-family: "ClashDisplay-Regular", Calibri;
+        font-family: "ClashDisplay-Regular", Tahoma;
         font-weight: 400;
         margin-bottom: 12px;
     }
@@ -4183,7 +4183,7 @@ ul.slick-dots li.slick-active {
 }
 .feedback-style-one .author .author-info h5 {
     color: white;
-    font-family: "ClashDisplay-Regular", Calibri;
+    font-family: "ClashDisplay-Regular", Tahoma;
     font-weight: 400;
 }
 @media (max-width: 767px) {
@@ -4345,7 +4345,7 @@ ul.slick-dots li.slick-active {
 .counter-style-one h4 {
     color: white;
     font-size: 24px;
-    font-family: "ClashDisplay-Medium", Calibri;
+    font-family: "ClashDisplay-Medium", Tahoma;
     font-weight: 500;
 }
 
@@ -4381,7 +4381,7 @@ ul.slick-dots li.slick-active {
     color: white;
     font-size: 48px;
     font-weight: 700;
-    font-family: "ClashDisplay-Bold", Calibri;
+    font-family: "ClashDisplay-Bold", Tahoma;
     margin-right: 28px;
 }
 .counter-style-two p {
@@ -4448,7 +4448,7 @@ ul.slick-dots li.slick-active {
 .blog-style-one .tag {
     color: white;
     font-size: 14px;
-    font-family: "ClashDisplay-Semibold", Calibri;
+    font-family: "ClashDisplay-Semibold", Tahoma;
     font-weight: 600;
     line-height: 1;
     background: #eb5757;
@@ -4478,7 +4478,7 @@ ul.slick-dots li.slick-active {
 .blog-style-one .blog-meta {
     color: white;
     font-size: 16px;
-    font-family: "ClashDisplay-Regular", Calibri;
+    font-family: "ClashDisplay-Regular", Tahoma;
     text-transform: uppercase;
 }
 .blog-style-one .blog-meta a:first-child {
@@ -4527,7 +4527,7 @@ ul.slick-dots li.slick-active {
     .blog-style-two .blog-meta {
         color: white;
         font-size: 16px;
-        font-family: "ClashDisplay-Regular", Calibri;
+        font-family: "ClashDisplay-Regular", Tahoma;
         text-transform: uppercase;
     }
 .blog-style-two .blog-meta i {
@@ -4633,7 +4633,7 @@ ul.slick-dots li.slick-active {
 .style-four .more-btn {
     color: white;
     font-size: 17px;
-    font-family: "ClashDisplay-Bold", Calibri;
+    font-family: "ClashDisplay-Bold", Tahoma;
     font-weight: 700;
     text-decoration: underline;
 }
@@ -4685,7 +4685,7 @@ ul.slick-dots li.slick-active {
 .blog-style-five .blog-meta {
     color: white;
     font-size: 16px;
-    font-family: "ClashDisplay-Regular", Calibri;
+    font-family: "ClashDisplay-Regular", Tahoma;
     text-transform: uppercase;
 }
 .blog-style-five .blog-meta i {
@@ -4740,7 +4740,7 @@ ul.slick-dots li.slick-active {
     .author-blockquote .blockquote-footer {
         color: white;
         font-size: 24px;
-        font-family: "ClashDisplay-Semibold", Calibri;
+        font-family: "ClashDisplay-Semibold", Tahoma;
         font-weight: 600;
         font-style: normal;
         border-bottom: 1px solid white;
@@ -4764,7 +4764,7 @@ ul.slick-dots li.slick-active {
     font-size: 17px;
     line-height: 21px;
     font-weight: 500;
-    font-family: "ClashDisplay-Medium", Calibri;
+    font-family: "ClashDisplay-Medium", Tahoma;
     display: inline-block;
     background: rgba(255, 255, 255, 0.1);
     padding: 15px;
@@ -4778,7 +4778,7 @@ ul.slick-dots li.slick-active {
 .blog-single-content .text-list li {
     font-size: 24px;
     font-weight: 500;
-    font-family: "ClashDisplay-Medium", Calibri;
+    font-family: "ClashDisplay-Medium", Tahoma;
     padding-left: 20px;
     padding-bottom: 25px;
 }
@@ -4872,7 +4872,7 @@ ul.slick-dots li.slick-active {
     color: white;
     font-size: 14px;
     border: 1px solid #f3f3f3;
-    font-family: "ClashDisplay-Regular", Calibri;
+    font-family: "ClashDisplay-Regular", Tahoma;
     font-weight: 400;
     padding: 10px 22px;
     line-height: 1;
@@ -5483,7 +5483,7 @@ ul.slick-dots li.slick-active {
 }
     .info-list h5 {
         color: white;
-        font-family: "ClashDisplay-Semibold", Calibri;
+        font-family: "ClashDisplay-Semibold", Tahoma;
         font-weight: 600;
     }
 
@@ -5628,7 +5628,7 @@ ul.slick-dots li.slick-active {
     .team-style-one .team-content .sect-title-two {
         margin-top: 10px;
         margin-bottom: 20px;
-        font-family: "ClashDisplay-Bold", Calibri;
+        font-family: "ClashDisplay-Bold", Tahoma;
     }
 .team-style-one .team-content .sect-title-two a {
   color: #050d36;
@@ -5738,7 +5738,7 @@ ul.slick-dots li.slick-active {
     .team-style-two .team-content .sect-title-two a {
         color: #050d36;
         font-weight: 700;
-        font-family: "ClashDisplay-Bold", Calibri;
+        font-family: "ClashDisplay-Bold", Tahoma;
     }
 .team-style-two:hover .team-social-two {
   bottom: 20px;
@@ -5802,7 +5802,7 @@ ul.slick-dots li.slick-active {
 .team-info .social-title {
     color: white;
     font-weight: 500;
-    font-family: "ClashDisplay-Medium", Calibri;
+    font-family: "ClashDisplay-Medium", Tahoma;
 }
 
 .team-social-three a {
@@ -5884,7 +5884,7 @@ ul.slick-dots li.slick-active {
 }
     .info .info-content h5 {
         color: white;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
         font-weight: 500;
         margin-bottom: 4px;
     }
@@ -5961,7 +5961,7 @@ ul.slick-dots li.slick-active {
     .contact-form .input-box label {
         color: white;
         font-size: 17px;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
         font-weight: 500;
         display: inline-block;
         margin-bottom: 10px;
@@ -6079,7 +6079,7 @@ ul.slick-dots li.slick-active {
     .single-info-box span {
         color: white;
         font-size: 24px;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
         font-weight: 500;
         display: block;
         line-height: 30px;
@@ -6222,7 +6222,7 @@ ul.slick-dots li.slick-active {
     display: block;
     color: white;
     font-size: 17px;
-    font-family: "ClashDisplay-Semibold", Calibri;
+    font-family: "ClashDisplay-Semibold", Tahoma;
     font-weight: 600;
     position: relative;
     z-index: 1;
@@ -6298,7 +6298,7 @@ ul.slick-dots li.slick-active {
         color: white;
         font-size: 16px;
         line-height: 20px;
-        font-family: "ClashDisplay-Regular", Calibri;
+        font-family: "ClashDisplay-Regular", Tahoma;
         font-weight: 500;
         padding: 15px 27px;
         display: inline-block;
@@ -6341,7 +6341,7 @@ ul.slick-dots li.slick-active {
 .plan__header h3 {
     color: white;
     font-size: 36px;
-    font-family: "ClashDisplay-Bold", Calibri;
+    font-family: "ClashDisplay-Bold", Tahoma;
     font-weight: 700;
     margin-bottom: 20px;
 }
@@ -6352,7 +6352,7 @@ ul.slick-dots li.slick-active {
 .plan__price {
     color: white;
     font-size: 36px;
-    font-family: "ClashDisplay-Bold", Calibri;
+    font-family: "ClashDisplay-Bold", Tahoma;
     font-weight: 700;
     border-bottom: 1px solid rgba(119, 124, 144, 0.1);
     padding-bottom: 27px;
@@ -6360,7 +6360,7 @@ ul.slick-dots li.slick-active {
 }
     .plan__price sub {
         font-size: 17px;
-        font-family: "ClashDisplay-Regular", Calibri;
+        font-family: "ClashDisplay-Regular", Tahoma;
         font-weight: 400;
     }
 .plan__body li {
@@ -6550,7 +6550,7 @@ ul.slick-dots li.slick-active {
     color: white;
     font-size: 24px;
     line-height: 30px;
-    font-family: "ClashDisplay-Semibold", Calibri;
+    font-family: "ClashDisplay-Semibold", Tahoma;
     padding: 20px 30px;
     background: rgba(255, 255, 255, 0.05);
     margin-bottom: 20px;
@@ -6616,7 +6616,7 @@ ul.slick-dots li.slick-active {
 .widget-sub-title2 {
     color: white;
     font-size: 24px;
-    font-family: "ClashDisplay-Medium", Calibri;
+    font-family: "ClashDisplay-Medium", Tahoma;
     font-weight: 600;
 }
 
@@ -6679,7 +6679,7 @@ ul.slick-dots li.slick-active {
         color: white;
         font-size: 16px;
         line-height: 19px;
-        font-family: "ClashDisplay-Semibold", Calibri;
+        font-family: "ClashDisplay-Semibold", Tahoma;
         font-weight: 600;
         border: 0;
         border-radius: 5px;
@@ -6730,7 +6730,7 @@ ul.slick-dots li.slick-active {
         color: white;
         background: #104cba;
         font-size: 24px;
-        font-family: "ClashDisplay-Semibold", Calibri;
+        font-family: "ClashDisplay-Semibold", Tahoma;
         display: block;
         width: 100%;
         padding: 30px 30px;
@@ -6817,7 +6817,7 @@ ul.slick-dots li.slick-active {
     .widget-post .post-content h6 {
         color: white;
         font-size: 20px;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
         font-weight: 500;
     }
 .widget-post .post-content h6 a:hover {
@@ -6983,7 +6983,7 @@ ul.slick-dots li.slick-active {
         color: white;
         font-size: 32px;
         font-weight: 600;
-        font-family: "ClashDisplay-Semibold", Calibri;
+        font-family: "ClashDisplay-Semibold", Tahoma;
         position: absolute;
         z-index: 1;
         left: 50%;
@@ -7060,7 +7060,7 @@ ul.slick-dots li.slick-active {
     .categories-accordion .accordion-button::after {
         content: "\f078";
         font-size: 16px;
-        font-family: "Font Awesome 5 Pro", Calibri;
+        font-family: "Font Awesome 5 Pro", Tahoma;
         background: none;
         transition: transform 0.2s ease-in-out;
         height: unset;
@@ -7069,7 +7069,7 @@ ul.slick-dots li.slick-active {
     .categories-accordion .accordion-button:not(.collapsed)::after {
         content: "\f078";
         font-size: 16px;
-        font-family: "Font Awesome 5 Pro", Calibri;
+        font-family: "Font Awesome 5 Pro", Tahoma;
         background: none;
         transform: rotate(180deg);
         height: unset;
@@ -7293,7 +7293,7 @@ ul.slick-dots li.slick-active {
         font-size: 14px;
         line-height: 1;
         font-weight: 400;
-        font-family: "ClashDisplay-Regular", Calibri;
+        font-family: "ClashDisplay-Regular", Tahoma;
         border-bottom: 1px solid #104cba;
         display: inline-block;
         margin-bottom: 13px;
@@ -7310,7 +7310,7 @@ ul.slick-dots li.slick-active {
         color: #161b2d;
         font-size: 16px;
         font-weight: 500;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
         margin-bottom: 15px;
     }
 .figure-caption .price .old-price {
@@ -7343,7 +7343,7 @@ ul.slick-dots li.slick-active {
 .sort-item {
     color: white;
     font-size: 16px;
-    font-family: "ClashDisplay-Medium", Calibri;
+    font-family: "ClashDisplay-Medium", Tahoma;
 }
 .sort-item .sort-btn {
   line-height: 20px;
@@ -7436,13 +7436,13 @@ ul.slick-dots li.slick-active {
 .product-details .price-list .new-price {
     font-size: 24px;
     color: white;
-    font-family: "ClashDisplay-Bold", Calibri;
+    font-family: "ClashDisplay-Bold", Tahoma;
 }
 .product-details .add-to-cart {
     color: #913bff;
     font-size: 16px;
     line-height: 20px;
-    font-family: "ClashDisplay-Medium", Calibri;
+    font-family: "ClashDisplay-Medium", Tahoma;
     font-weight: 500;
     background: white;
     padding: 16px 40px;
@@ -7502,7 +7502,7 @@ ul.slick-dots li.slick-active {
         border-radius: 0;
         color: white;
         font-size: 17px;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
         font-weight: 500;
         line-height: 30px;
         display: inline-block;
@@ -7654,7 +7654,7 @@ ul.slick-dots li.slick-active {
         transition: unset;
         color: white;
         font-size: 24px;
-        font-family: "ClashDisplay-Semibold", Calibri;
+        font-family: "ClashDisplay-Semibold", Tahoma;
         font-weight: 600;
         line-height: 1.875rem;
         border: 0;
@@ -7896,7 +7896,7 @@ ul.slick-dots li.slick-active {
     .footer__widget .foter-para {
         font-size: 24px;
         color: white;
-        font-family: "ClashDisplay-Medium", Calibri;
+        font-family: "ClashDisplay-Medium", Tahoma;
         font-weight: 500;
         margin-bottom: 40px;
         line-height: 2.125rem;
@@ -7909,7 +7909,7 @@ ul.slick-dots li.slick-active {
 .footer__widget .foter-btn {
     color: white;
     font-size: 64px;
-    font-family: "ClashDisplay-Bold", Calibri;
+    font-family: "ClashDisplay-Bold", Tahoma;
     font-weight: 700;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
@@ -7928,7 +7928,7 @@ ul.slick-dots li.slick-active {
 .footer__widget .widget-title {
     color: white;
     font-size: 24px;
-    font-family: "ClashDisplay-Semibold", Calibri;
+    font-family: "ClashDisplay-Semibold", Tahoma;
 }
 .footer__widget address {
   color: white;
@@ -7943,7 +7943,7 @@ ul.slick-dots li.slick-active {
     .fot-list a {
         color: white;
         font-size: 17px;
-        font-family: "ClashDisplay-Regular", Calibri;
+        font-family: "ClashDisplay-Regular", Tahoma;
         font-weight: 400;
         display: inline-block;
         margin-bottom: 18px;
@@ -7986,7 +7986,7 @@ ul.slick-dots li.slick-active {
     color: white;
     font-size: 16px;
     font-weight: 400;
-    font-family: "ClashDisplay-Regular", Calibri;
+    font-family: "ClashDisplay-Regular", Tahoma;
     line-height: 1.5;
     margin-bottom: 10px;
 }
@@ -8181,7 +8181,7 @@ ul.slick-dots li.slick-active {
     color: white;
     font-size: 48px;
     font-weight: 700;
-    font-family: "ClashDisplay-Bold", Calibri;
+    font-family: "ClashDisplay-Bold", Tahoma;
     text-transform: uppercase;
     display: block;
     background: #913bff;

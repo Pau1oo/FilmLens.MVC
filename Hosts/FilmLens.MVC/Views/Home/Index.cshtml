@@ -12,7 +12,7 @@
 	<meta property="og:url" content="">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="FilmLens – IT Solution & Web Security HTML5 Template">
-	<meta name='og:image' content='img/ogg.png'>
+	<meta name='og:image' content='~/img/ogg.png'>
 	<!-- For IE -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<!-- For Resposive Device -->
@@ -26,24 +26,23 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="#913BFF">
 
 	<!-- <link rel="manifest" href="site.webmanifest" /> -->
-	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="~/img/favicon.png" />
 	<!-- Place favicon.ico in the root directory -->
 	<!-- CSS here -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="fonts/custom-font/css/clash-display.css" />
-	<link rel="stylesheet" href="fonts/bootstrap-icons/font-css.css" />
-	<link rel="stylesheet" href="css/slick.css" />
-	<link rel="stylesheet" href="css/all.min.css" />
-	<link rel="stylesheet" href="css/metisMenu.css" />
-	<link rel="stylesheet" href="css/aos.css" />
-	<link rel="stylesheet" href="css/spacing.css" />
-	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="~/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/fonts/custom-font/css/clash-display.css" />
+	<link rel="stylesheet" href="~/fonts/bootstrap-icons/font-css.css" />
+	<link rel="stylesheet" href="~/css/slick.css" />
+	<link rel="stylesheet" href="~/css/all.min.css" />
+	<link rel="stylesheet" href="~/css/metisMenu.css" />
+	<link rel="stylesheet" href="~/css/aos.css" />
+	<link rel="stylesheet" href="~/css/spacing.css" />
+	<link rel="stylesheet" href="~/css/main.css" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
 	<div class="main-page-wrapper">
-		<!--[if lte IE 9]> <p class="browserupgrade"> You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security. </p> <![endif]-->
-		<!-- Add your site or application content here -->
 		<!-- preloader -->
 		<div id="preloader">
 			<div class="preloader">
@@ -72,163 +71,75 @@
 		<!-- offcanvas end  -->
 		<!-- header-area start -->
 		<header class="theme-main-menu py-lg-4">
-			<div class="main-header-area">
-				<div class="container custom-container-nav">
-					<div class="row gx-4 gx-xxl-5 align-items-center">
-						<div class="col-xxl-3 col-xl-2 col-lg-2 col-6 text-start">
-							<div class="logo-area">
-								<a href="@Url.Action("Index", "Home")"><img src="img/logo/FilmLensLogo.png" alt="Header-logo"></a>
-							</div>
-						</div>
-						<div class="col-xxl-6 col-xl-6 col-lg-6 d-none d-lg-block">
-							<nav class="navbar navbar-expand-lg">
-								<div class="container-fluid">
-									<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-											data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-											aria-expanded="false" aria-label="Toggle navigation">
-										<span class="navbar-toggler-icon"></span>
-									</button>
-									<div class="collapse navbar-collapse" id="navbarSupportedContent">
-										<ul class="navbar-nav mb-2 mb-lg-0 ps-1">
+    <div class="main-header-area">
+        <div class="container custom-container-nav">
+            <div class="row gx-4 gx-xxl-5 align-items-center">
+                <div class="col-xxl-3 col-xl-2 col-lg-2 col-6 text-start">
+                    <div class="logo-area">
+                        <a href="@Url.Action("Index", "Home")"><img src="img/logo/FilmLensLogo.png" alt="Header-logo"></a>
+                    </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 d-none d-lg-block">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mb-2 mb-lg-0 ps-1 justify-content-center">
+
 											<li class="nav-item dropdown">
 												<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOne"
 												   role="button" data-bs-toggle="dropdown" aria-expanded="false">
 													Каталог
 												</a>
 												<ul class="dropdown-menu" aria-labelledby="navbarDropdownOne">
-													<li>
-														<a class="dropdown-item" href="index.cshtml">Фильмы</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="index-2.cshtml">Сериалы</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="index-3.cshtml">Мультфильмы</a>
-													</li>
+													<li><a class="dropdown-item" href="index.cshtml"><i class="fas fa-film"></i> Фильмы</a></li>
+													<li><a class="dropdown-item" href="index-2.cshtml"><i class="fas fa-tv"></i> Сериалы</a></li>
+													<li><a class="dropdown-item" href="index-3.cshtml"><i class="fas fa-child"></i> Мультфильмы</a></li>
 												</ul>
 											</li>
-											<li class="nav-item dropdown">
-												<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTwo"
-												   role="button" data-bs-toggle="dropdown" aria-expanded="false">
-													Подборки
-												</a>
-												<ul class="dropdown-menu" aria-labelledby="navbarDropdownTwo">
-													<li>
-														<a class="dropdown-item" href="about.cshtml">Подборка1</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="services.cshtml">Подборка2</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="services-details.cshtml">Подборка3</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="product.cshtml">Подборка4</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="product-details.cshtml">Подборка5</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="team.cshtml">Подборка6</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="team-details.cshtml">Подборка7</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="price.cshtml">Подборка8</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="faq.cshtml">Подборка9</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="error.cshtml">Подборка10</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="login.cshtml">Подборка11</a>
-													</li>
-												</ul>
-											</li>
-											<li class="nav-item dropdown">
-												<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-												   role="button" data-bs-toggle="dropdown" aria-expanded="false">
-													Жанры
-												</a>
-												<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-													<li>
-														<a class="dropdown-item" href="project-grid.cshtml">
-															Жанр1
-														</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="project-masonry.cshtml">
-															Жанр2
-														</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="project-details.cshtml">
-															Жанр3
-														</a>
-													</li>
-												</ul>
-											</li>
-											<li class="nav-item dropdown">
-												<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownThree"
-												   role="button" data-bs-toggle="dropdown" aria-expanded="false">
-													Лучшее
-												</a>
-												<ul class="dropdown-menu" aria-labelledby="navbarDropdownThree">
-													<li>
-														<a class="dropdown-item" href="blog-grid.cshtml">Лучшие фильмы</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="blog-masonry.cshtml">
-															Лучшие
-															сериалы
-														</a>
-													</li>
-													<li>
-														<a class="dropdown-item" href="blog-classic.cshtml">
-															Лучшие
-															мультфильмы
-														</a>
-													</li>
-												</ul>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" href="contact.cshtml">Профиль</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</nav>
-						</div>
-						<div class="col-xxl-3 col-xl-4 col-lg-4 col-6 text-end">
-							<ul class="right-nav mb-0 d-flex align-items-center justify-content-end">
-								<li>
-									<div class="d-none d-xxl-inline-block right-language pr-40">
-										
-									</div>
-								</li>
-								<li class="search-area">
-									<a class="search_input" href="#" data-bs-toggle="offcanvas"
-									   data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
-										<i class="bi bi-search"></i>
-									</a>
-								</li>
-								<li>
-									<div class="hamburger-menu">
-										<a class="round-menu" href="javascript:void(0);">
-											<i class="bi bi-list"></i>
-										</a>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /.theme-main-menu -->
-		</header>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.cshtml">Жанры</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.cshtml">Профиль</a>
+                                    </li>
+
+                                </ul>										
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-xxl-3 col-xl-4 col-lg-4 col-6 text-end">
+                    <ul class="right-nav mb-0 d-flex align-items-center justify-content-end">
+                        <li>
+                            <div class="d-none d-xxl-inline-block right-language pr-40">
+                            </div>
+                        </li>
+                        <li class="search-area">
+                            <a class="search_input" href="#" data-bs-toggle="offcanvas"
+                               data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                                <i class="bi bi-search"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="hamburger-menu">
+                                <a class="round-menu" href="javascript:void(0);">
+                                    <i class="bi bi-list"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 		<!-- header-area end -->
 		<!-- slide-bar start -->
 		<aside class="slide-bar">
@@ -271,119 +182,7 @@
 				</div>
 			</div>
 			<!-- offset-sidebar end -->
-			<!-- side-mobile-menu start -->
-			<nav class="side-mobile-menu">
-				<ul id="mobile-menu-active">
-					<li class="has-dropdown">
-						<a href="index.cshtml">Home</a>
-						<ul class="sub-menu">
-							<li>
-								<a href="index.cshtml">Home Style 1</a>
-							</li>
-							<li>
-								<a href="index-2.cshtml">Home Style 2</a>
-							</li>
-							<li>
-								<a href="index-3.cshtml">Home Style 3</a>
-							</li>
-						</ul>
-					</li>
-					<li class="has-dropdown">
-						<a href="#">Pages</a>
-						<ul class="sub-menu">
-							<li>
-								<a href="about.cshtml">About Us</a>
-							</li>
-							<li>
-								<a href="services.cshtml">Services</a>
-							</li>
-							<li>
-								<a href="services-details.cshtml">
-									Services
-									Details
-								</a>
-							</li>
-							<li>
-								<a href="product.cshtml">Product</a>
-							</li>
-							<li>
-								<a href="product-details.cshtml">
-									Product
-									Details
-								</a>
-							</li>
-							<li>
-								<a href="price.cshtml">Price</a>
-							</li>
-							<li>
-								<a href="team.cshtml">Team</a>
-							</li>
-							<li>
-								<a href="team-details.shtml">
-									Team
-									Details
-								</a>
-							</li>
-							<li>
-								<a href="faq.cshtml">FAQ</a>
-							</li>
-							<li>
-								<a href="error.cshtml">Error - 404</a>
-							</li>
-							<li>
-								<a href="login.cshtml">Login</a>
-							</li>
-							<li>
-								<a href="signup.cshtml">Signup</a>
-							</li>
-							<li>
-								<a href="coming-soon.cshtml">
-									Comming
-									Soon
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="has-dropdown">
-						<a href="#">Project</a>
-						<ul class="sub-menu">
-							<li>
-								<a href="project-grid.cshtml">Project Grid</a>
-							</li>
-							<li>
-								<a href="project-masonry.cshtml">Project Masonry</a>
-							</li>
-							<li>
-								<a href="project-details.cshtml">Project Details</a>
-							</li>
-						</ul>
-					</li>
-					<li class="has-dropdown">
-						<a href="#">Blog</a>
-						<ul class="sub-menu">
-							<li>
-								<a href="blog-grid.cshtml">Blog Grid</a>
-							</li>
-							<li>
-								<a href="blog-masonry.cshtml">Blog Masonry</a>
-							</li>
-							<li>
-								<a href="blog-classic.cshtml">Blog Classic</a>
-							</li>
-							<li>
-								<a href="blog-single-v1.cshtml">Blog Single V1</a>
-							</li>
-							<li>
-								<a href="blog-single-v2.cshtml">Blog Single V2</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="contact.cshtml">Contact Us</a>
-					</li>
-				</ul>
-			</nav>
-			<!-- side-mobile-menu end -->
+			
 		</aside>
 		<div class="body-overlay"></div>
 		<!-- slide-bar end -->
@@ -418,755 +217,122 @@
 				</div>
 			</div>
 			<!--marque end-->
-
-			<!--our-services start-->
-			<section class="our-services pt-80 pb-105 pt-lg-45 pb-lg-15">
+			<!--latest-case-work start-->
+			<section class="latest-case-work pt-145 pb-150 pt-lg-60 pb-lg-120">
+				<img class="case-shape shape-1b d-none d-lg-inline-block" src="img/shape/star-3b.svg" alt="shape">
+				<img class="case-shape shape-2b d-none d-lg-inline-block" src="img/shape/star-4b.svg" alt="shape">
+				<img class="case-shape shape-3b d-none d-lg-inline-block" src="img/shape/star-2.svg" alt="shape">
+				<img class="case-shape shape-4b d-none d-lg-inline-block" src="img/shape/star-5b.svg" alt="shape">
 				<div class="container">
-					<div class="row gx-4 gx-xxl-5 justify-content-lg-start justify-content-center">
+					<div class="row gx-4 gx-xxl-5 align-items-center">
+
+
 						<div class="col-xl-5 col-lg-6 col-md-8">
-							<div class="section-title text-center text-lg-start mb-55">
+							<div class="section-title mb-55 text-md-start text-center">
 								<h3 class="sect-title mb-20" data-aos="fade-upt">Наши подборки</h3>
 								<p data-aos="fade-right" data-aos-delay="100">
-									Открой для себя тематические подборки: от фильмов о супергероях до лучших 
+									Открой для себя тематические подборки: от фильмов о супергероях до лучших
 									драматических картин всех времен.
 								</p>
 							</div>
 						</div>
-					</div>
-					<div class="row gx-4 gx-xxl-5">
-						<div class="col-lg-4 col-md-6" data-aos="fade-up">
-							<div class="feature-style-one mb-45">
-								<a class="top-arrow" href="#">
-									<i class="bi bi-arrow-up-right"></i>
-								</a>
-								<img class="front-icon" src="img/icon/icon-3a.png" alt="icon">
-								<img class="back-icon" src="img/icon/icon-3w.png" alt="icon">
-								<h2>
-									<a href="services-details.cshtml">Подборка1</a>
-								</h2>
-								<p>
-									Описание
-								</p>
-								<a href="project-grid.cshtml">324 фильма</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
-							<div class="feature-style-one mb-45">
-								<a class="top-arrow" href="#">
-									<i class="bi bi-arrow-up-right"></i>
-								</a>
-								<img class="front-icon" src="img/icon/icon-4a.png" alt="icon">
-								<img class="back-icon" src="img/icon/icon-4w.png" alt="icon">
-								<h2>
-									<a href="services-details.cshtml">Подборка2</a>
-								</h2>
-								<p>
-									Описание
-								</p>
-								<a href="project-grid.cshtml">324 фильма</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-							<div class="feature-style-one mb-45">
-								<a class="top-arrow" href="#">
-									<i class="bi bi-arrow-up-right"></i>
-								</a>
-								<img class="front-icon" src="img/icon/icon-5a.png" alt="icon">
-								<img class="back-icon" src="img/icon/icon-5w.png" alt="icon">
-								<h2>
-									<a href="services-details.cshtml">Подборка3</a>
-								</h2>
-								<p>
-									Описание
-								</p>
-								<a href="project-grid.cshtml">324 фильма</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-							<div class="feature-style-one mb-45">
-								<a class="top-arrow" href="#">
-									<i class="bi bi-arrow-up-right"></i>
-								</a>
-								<img class="front-icon" src="img/icon/icon-6a.png" alt="icon">
-								<img class="back-icon" src="img/icon/icon-6w.png" alt="icon">
-								<h2>
-									<a href="services-details.cshtml">Подборка4</a>
-								</h2>
-								<p>
-									Описание
-								</p>
-								<a href="project-grid.cshtml">324 фильма</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-							<div class="feature-style-one mb-45">
-								<a class="top-arrow" href="#">
-									<i class="bi bi-arrow-up-right"></i>
-								</a>
-								<img class="front-icon" src="img/icon/icon-7a.png" alt="icon">
-								<img class="back-icon" src="img/icon/icon-7w.png" alt="icon">
-								<h2>
-									<a href="services-details.cshtml">Подборка5</a>
-								</h2>
-								<p>
-									Описание
-								</p>
-								<a href="project-grid.cshtml">324 фильма</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-							<div class="feature-style-one mb-45">
-								<a class="top-arrow" href="#">
-									<i class="bi bi-arrow-up-right"></i>
-								</a>
-								<img class="front-icon" src="img/icon/icon-8a.png" alt="icon">
-								<img class="back-icon" src="img/icon/icon-8w.png" alt="icon">
-								<h2>
-									<a href="services-details.cshtml">Подборка6</a>
-								</h2>
-								<p>
-									Описание
-								</p>
-								<a href="project-grid.cshtml">324 фильма</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--our-services end-->
-			<!--feature-work start-->
-			<section class="feature-work pt-90 pb-95 pt-lg-50 pb-lg-60">
-				<div class="container">
-					<div class="row gx-4 gx-xxl-5 align-items-center">
-						<div class="col-xl-5 col-lg-6 col-md-8">
-							<div class="section-title text-center text-md-start mb-55">
-								<h3 class="sect-title mb-25" data-aos="fade-up">Featured Works</h3>
-								<p data-aos="fade-up" data-aos-delay="100">
-									Dramatically supply transparent
-									backward deliverables before caward comp internal or "organic" sources.
-								</p>
-							</div>
-						</div>
+
+
 						<div class="col-xl-7 col-lg-6 col-md-4 d-flex justify-content-md-end justify-content-center pb-40">
 							<div class="slick-nav">
-								<div class="prev_f1 mr-20">
+								<div class="prev_p1 mr-20">
 									<i class="bi bi-chevron-left"></i>
 								</div>
-								<div class="next_f1">
+								<div class="next_p1">
 									<i class="bi bi-chevron-right"></i>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="feature-slider-one slick-nav">
-					<div class="container custom-container">
-						<div class="row feature-slider-active" data-aos="fade-up" data-aos-delay="200">
-							<div class="col-lg-4">
-								<div class="feature-item">
-									<a class="back-bg" href="project-details.cshtml">
-										<img class="w-100"
-											 src="img/feature/img-01.jpg" alt="img">
+					<div class="row case-slider-one" data-aos="fade-up" data-aos-delay="200">
+						<div class="col-lg-4">
+							<div class="case-item-one">
+								<div class="case-thumb">
+									<img class="w-100" src="img/work/case-1b.jpg" alt="img">
+								</div>
+								<div class="case-content">
+									<span>Web Design</span>
+									<h3><a class="sect-title-two" href="project-details.html">Web Analytics</a></h3>
+									<p>
+										Dramatically supply transparent backward deliverables before caward comp internal
+										or
+										"organic" sources.
+									</p>
+									<a class="case-btn" href="project-details.html">
+										<i class="bi bi-arrow-up-right"></i>
 									</a>
-									<h5>
-										<a href="project-details.cshtml">Web Design</a>
-									</h5>
-									<h3><a href="project-details.cshtml">Web Analytics</a></h3>
 								</div>
 							</div>
-							<div class="col-lg-4">
-								<div class="feature-item">
-									<a class="back-bg" href="project-details.cshtml">
-										<img class="w-100"
-											 src="img/feature/img-02.jpg" alt="img">
+						</div>
+						<div class="col-lg-4">
+							<div class="case-item-one">
+								<div class="case-thumb">
+									<img class="w-100" src="img/work/case-2b.jpg" alt="img">
+								</div>
+								<div class="case-content">
+									<span>Cyber Secure</span>
+									<h3>
+										<a class="sect-title-two" href="project-details.html">Cyber Security Core</a>
+									</h3>
+									<p>
+										Dramatically supply transparent backward deliverables before caward comp internal
+										or
+										"organic" sources.
+									</p>
+									<a class="case-btn" href="project-details.html">
+										<i class="bi bi-arrow-up-right"></i>
 									</a>
-									<h5>
-										<a href="project-details.cshtml">Cyber Secure</a>
-									</h5>
-									<h3><a href="project-details.cshtml">Cyber Security Core</a></h3>
 								</div>
 							</div>
-							<div class="col-lg-4">
-								<div class="feature-item">
-									<a class="back-bg" href="project-details.cshtml">
-										<img class="w-100"
-											 src="img/feature/img-03.jpg" alt="img">
+						</div>
+						<div class="col-lg-4">
+							<div class="case-item-one">
+								<div class="case-thumb">
+									<img class="w-100" src="img/work/case-3b.jpg" alt="img">
+								</div>
+								<div class="case-content">
+									<span>Design</span>
+									<h3><a class="sect-title-two" href="project-details.html">Design For Future</a></h3>
+									<p>
+										Dramatically supply transparent backward deliverables before caward comp internal
+										or
+										"organic" sources.
+									</p>
+									<a class="case-btn" href="project-details.html">
+										<i class="bi bi-arrow-up-right"></i>
 									</a>
-									<h5>
-										<a href="project-details.cshtml">Mobile info</a>
-									</h5>
-									<h3><a href="project-details.cshtml">Upcoming Phone</a></h3>
 								</div>
 							</div>
-							<div class="col-lg-4">
-								<div class="feature-item">
-									<a class="back-bg" href="project-details.cshtml">
-										<img class="w-100"
-											 src="img/feature/img-01.jpg" alt="img">
-									</a>
-									<h5>
-										<a href="project-details.cshtml">Web Design</a>
-									</h5>
-									<h3><a href="project-details.cshtml">Web Analytics</a></h3>
+						</div>
+						<div class="col-lg-4">
+							<div class="case-item-one">
+								<div class="case-thumb">
+									<img class="w-100" src="img/work/case-1b.jpg" alt="img">
 								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="feature-item">
-									<a class="back-bg" href="project-details.cshtml">
-										<img class="w-100"
-											 src="img/feature/img-03.jpg" alt="img">
+								<div class="case-content">
+									<span>Web Design</span>
+									<h3><a class="sect-title-two" href="project-details.html">Web Analytics</a></h3>
+									<p>
+										Dramatically supply transparent backward deliverables before caward comp internal
+										or
+										"organic" sources.
+									</p>
+									<a class="case-btn" href="project-details.html">
+										<i class="bi bi-arrow-up-right"></i>
 									</a>
-									<h5>
-										<a href="project-details.cshtml">Mobile info</a>
-									</h5>
-									<h3><a href="project-details.cshtml">Upcoming Phone</a></h3>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<!--feature-work end-->
-			<!--feature-work start-->
-			<section class="feature-two pt-135 pb-30 pt-lg-60 pb-lg-15">
-				<div class="container">
-					<div class="row gx-4 gx-xxl-5 justify-content-lg-start justify-content-center">
-						<div class="col-xl-5 col-lg-6 col-md-8">
-							<div class="section-title text-lg-start text-center mb-60">
-								<h3 class="sect-title mb-25" data-aos="fade-up">How It Works</h3>
-								<p data-aos="fade-up" data-aos-delay="100">
-									Dramatically supply transparent
-									backward deliverables before caward comp internal or "organic" sources.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="row gx-4 gx-xxl-5">
-						<div class="col-lg-4 col-md-6" data-aos="fade-up">
-							<div class="feature-style-two mb-45">
-								<div class="icon"><img src="img/icon/icon-9a.png" alt="icon"></div>
-								<h3>
-									<a href="signup.cshtml">Create Account</a>
-								</h3>
-								<p>Interactively provide access to world-class materials for catalysts.</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-							<div class="feature-style-two mb-45">
-								<div class="icon"><img src="img/icon/icon-10a.png" alt="icon"></div>
-								<h3>
-									<a href="faq.cshtml">Read Rules</a>
-								</h3>
-								<p>Interactively provide access to world-class materials for catalysts.</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-							<div class="feature-style-two mb-45">
-								<div class="icon"><img src="img/icon/icon-11a.png" alt="icon"></div>
-								<h3>
-									<a href="faq.cshtml">Ask Problemt</a>
-								</h3>
-								<p>Interactively provide access to world-class materials for catalysts.</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-							<div class="feature-style-two mb-45">
-								<div class="icon"><img src="img/icon/icon-12a.png" alt="icon"></div>
-								<h3>
-									<a href="faq.cshtml">Get Solution</a>
-								</h3>
-								<p>Interactively provide access to world-class materials for catalysts.</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-							<div class="feature-style-two mb-45">
-								<div class="icon"><img src="img/icon/icon-10a.png" alt="icon"></div>
-								<h3>
-									<a href="faq.cshtml">Well Document</a>
-								</h3>
-								<p>Interactively provide access to world-class materials for catalysts.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<img class="shape-one" src="img/shape/line-round-1.svg" alt="">
-			</section>
-			<!--feature-work end-->
-			<!--counter-area end-->
-			<section class="counter-area pt-75 pt-lg-30 pt-lg-35 pb-lg-10">
-				<div class="container custom-contianer-one theme-bg">
-					<div class="row gx-4 gx-xxl-5">
-						<div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up">
-							<div class="counter-style-one mb-30">
-								<h3>
-									<span class="counter">276</span>K
-								</h3>
-								<h4>Worldwide Students</h4>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-sm-6">
-							<div class="counter-style-one mb-30" data-aos="fade-up" data-aos-delay="200">
-								<h3>
-									<span class="counter">23</span>+
-								</h3>
-								<h4>Years Experience</h4>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-sm-6">
-							<div class="counter-style-one mb-30" data-aos="fade-up" data-aos-delay="300">
-								<h3>
-									<span class="counter">735</span>+
-								</h3>
-								<h4>Professional Courses</h4>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-sm-6">
-							<div class="counter-style-one mb-30" data-aos="fade-up" data-aos-delay="400">
-								<h3>
-									<span class="counter">4.7</span>K
-								</h3>
-								<h4>Beautiful Review</h4>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--counter-area start-->
-			<!--client-feedback start-->
-			<section class="client-feedback pt-140 pb-150 pt-lg-55 pb-lg-60">
-				<div class="container">
-					<div class="row gx-4 gx-xxl-5 justify-content-center" data-aos="fade-up">
-						<div class="col-xl-5 col-lg-6 col-md-8">
-							<div class="section-title text-center mb-55">
-								<h3 class="sect-title mb-25">Testimonials</h3>
-								<p>
-									Dramatically supply transparent backward deliverables before caward comp
-									internal or "organic" sources.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="row feedback-active-one" data-aos="fade-up" data-aos-delay="200">
-						<div class="col-lg-11">
-							<div class="feedback-style-one text-center">
-								<div class="rating mb-40">
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-half"></i>
-									</a>
-									<span class="fs-18 text-white">4.5</span>
-								</div>
-								<p>
-									“Energistically architect parallel leadership through standardized results.
-									Globally develop enabled leadership skills whereas multimedia based convergence.
-									Professionally maintain best-of-breed markets and standardized leadership.
-									Interactively embrace”
-								</p>
-								<div class="author d-flex align-items-center justify-content-center mt-45">
-									<img src="img/testimonial/author-1.jpg" alt="author">
-									<div class="author-info">
-										<h3>Wade Warren</h3>
-										<h5>UX/UI Designer</h5>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-11">
-							<div class="feedback-style-one text-center">
-								<div class="rating mb-40">
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<span class="fs-18 text-white">5</span>
-								</div>
-								<p>
-									“Energistically architect parallel leadership through standardized results.
-									Globally develop enabled leadership skills whereas multimedia based convergence.
-									Professionally maintain best-of-breed markets and standardized leadership.
-									Interactively embrace”
-								</p>
-								<div class="author d-flex align-items-center justify-content-center mt-45">
-									<img src="img/testimonial/author-2.jpg" alt="author">
-									<div class="author-info">
-										<h3>Wade Warren</h3>
-										<h5>UX/UI Designer</h5>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-11">
-							<div class="feedback-style-one text-center">
-								<div class="rating mb-40">
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<a href="#">
-										<i class="bi bi-star-fill"></i>
-									</a>
-									<span class="fs-18 text-white">5</span>
-								</div>
-								<p>
-									“Energistically architect parallel leadership through standardized results.
-									Globally develop enabled leadership skills whereas multimedia based convergence.
-									Professionally maintain best-of-breed markets and standardized leadership.
-									Interactively embrace”
-								</p>
-								<div class="author d-flex align-items-center justify-content-center mt-45">
-									<img src="img/testimonial/author-3.jpg" alt="author">
-									<div class="author-info">
-										<h3>Wade Warren</h3>
-										<h5>UX/UI Designer</h5>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--client-feedback end-->
-			<!--blog-area start-->
-			<section class="blog-area slick-nav pt-100 pb-100 pt-lg-55 pb-lg-60">
-				<div class="container">
-					<div class="row gx-4 gx-xxl-5 align-items-center">
-						<div class="col-xl-5 col-lg-6 col-md-8" data-aos="fade-up">
-							<div class="section-title text-center text-md-start mb-60">
-								<h3 class="sect-title mb-25">Latest Article</h3>
-								<p>
-									Dramatically supply transparent backward deliverables before caward comp
-									internal or "organic" sources.
-								</p>
-							</div>
-						</div>
-						<div class="col-xl-7 col-lg-6 col-md-4 d-flex justify-content-md-end justify-content-center pb-40">
-							<div class="slick-nav">
-								<div class="prev_b1 mr-20">
-									<i class="bi bi-chevron-left"></i>
-								</div>
-								<div class="next_b1">
-									<i class="bi bi-chevron-right"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row blog-active-one" data-aos="fade-up" data-aos-delay="100">
-						<div class="col-lg-4">
-							<div class="blog-style-one">
-								<div class="blog-thumb">
-									<img class="w-100" src="img/blog/blog-01.jpg" alt="img">
-									<a href="#" class="tag">Cyber Security</a>
-								</div>
-								<div class="blog-content">
-
-									<h4>
-										<a class="blog-title" href="blog-details.cshtml">
-											Cybersecurity researchers trace
-											Lapsus$ attacks to a teenager from England
-										</a>
-									</h4>
-									<p>
-										Dramatically supply transparent backward deliverables before caward comp
-										internal or "organic" sources.
-									</p>
-									<div class="blog-meta">
-										<a href="#">
-											<i class="bi bi-person-plus"></i>
-											Paul Teru
-										</a>
-										<a href="#">
-											<i class="bi bi-clock"></i>
-											21 Jan 2022
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="blog-style-one">
-								<div class="blog-thumb">
-									<img class="w-100" src="img/blog/blog-02.jpg" alt="img">
-									<a href="#" class="tag tag-02">Cyber Security</a>
-								</div>
-								<div class="blog-content">
-
-									<h4>
-										<a class="blog-title" href="blog-details.cshtml">
-											Google is removing the Movies &
-											TV section from the Play Store
-										</a>
-									</h4>
-									<p>
-										Dramatically supply transparent backward deliverables before caward comp
-										internal or "organic" sources.
-									</p>
-									<div class="blog-meta">
-										<a href="#">
-											<i class="bi bi-person-plus"></i>
-											Samir Jam
-										</a>
-										<a href="#">
-											<i class="bi bi-clock"></i>
-											21 Jan 2022
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="blog-style-one">
-								<div class="blog-thumb">
-									<img class="w-100" src="img/blog/blog-01.jpg" alt="img">
-									<a href="#" class="tag tag-03">Cyber Security</a>
-								</div>
-								<div class="blog-content">
-
-									<h4>
-										<a class="blog-title" href="blog-details.cshtml">
-											Google Photos makes it easier to
-											import and organize your pics
-										</a>
-									</h4>
-									<p>
-										Dramatically supply transparent backward deliverables before caward comp
-										internal or "organic" sources.
-									</p>
-									<div class="blog-meta">
-										<a href="#">
-											<i class="bi bi-person-plus"></i>
-											Hamina Hasan
-										</a>
-										<a href="#">
-											<i class="bi bi-clock"></i>
-											21 Jan 2022
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="blog-style-one">
-								<div class="blog-thumb">
-									<img class="w-100" src="img/blog/blog-02.jpg" alt="img">
-									<a href="#" class="tag">Cyber Security</a>
-								</div>
-								<div class="blog-content">
-
-									<h4>
-										<a class="blog-title" href="blog-details.cshtml">
-											Cybersecurity researchers trace
-											Lapsus$ attacks to a teenager from England
-										</a>
-									</h4>
-									<p>
-										Dramatically supply transparent backward deliverables before caward comp
-										internal or "organic" sources.
-									</p>
-									<div class="blog-meta">
-										<a href="#">
-											<i class="bi bi-person-plus"></i>
-											Paul Teru
-										</a>
-										<a href="#">
-											<i class="bi bi-clock"></i>
-											21 Jan 2022
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="blog-style-one">
-								<div class="blog-thumb">
-									<img class="w-100" src="img/blog/blog-01.jpg" alt="img">
-									<a href="#" class="tag tag-02">Cyber Security</a>
-								</div>
-								<div class="blog-content">
-
-									<h4>
-										<a class="blog-title" href="blog-details.cshtml">
-											Google is removing the Movies &
-											TV section from the Play Store
-										</a>
-									</h4>
-									<p>
-										Dramatically supply transparent backward deliverables before caward comp
-										internal or "organic" sources.
-									</p>
-									<div class="blog-meta">
-										<a href="#">
-											<i class="bi bi-person-plus"></i>
-											Samir Jam
-										</a>
-										<a href="#">
-											<i class="bi bi-clock"></i>
-											21 Jan 2022
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="blog-style-one">
-								<div class="blog-thumb">
-									<img class="w-100" src="img/blog/blog-02.jpg" alt="img">
-									<a href="#" class="tag tag-03">Cyber Security</a>
-								</div>
-								<div class="blog-content">
-
-									<h4>
-										<a class="blog-title" href="blog-details.cshtml">
-											Google Photos makes it easier to
-											import and organize your pics
-										</a>
-									</h4>
-									<p>
-										Dramatically supply transparent backward deliverables before caward comp
-										internal or "organic" sources.
-									</p>
-									<div class="blog-meta">
-										<a href="#">
-											<i class="bi bi-person-plus"></i>
-											Hamina Hasan
-										</a>
-										<a href="#">
-											<i class="bi bi-clock"></i>
-											21 Jan 2022
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--blog-area end-->
-			<!--techy-newsletter start-->
-			<section class="techy-newsletter pt-120 pt-lg-60">
-				<div class="container">
-					<div class="row gx-4 gx-xxl-5 align-items-center justify-content-center borders">
-						<div class="col-lg-8">
-							<div class="block-style-two text-center pb-90">
-								<img class="news-shape-one d-none d-xl-block" src="img/shape/line-round-3a.svg"
-									 alt="shape">
-								<h3>Have a project in mind? Let’s get to work.</h3>
-								<a href="contact.cshtml" class="theme_btn">Contact us</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--techy-newsletter end-->
-
+			<!--latest-case-work end-->
 		</main>
-		<!--footer-area start-->
-		<footer class="footer-area pt-140 pt-lg-95">
-			<img class="fot-shape-one" src="img/shape/line-round-4a.svg" alt="footer shape">
-			<div class="container">
-				<div class="row gx-4 gx-xxl-5 mb-1">
-					<div class="col-lg-4 col-md-8">
-						<div class="footer__widget mb-30" data-aos="fade-right" data-aos-delay="200">
-							<p class="pe-xl-3 foter-para">
-								An influencal creative agency. Get’s IT Solutions For Expert
-								Consultants
-							</p>
-							<a class="foter-btn" href="contact.cshtml">
-								Let’s Chat
-								<i class="bi bi-arrow-up-right"></i>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-delay="300">
-						<div class="footer__widget d-flex justify-content-md-center mb-30">
-							<ul class="fot-list">
-								<li>
-									<a href="about.cshtml">About Us</a>
-								</li>
-								<li>
-									<a href="contact.cshtml">Contact</a>
-								</li>
-								<li>
-									<a href="blog-grid.cshtml">Blog</a>
-								</li>
-								<li>
-									<a href="faq.cshtml">Policy</a>
-								</li>
-								<li>
-									<a href="faq.cshtml">Refund</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-4" data-aos="fade-left" data-aos-delay="200">
-						<div class="footer__widget mb-30 ps-xl-5">
-							<h4 class="text-white mb-40">Teachy.example.com</h4>
-							<address>4517 Washington Ave. Manchester, Kentucky 39495</address>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="techy-copyright pt-60 pb-45 pb-lg-10">
-				<div class="container">
-					<div class="row gx-4 gx-xxl-5 align-items-center">
-						<div class="col-md-6 text-center text-md-start">
-							<div class="copyright mb-30">
-								<h6>
-									<a href="https://themeforest.net/user/uxaction/portfolio">UXaction</a>
-									© 2022, All Rights Reserved
-								</h6>
-							</div>
-						</div>
-						<div class="col-md-6 text-center text-md-end">
-							<div class="footer__social mb-30">
-								<a href="#">
-									<i class="fab fa-facebook-f"></i>
-								</a>
-								<a href="#">
-									<i class="fab fa-twitter"></i>
-								</a>
-								<a href="#">
-									<i class="fab fa-linkedin-in"></i>
-								</a>
-								<a href="#">
-									<i class="fab fa-youtube"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!--footer-area end-->
 	</div>
 
 	<!-- JS here -->
@@ -1192,8 +358,7 @@
 	<script src="js/plugins.js"></script>
 
 	<!--Custom JS here -->
-	<script src="js/main.js"></script>
-
+	<script src="~/js/main.js"></script>
 
 </body>
 

@@ -6,11 +6,6 @@ namespace FilmLens.DataAccess.Common
 {
     public class ReadonlyFilmLensDbContext : IdentityDbContext<User, Role, int>
     {
-        //public ReadonlyOnlineStoreDbContext() : base()
-        //{
-
-        //}
-
         public ReadonlyFilmLensDbContext(DbContextOptions<ReadonlyFilmLensDbContext> options)
             : base(options)
         {

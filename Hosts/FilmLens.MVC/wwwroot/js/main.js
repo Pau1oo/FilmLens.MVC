@@ -1,4 +1,4 @@
-(function ($) {
+﻿(function ($) {
 	"use strict";
 
 	/*------------------------------------
@@ -312,9 +312,15 @@
 			"mode": "continuous",
 			// "pingPongDelay": 2000,
 			"position": "custom",
-			"content": "Technology to elevate our human experience. Your Next It Solution Agency & Explore More Technology to elevate our human experience. Your Next It Solution Agency & Explore More",
+			"content": "FilmLens — настраивай кино под себя!  Найди свой фильм по вкусу — от экшена до арт-хауса!  Твой следующий шедевр всего в одном клике!  Найди свой идеальный фильм за мгновение!  Подбирай фильм под любое настроение!  ",
 		});
 	}
+
+	document.querySelectorAll('p').forEach(el => {
+		if (/[А-Яа-яЁё]/.test(el.textContent)) {
+			el.style.fontWeight = '600'; // Задаем нужную толщину для кириллицы
+		}
+	});
 
 
 	//product-slider

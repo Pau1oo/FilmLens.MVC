@@ -19,7 +19,7 @@ namespace FilmLens.Domain.Entities
         /// </summary>
         [Required]
         [StringLength(255)]
-        public string Username { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Почта пользователя.
