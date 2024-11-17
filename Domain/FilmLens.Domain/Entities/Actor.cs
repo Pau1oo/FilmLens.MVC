@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace FilmLens.Domain.Entities
+﻿namespace FilmLens.Domain.Entities
 {
     /// <summary>
     /// Актёр.
@@ -15,8 +13,6 @@ namespace FilmLens.Domain.Entities
         /// <summary>
         /// Имя.
         /// </summary>
-        [Required]
-        [StringLength(255)]
         public string Name { get; set; }
 
         /// <summary>
@@ -27,11 +23,6 @@ namespace FilmLens.Domain.Entities
         /// <summary>
         /// Ссылка на фото.
         /// </summary>
-        public string PhotoUrl { get; set; }
-
-        /// <summary>
-        /// Связь с фильмами.
-        /// </summary>
-        public ICollection<MovieActor> MovieActors { get; set; }
+        public string? ImageUrl { get; set; }
     }
 }

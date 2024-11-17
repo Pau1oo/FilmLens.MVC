@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace FilmLens.Domain.Entities
+﻿namespace FilmLens.Domain.Entities
 {
     /// <summary>
     /// Рецензия.
@@ -15,26 +13,26 @@ namespace FilmLens.Domain.Entities
         /// <summary>
         /// Идентификатор пользователя.
         /// </summary>
-        [Required]
         public int UserId { get; set; }
-        public User User { get; set; }
 
         /// <summary>
         /// Идентификатор фильма.
         /// </summary>
-        [Required]
         public int MovieId { get; set; }
-        public Movie Movie { get; set; }
 
         /// <summary>
         /// Текст рецензии.
         /// </summary>
-        [Required]
         public string ReviewText { get; set; }
 
-        /// <summary>
-        /// Дата создания рецензии.
-        /// </summary>
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+		/// <summary>
+		/// Значение оценки.
+		/// </summary>
+		public int? RatingValue { get; set; } = default!;
+
+		/// <summary>
+		/// Дата создания рецензии.
+		/// </summary>
+		public DateTime CreatedAt { get; set; }
     }
 }

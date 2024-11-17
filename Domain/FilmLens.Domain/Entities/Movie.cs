@@ -15,14 +15,12 @@ namespace FilmLens.Domain.Entities
         /// <summary>
         /// Название.
         /// </summary>
-        [Required]
-        [StringLength(255)]
         public string Title { get; set; } = default!;
 
         /// <summary>
         /// Описание.
         /// </summary>
-        public string? Description { get; set; }
+        public string Description { get; set; } = default!;
 
         /// <summary>
         /// Дата релиза.
@@ -45,23 +43,23 @@ namespace FilmLens.Domain.Entities
         public string TmdbId { get; set; }
 
         /// <summary>
-        /// Связь с жанрами.
+        /// Жанры фильма.
         /// </summary>
-        public ICollection<MovieGenre> MovieGenres { get; set; }
+        public ICollection<Genre> Genres { get; set; } = [];
 
         /// <summary>
-        /// Связь с актерами.
+        /// Актеры фильма.
         /// </summary>
-        public ICollection<MovieActor> MovieActors { get; set; }
+        public ICollection<Actor> Actors { get; set; } = [];
 
-        /// <summary>
-        /// Связь с оценками.
-        /// </summary>
-        public ICollection<Rating> Ratings { get; set; }
+		/// <summary>
+		/// Значение оценки.
+		/// </summary>
+		public double? CriticsRating { get; set; }
 
-        /// <summary>
-        /// Связь с рецензиями.
-        /// </summary>
-        public ICollection<Review> Reviews { get; set; }
+		/// <summary>
+		/// Рецензии фильма.
+		/// </summary>
+		public ICollection<Review> Reviews { get; set; } = [];
     }
 }

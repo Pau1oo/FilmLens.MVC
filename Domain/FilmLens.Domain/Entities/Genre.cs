@@ -15,13 +15,6 @@ namespace FilmLens.Domain.Entities
         /// <summary>
         /// Наименование жанра.
         /// </summary>
-        [Required]
-        [StringLength(50)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Связь с фильмами.
-        /// </summary>
-        public ICollection<MovieGenre> MovieGenres { get; set; }
+        public string Name { get; set; } = default!;
     }
 }
