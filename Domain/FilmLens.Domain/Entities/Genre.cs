@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace FilmLens.Domain.Entities
+﻿namespace FilmLens.Domain.Entities
 {
     /// <summary>
     /// Жанр.
@@ -15,6 +13,11 @@ namespace FilmLens.Domain.Entities
         /// <summary>
         /// Наименование жанра.
         /// </summary>
-        public string Name { get; set; } = default!;
+        public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Связанные фильмы.
+        /// </summary>
+        public ICollection<Movie> Movies { get; set; } = [];
     }
 }

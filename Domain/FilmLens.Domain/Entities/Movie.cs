@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace FilmLens.Domain.Entities
+﻿namespace FilmLens.Domain.Entities
 {
     /// <summary>
     /// Фильм.
@@ -15,47 +13,62 @@ namespace FilmLens.Domain.Entities
         /// <summary>
         /// Название.
         /// </summary>
-        public string Title { get; set; } = default!;
+        public string Title { get; set; } = string.Empty;
 
         /// <summary>
         /// Описание.
         /// </summary>
-        public string Description { get; set; } = default!;
+        public string Overview { get; set; } = string.Empty;
 
         /// <summary>
         /// Дата релиза.
         /// </summary>
         public DateTime? ReleaseDate { get; set; }
 
-        /// <summary>
-        /// Ссылка на постер.
-        /// </summary>
-        public string? PosterUrl { get; set; }
+		/// <summary>
+		/// Средняя оценка.
+		/// </summary>
+		public double? VoteAverage { get; set; }
 
-        /// <summary>
-        /// Ссылка на трейлер.
-        /// </summary>
-        public string? TrailerUrl { get; set; }
+		/// <summary>
+		/// Количество оценок.
+		/// </summary>
+		public int? VoteCount { get; set; }
 
-        /// <summary>
-        /// Идентификатор фильма в TMDb.
-        /// </summary>
-        public string TmdbId { get; set; }
+		/// <summary>
+		/// Постер.
+		/// </summary>
+		public string? PosterPath { get; set; }
+
+		/// <summary>
+		/// Ссылка на трейлер.
+		/// </summary>
+		public string? TrailerUrl { get; set; }
+
+		/// <summary>
+		/// Лозунг фильма.
+		/// </summary>
+		public string? Tagline { get; set; }
+
+		/// <summary>
+		/// Продолжительность (в минутах).
+		/// </summary>
+		public int? Runtime { get; set; }
+
+		/// <summary>
+		/// Бюджет.
+		/// </summary>
+		public long? Budget { get; set; }
+
+		/// <summary>
+		/// Идентификатор фильма в TMDb.
+		/// </summary>
+		public string TmdbId { get; set; }
 
         /// <summary>
         /// Жанры фильма.
         /// </summary>
         public ICollection<Genre> Genres { get; set; } = [];
-
-        /// <summary>
-        /// Актеры фильма.
-        /// </summary>
-        public ICollection<Actor> Actors { get; set; } = [];
-
-		/// <summary>
-		/// Значение оценки.
-		/// </summary>
-		public double? CriticsRating { get; set; }
 
 		/// <summary>
 		/// Рецензии фильма.

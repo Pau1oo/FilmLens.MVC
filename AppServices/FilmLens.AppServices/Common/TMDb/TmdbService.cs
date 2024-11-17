@@ -1,11 +1,6 @@
 ﻿using FilmLens.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FilmLens.AppServices.Common.TMDb
 {
@@ -26,7 +21,7 @@ namespace FilmLens.AppServices.Common.TMDb
 		/// <inheritdoc/>
 		public async Task<Movie> GetMovieDetails(int movieId)
 		{
-			var url = $"https://api.themoviedb.org/3/movie/{movieId}?api_key={_apiKey}&language=en-US";
+			var url = $"https://api.themoviedb.org/3/movie/{movieId}?api_key={_apiKey}&language=ru";
 			var response = await _httpClient.GetStringAsync(url);
 			var movieDetails = JsonConvert.DeserializeObject<Movie>(response);
 			return movieDetails;
@@ -35,7 +30,7 @@ namespace FilmLens.AppServices.Common.TMDb
 		/// <inheritdoc/>
 		public async Task<MovieSearchResults> SearchMovies(string query)
 		{
-			var url = $"https://api.themoviedb.org/3/search/movie?api_key={_apiKey}&query={query}&language=en-US";
+			var url = $"https://api.themoviedb.org/3/search/movie?api_key={_apiKey}&query={query}&language=ru";
 			var response = await _httpClient.GetStringAsync(url);
 			var searchResults = JsonConvert.DeserializeObject<MovieSearchResults>(response);
 			return searchResults;
