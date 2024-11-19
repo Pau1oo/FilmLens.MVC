@@ -21,7 +21,13 @@ namespace FilmLens.MVC.Controllers
 		[HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model, CancellationToken cancellation)
         {
-            var result = await _authService.RegisterAsync(model.Name, model.Email, model.Password, cancellation);
+			if (!ModelState.IsValid)
+			{
+				return View(model);
+			}
+
+			var result = await _authService.RegisterAsync(model.Name, model.Email, model.Password, cancellation);
+
             if (result.Succeeded)
             {
 				await _authService.SignInAsync(model.Email, model.Password, cancellation);
@@ -48,12 +54,17 @@ namespace FilmLens.MVC.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Login(LoginViewModel model, CancellationToken cancellation)
 		{
+			if (!ModelState.IsValid)
+			{
+				return View(model);
+			}
+
 			if (await _authService.SignInAsync(model.Email, model.Password, cancellation))
 			{
 				return RedirectToAction("Index", "Home");
 			}
 
-			ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+			ModelState.AddModelError(string.Empty, "Неверный логин или пароль.");
 			return View();
 		}
 

@@ -25,22 +25,31 @@ namespace FilmLens.AppServices.Authentication.Services
 		}
 
 		/// <inheritdoc/>
-		public Task<IdentityResult> RegisterAsync(string name, string email, string password, CancellationToken cancellation)
+		public async Task<IdentityResult> RegisterAsync(string name, string email, string password, CancellationToken cancellation)
 		{
+			if (await _userManager.FindByEmailAsync(email) != null)
+			{
+				return IdentityResult.Failed(new IdentityError
+				{
+					Code = "DuplicateEmail",
+					Description = "Пользователь с таким email уже существует."
+				});
+			}
+
 			var user = new User
 			{
 				UserName = name,
 				Email = email,
 			};
 
-			return _userManager.CreateAsync(user, password);
+			return await _userManager.CreateAsync(user, password);
 		}
 
 		/// <inheritdoc/>
 		public async Task<bool> SignInAsync(string email, string password, CancellationToken cancellation)
 		{
-			var user = await _userManager.FindByEmailAsync(email)
-				?? throw new UnauthorizedAccessException("Неправильный email или пароль.");
+			var user = await _userManager.FindByEmailAsync(email);
+				//?? throw new UnauthorizedAccessException("Неправильный email или пароль.");
 
 			var isPasswordMatched = await _userManager.CheckPasswordAsync(user, password);
 			if (isPasswordMatched)

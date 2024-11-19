@@ -21,6 +21,10 @@ using FilmLens.AppServices.Common.Events.Common;
 using FilmLens.DataAccess.Events;
 using Hangfire;
 using Hangfire.PostgreSql;
+using FilmLens.Infrastructure.Mappings;
+using FilmLens.AppServices.Movies.Services;
+using FilmLens.AppServices.Movies.Repositories;
+using FilmLens.DataAccess.Movies.Repositories;
 
 namespace FilmLens.ComponentRegistrar
 {
@@ -33,7 +37,10 @@ namespace FilmLens.ComponentRegistrar
 		{
 			services.AddIdentity<User, Role>()
 				.AddEntityFrameworkStores<MutableFilmLensDbContext>()
+				.AddRoles<Role>()
 				.AddDefaultTokenProviders();
+
+			services.AddHttpClient<ITmdbService, TmdbService>();
 
 			var jwtOptions = configuration.GetSection("JwtOptions").Get<JwtOptions>();
 			services.AddAuthentication()
@@ -53,7 +60,7 @@ namespace FilmLens.ComponentRegistrar
 
 			RegisterRepositories(services, configuration);
 			RegisterServices(services, configuration);
-			//	RegisterMapper(services);
+			RegisterMapper(services);
 			RegisterScheduler(services, configuration);
 			RegisterOptions(services, configuration);
 		}
@@ -77,6 +84,8 @@ namespace FilmLens.ComponentRegistrar
 			services.AddDbContext<ReadonlyFilmLensDbContext>(options =>
 				options.UseNpgsql(connectionString)
 			);
+
+			services.AddScoped<IMovieRepository, MovieRepository>();
 		}
 
 		private static void RegisterServices(IServiceCollection services, IConfiguration configuration)
@@ -88,8 +97,8 @@ namespace FilmLens.ComponentRegistrar
 			services.AddStackExchangeRedisExtensions<NewtonsoftSerializer>(redisConfiguration);
 
 			services.AddScoped<IAuthenticationService, AuthenticationService>();
-
 			services.AddScoped<ITmdbService, TmdbService>();
+			services.AddScoped<IMovieService, MovieService>();
 
 			services.AddSingleton<IRedisCache, RedisCache>();
 			services.AddSingleton<ICacheService, RedisCacheService>();
@@ -99,16 +108,18 @@ namespace FilmLens.ComponentRegistrar
 			services.AddScoped<IEventAccumulator, EventAccumulator>();
 		}
 
-		/*private static void RegisterMapper(IServiceCollection services)
+		private static void RegisterMapper(IServiceCollection services)
 		{
 			var mapperConfig = new MapperConfiguration(mc =>
 			{
-				mc.AddProfile(new ProductAttributeMappingProfile());
+				mc.AddProfile(new MovieMappingProfile());
+				mc.AddProfile(new GenreMappingProfile());
+				mc.AddProfile(new ReviewMappingProfile());
 			});
 
 			IMapper mapper = mapperConfig.CreateMapper();
 			services.AddSingleton(mapper);
-		}*/
+		}
 
 		private static void RegisterScheduler(IServiceCollection services, IConfiguration configuration)
 		{

@@ -3,6 +3,7 @@ using System;
 using FilmLens.DataAccess.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FilmLens.DataAccess.Migrations
 {
     [DbContext(typeof(MutableFilmLensDbContext))]
-    partial class MutableFilmLensDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241119184609_AddChangesToMovies")]
+    partial class AddChangesToMovies
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,9 +63,9 @@ namespace FilmLens.DataAccess.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("character varying(500)");
 
-                    b.Property<string>("ReleaseDate")
+                    b.Property<DateTime?>("ReleaseDate")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("Runtime")
                         .HasColumnType("integer");
@@ -347,9 +350,6 @@ namespace FilmLens.DataAccess.Migrations
                     b.HasKey("MovieId", "GenreId");
 
                     b.HasIndex("GenreId");
-
-                    b.HasIndex("MovieId", "GenreId")
-                        .IsUnique();
 
                     b.ToTable("MovieGenres", (string)null);
                 });

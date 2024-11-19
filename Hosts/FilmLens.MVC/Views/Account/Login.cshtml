@@ -112,6 +112,7 @@
 
 								<div class="input-box mail mb-30">
 									<input asp-for="Email" placeholder="Почта">
+									<span asp-validation-for="Email"></span>
 								</div>
 
 								<div class="input-box pass mb-30">
@@ -120,7 +121,7 @@
 								</div>
 
 								<div class="col-12">
-									<button class="theme_btn" asp-controller="Home" asp-action="Index">Войти</button>
+									<button type="submit" class="theme_btn">Войти</button>
 								</div>
 							</form>
 							<div asp-validation-summary="ModelOnly"></div>

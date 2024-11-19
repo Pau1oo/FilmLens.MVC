@@ -12,9 +12,9 @@ namespace FilmLens.AppServices.Common.TMDb
 		private readonly HttpClient _httpClient;
 		private readonly string _apiKey;
 
-		public TmdbService(IConfiguration configuration)
+		public TmdbService(HttpClient httpClient, IConfiguration configuration)
 		{
-			_httpClient = new HttpClient();
+			_httpClient = httpClient;
 			_apiKey = configuration["TMDb:ApiKey"];
 		}
 
@@ -23,8 +23,7 @@ namespace FilmLens.AppServices.Common.TMDb
 		{
 			var url = $"https://api.themoviedb.org/3/movie/{movieId}?api_key={_apiKey}&language=ru";
 			var response = await _httpClient.GetStringAsync(url);
-			var movieDetails = JsonConvert.DeserializeObject<Movie>(response);
-			return movieDetails;
+			return JsonConvert.DeserializeObject<Movie>(response);
 		}
 
 		/// <inheritdoc/>

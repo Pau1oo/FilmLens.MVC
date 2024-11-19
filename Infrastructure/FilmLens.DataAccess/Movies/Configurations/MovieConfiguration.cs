@@ -29,7 +29,7 @@ namespace FilmLens.DataAccess.Movies.Configurations
 			builder.Property(m => m.VoteCount)
 				.HasDefaultValue(0);
 
-			builder.Property(m => m.PosterPath)
+			builder.Property(m => m.PosterUrl)
 				.HasMaxLength(500);
 
 			builder.Property(m => m.Tagline)
@@ -54,6 +54,7 @@ namespace FilmLens.DataAccess.Movies.Configurations
 					j =>
 					{
 						j.HasKey("MovieId", "GenreId");
+						j.HasIndex("MovieId", "GenreId").IsUnique();
 						j.ToTable("MovieGenres");
 					});
 		}

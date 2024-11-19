@@ -109,13 +109,14 @@
 							<div class="signup-form">
 								<h3 class="post-title mb-65 text-center">Создать аккаунт</h3>
 								<form asp-action="Register" asp-controller="Account" method="post" class="widget-form p-0">
-
+									
 									<div class="input-box mb-30">
 										<input asp-for="Name" placeholder="Имя">
 									</div>
 
 									<div class="input-box mail mb-30">
 										<input asp-for="Email" placeholder="Почта">
+										<span asp-validation-for="Email"></span>
 									</div>
 
 									<div class="input-box pass mb-30">

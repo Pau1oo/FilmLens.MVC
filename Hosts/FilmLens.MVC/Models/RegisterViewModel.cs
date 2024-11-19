@@ -23,7 +23,5 @@ namespace FilmLens.MVC.Models
         [Compare("Password", ErrorMessage = "Пароли не совпадают.")]
         [Display(Name = "Пароль повторно")]
         public string ConfirmPassword { get; set; }
-
-		public List<string> Errors { get; set; }
 	}
 }

@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html class="no-js" lang="ru">
+@model AddMovieViewModel
 
 <head>	
 	<meta charset="utf-8" />
@@ -106,10 +107,13 @@
                                         <a class="nav-link" href="contact.cshtml">Жанры</a>
                                     </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="contact.cshtml">Профиль</a>
-                                    </li>
-
+									@if (User?.Identity?.IsAuthenticated == true)
+									{
+										<li class="nav-item">
+											<a class="nav-link" href="contact.cshtml">Профиль</a>
+										</li>
+									}
+											
                                 </ul>										
                             </div>
                         </div>
@@ -174,13 +178,38 @@
 						</p>
 					</div>
 				</div>
-				<div class="login-btn text-center">
-					<a class="theme_btn w-100" asp-controller="Account" asp-action="Login">Войти</a>
-				</div>
-				<div class="login-btn text-center">
-					<a class="theme_btn w-100" asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
-				</div>
+
+				@if (User?.Identity?.IsAuthenticated == true)
+				{
+					<div class="login-btn text-center">
+						<a class="theme_btn w-100" asp-controller="Account" asp-action="Logout">Выйти</a>
+					</div>
+				}
+				else
+				{
+					<div class="login-btn text-center">
+						<a class="theme_btn w-100" asp-controller="Account" asp-action="Login">Войти</a>
+					</div>
+					<div class="login-btn text-center">
+						<a class="theme_btn w-100" asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
+					</div>
+				}
+				
 			</div>
+
+			@if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
+			{
+				<div>
+					<h2>Добавить фильм в базу</h2>
+					<form asp-controller="Movie" asp-action="AddMovie" method="post">
+						<div class="form-group">
+							<label for="TmdbId">ID фильма в TMDb</label>
+							<input type="number" asp-for="TmdbId" class="form-control" required />
+						</div>
+						<button type="submit" class="btn btn-primary">Добавить фильм</button>
+					</form>
+				</div>
+			}
 			<!-- offset-sidebar end -->
 			
 		</aside>

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FilmLens.Contracts.Genres;
+using FilmLens.Contracts.Reviews;
 
 namespace FilmLens.Contracts.Movies
 {
@@ -29,12 +26,17 @@ namespace FilmLens.Contracts.Movies
 		/// <summary>
 		/// Дата релиза.
 		/// </summary>
-		public DateTime? ReleaseDate { get; set; }
+		public string ReleaseDate { get; set; }
 
 		/// <summary>
 		/// Средняя оценка.
 		/// </summary>
 		public double? VoteAverage { get; set; }
+
+		/// <summary>
+		/// Количество оценок.
+		/// </summary>
+		public int? VoteCount { get; set; }
 
 		/// <summary>
 		/// Ссылка на постер.
@@ -47,13 +49,28 @@ namespace FilmLens.Contracts.Movies
 		public string? Tagline { get; set; }
 
 		/// <summary>
+		/// Продолжительность (в минутах).
+		/// </summary>
+		public int? Runtime { get; set; }
+
+		/// <summary>
+		/// Бюджет.
+		/// </summary>
+		public long? Budget { get; set; }
+
+		/// <summary>
 		/// Идентификатор фильма в TMDb.
 		/// </summary>
 		public string TmdbId { get; set; }
 
 		/// <summary>
-		/// Значение оценки.
+		/// Жанры фильма.
 		/// </summary>
-		public double? CriticsRating { get; set; }
+		public ICollection<GenreDto> Genres { get; set; } = new List<GenreDto>();
+
+		/// <summary>
+		/// Рецензии фильма.
+		/// </summary>
+		public ICollection<ReviewDto> Reviews { get; set; } = new List<ReviewDto>();
 	}
 }

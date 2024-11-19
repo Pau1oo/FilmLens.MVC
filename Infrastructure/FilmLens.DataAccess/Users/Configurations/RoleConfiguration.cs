@@ -11,6 +11,17 @@ namespace FilmLens.DataAccess.Users.Configurations
 			builder.ToTable("roles");
 
 			builder.HasKey(x => x.Id);
+
+			builder.HasData(new Role
+			{
+				Id = 1,
+				Name = "User"
+			},
+			new Role
+			{
+				Id = 2,
+				Name = "Admin"
+			});
 		}
 	}
 }
