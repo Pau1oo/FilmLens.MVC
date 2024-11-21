@@ -20,9 +20,9 @@ namespace FilmLens.DataAccess.Common
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+			base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(MutableFilmLensDbContext).Assembly);
+			modelBuilder.ApplyConfigurationsFromAssembly(typeof(MutableFilmLensDbContext).Assembly);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

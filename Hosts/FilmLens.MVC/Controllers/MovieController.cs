@@ -24,17 +24,12 @@ namespace FilmLens.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> AddMovie(AddMovieViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
 			var cancellationToken = HttpContext.RequestAborted;
 
 			var existingMovie = await _movieService.GetMoviesAsync(new PagedRequest
             { PageNumber = 1, PageSize = int.MaxValue }, cancellationToken);
 
-			if (existingMovie.Movies.Any(m => m.TmdbId == model.TmdbId.ToString()))
+			if (existingMovie.Result.Any(m => m.TmdbId == model.TmdbId.ToString()))
 			{
 				return Json(new { success = false, message = "Фильм с таким ID уже существует в базе данных." });
 			}

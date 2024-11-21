@@ -25,6 +25,10 @@ using FilmLens.Infrastructure.Mappings;
 using FilmLens.AppServices.Movies.Services;
 using FilmLens.AppServices.Movies.Repositories;
 using FilmLens.DataAccess.Movies.Repositories;
+using FilmLens.AppServices.Genres.Repositories;
+using FilmLens.DataAccess.Genres.Repositories;
+using FilmLens.AppServices.MovieGenres.Repositories;
+using FilmLens.DataAccess.MovieGenres.Repositories;
 
 namespace FilmLens.ComponentRegistrar
 {
@@ -86,6 +90,8 @@ namespace FilmLens.ComponentRegistrar
 			);
 
 			services.AddScoped<IMovieRepository, MovieRepository>();
+			services.AddScoped<IGenreRepository, GenreRepository>();
+			services.AddScoped<IMovieGenresRepository, MovieGenresRepository>();
 		}
 
 		private static void RegisterServices(IServiceCollection services, IConfiguration configuration)
@@ -115,6 +121,7 @@ namespace FilmLens.ComponentRegistrar
 				mc.AddProfile(new MovieMappingProfile());
 				mc.AddProfile(new GenreMappingProfile());
 				mc.AddProfile(new ReviewMappingProfile());
+				mc.AddProfile(new MovieGenreMappingProfile());
 			});
 
 			IMapper mapper = mapperConfig.CreateMapper();
