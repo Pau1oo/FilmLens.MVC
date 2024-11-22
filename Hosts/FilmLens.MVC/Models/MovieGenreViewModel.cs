@@ -1,10 +1,11 @@
 ﻿using FilmLens.Contracts.Common;
+using FilmLens.Contracts.Movies;
 using FilmLens.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
 
-namespace FilmLens.Contracts.Movies
+namespace FilmLens.MVC.Models
 {
-	public class MoviesListDto : PagedResponse<MovieDto>
+	public class MovieGenreViewModel : PagedResponse<MovieDto>
 	{
 		/// <summary>
 		/// ID фильма в TMDb.

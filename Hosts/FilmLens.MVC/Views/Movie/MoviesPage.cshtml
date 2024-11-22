@@ -1,0 +1,337 @@
+﻿@using FilmLens.Contracts.Movies
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+@model MoviesListDto
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<meta name="keywords" content="online solution, it, tech, sass, technology, teaching, learning">
+	<meta name="description"
+		  content="Techy is a it solutions HTML template for all kinds of it, technology, online tech website">
+	<title>FilmLens</title>
+	<meta property="og:site_name" content="FilmLens">
+	<meta property="og:url" content="">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="FilmLens – IT Solution & Web Security HTML5 Template">
+	<meta name='og:image' content='~/img/ogg.png'>
+	<!-- For IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- For Resposive Device -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- For Window Tab Color -->
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#913BFF">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#913BFF">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#913BFF">
+
+	<!-- <link rel="manifest" href="site.webmanifest" /> -->
+	<link rel="shortcut icon" type="image/x-icon" href="~/img/favicon.png" />
+	<!-- Place favicon.ico in the root directory -->
+	<!-- CSS here -->
+	<link rel="stylesheet" href="~/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/fonts/custom-font/css/clash-display.css" />
+	<link rel="stylesheet" href="~/fonts/bootstrap-icons/font-css.css" />
+	<link rel="stylesheet" href="~/css/slick.css" />
+	<link rel="stylesheet" href="~/css/all.min.css" />
+	<link rel="stylesheet" href="~/css/metisMenu.css" />
+	<link rel="stylesheet" href="~/css/aos.css" />
+	<link rel="stylesheet" href="~/css/spacing.css" />
+	<link rel="stylesheet" href="~/css/main.css" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="main-page-wrapper">
+		<!-- preloader -->
+		<div id="preloader">
+			<div class="preloader">
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<!-- preloader end  -->
+		<!-- offcanvas start  -->
+		<div class="offcanvas offcanvas-top theme-bg" tabindex="-1" id="offcanvasTop">
+			<div class="offcanvas-header">
+				<a data-bs-dismiss="offcanvas" aria-label="Close">
+					<i class="fas fa-times search-close" id="search-close"></i>
+				</a>
+			</div>
+			<div class="offcanvas-body">
+				<!-- Fullscreen search -->
+				<div class="search-wrap">
+					<form method="get">
+						<input type="search" class="main-search-input" placeholder="Search Your Keyword...">
+					</form>
+				</div>
+				<!-- end fullscreen search -->
+			</div>
+		</div>
+		<!-- offcanvas end  -->
+		<!-- header-area start -->
+		<header class="theme-main-menu py-lg-4">
+			<div class="main-header-area">
+				<div class="container custom-container-nav">
+					<div class="row gx-4 gx-xxl-5 align-items-center">
+						<div class="col-xxl-3 col-xl-2 col-lg-2 col-6 text-start">
+							<div class="logo-area">
+								<a href="@Url.Action("Index", "Home")"><img src="~/img/logo/FilmLensLogo.png" alt="Header-logo"></a>
+							</div>
+						</div>
+						<div class="col-xxl-6 col-xl-6 col-lg-6 d-none d-lg-block">
+							<nav class="navbar navbar-expand-lg">
+								<div class="container-fluid">
+									<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+											data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+											aria-expanded="false" aria-label="Toggle navigation">
+										<span class="navbar-toggler-icon"></span>
+									</button>
+									<div class="collapse navbar-collapse" id="navbarSupportedContent">
+										<ul class="navbar-nav mb-2 mb-lg-0 ps-1 justify-content-center">
+
+											<li class="nav-item dropdown">
+												<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOne"
+												   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+													Каталог
+												</a>
+												<ul class="dropdown-menu" aria-labelledby="navbarDropdownOne">
+													<li><a class="dropdown-item" asp-controller="Movie" asp-action="MoviesPage"><i class="fas fa-film"></i> Фильмы</a></li>
+												</ul>
+											</li>
+
+											<li class="nav-item">
+												<a class="nav-link" asp-controller="Genre" asp-action="GenresPage">Жанры</a>
+											</li>
+
+											@if (User?.Identity?.IsAuthenticated == true)
+											{
+												<li class="nav-item">
+													<a class="nav-link" href="contact.cshtml">Профиль</a>
+												</li>
+											}
+
+										</ul>
+									</div>
+								</div>
+							</nav>
+						</div>
+						<div class="col-xxl-3 col-xl-4 col-lg-4 col-6 text-end">
+							<ul class="right-nav mb-0 d-flex align-items-center justify-content-end">
+								<li>
+									<div class="d-none d-xxl-inline-block right-language pr-40">
+									</div>
+								</li>
+								<li class="search-area">
+									<a class="search_input" href="#" data-bs-toggle="offcanvas"
+									   data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+										<i class="bi bi-search"></i>
+									</a>
+								</li>
+								<li>
+									<div class="hamburger-menu">
+										<a class="round-menu" href="javascript:void(0);">
+											<i class="bi bi-list"></i>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- header-area end -->
+		<!-- slide-bar start -->
+		<aside class="slide-bar">
+			<div class="close-mobile-menu">
+				<a href="javascript:void(0);">
+					<i class="fas fa-times"></i>
+				</a>
+			</div>
+			<!-- offset-sidebar start -->
+			<div class="offset-sidebar">
+				<div class="offset-widget offset-logo mb-30">
+					<a href="index.cshtml">
+						<img src="~/img/logo/FilmLensLogo2.png" alt="logo">
+					</a>
+				</div>
+				<div class="offset-widget mb-40">
+					<div class="info-widget">
+						<h4 class="offset-title mb-20">О нас</h4>
+						<p class="mb-30">
+							FilmLens — это твой личный кинокритик и проводник в мир кинематографа. Наша платформа
+							создана для того, чтобы ты мог легко и быстро находить фильмы для любого случая — будь то
+							вечер в кругу друзей или уютный просмотр дома.
+						</p>
+					</div>
+				</div>
+				<div class="offset-widget mb-30 pr-10">
+					<div class="info-widget info-widget2">
+						<h4 class="offset-title mb-20">Контактная информация</h4>
+						<p>
+							<i class="fal fa-envelope-open"></i>
+							support@filmlens.com
+						</p>
+					</div>
+				</div>
+
+				@if (User?.Identity?.IsAuthenticated == true)
+				{
+					<div class="login-btn text-center">
+						<a class="theme_btn w-100" asp-controller="Account" asp-action="Logout">Выйти</a>
+					</div>
+				}
+				else
+				{
+					<div class="login-btn text-center">
+						<a class="theme_btn w-100" asp-controller="Account" asp-action="Login">Войти</a>
+					</div>
+					<div class="login-btn text-center">
+						<a class="theme_btn w-100" asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
+					</div>
+				}
+
+			</div>
+
+			@if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
+			{
+				<div>
+					<h2>Добавить фильм в базу</h2>
+					<form asp-controller="Movie" asp-action="AddMovie" method="post">
+						<div class="form-group">
+							<label for="TmdbId">ID фильма в TMDb</label>
+							<input type="number" asp-for="TmdbId" class="form-control" required />
+						</div>
+						<button type="submit" class="btn btn-primary">Добавить фильм</button>
+					</form>
+				</div>
+			}
+			<!-- offset-sidebar end -->
+
+		</aside>
+		<div class="body-overlay"></div>
+		<!-- slide-bar end -->
+
+		<main>
+			<!--our-services start-->
+			<section class="latest-case-work pt-70 pb-150 pt-lg-60 pb-lg-120">
+				<div class="container">
+					<div class="row gx-4 gx-xxl-5 align-items-center justify-content-center">
+						<div class="col-xl-5 col-lg-6 col-md-8">
+							<div class="section-title text-center mb-55">
+								<h3 class="sect-title mb-25" data-aos="fade-up">Фильмы</h3>
+								<p data-aos="fade-up" data-aos-delay="100">
+									@* Текст *@
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="row gx-4 gx-xxl-5">
+
+						@foreach (var movie in Model.Result)
+						{
+							<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+								<div class="team-style-two text-center mb-45">
+									<div class="team-thumb">
+										<a href="team-details.html">
+											<img src="https://image.tmdb.org/t/p/w500@(movie.PosterUrl)"
+																		 alt="@movie.Title" 
+																		 style="width: 370px; height: 513px; object-fit: cover;"
+																		 class="img-fluid">
+										</a>
+									</div>
+									<div class="team-content">
+										<h3 class="sect-title-two"><a href="team-details.html">@movie.Title</a></h3>
+									</div>
+								</div>
+							</div>
+						}
+
+						<nav aria-label="Page navigation example">
+							<ul class="pagination justify-content-center">
+								@if (Model.PageNumber > 1)
+								{
+									<li class="page-item">
+										<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = Model.PageNumber - 1 })">Назад</a>
+									</li>
+								}
+
+								<!-- Показ нескольких номеров страниц -->
+								@{
+									var pagesCount = Math.Ceiling((decimal)Model.TotalCount / Model.PageSize);
+								}
+								@for (var i = 1; i <= pagesCount; i++)
+								{
+									if (i == Model.PageNumber)
+									{
+										<li class="page-item active">
+											<span class="page-link">@i</span>
+										</li>
+									}
+									else if (i <= 3 || i == Model.TotalCount || (i >= Model.PageNumber - 2 && i <= Model.PageNumber + 2))
+									{
+										<li class="page-item">
+											<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = i })">@i</a>
+										</li>
+									}
+									else if (i == 4)
+									{
+										<li class="page-item">
+											<span class="page-link">...</span>
+										</li>
+									}
+									else if (i == pagesCount)
+									{
+										<li class="page-item">
+											<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = i })">@i</a>
+										</li>
+									}
+								}
+
+								@if (Model.PageNumber < pagesCount)
+								{
+									<li class="page-item">
+										<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = Model.PageNumber + 1 })">Вперед</a>
+									</li>
+								}
+							</ul>
+						</nav>
+
+					</div>
+				</div>
+			</section>
+			<!--our-services end-->
+		</main>
+	</div>
+
+	<!-- JS here -->
+
+	<script src="~/js/vendor/modernizr-3.5.0.min.js"></script>
+	<script src="~/js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="~/js/vendor/popper.min.js"></script>
+	<script src="~/js/vendor/bootstrap.min.js"></script>
+	<script src="~/js/slick.min.js"></script>
+	<script src="~/js/jquery.supermarquee.min.js"></script>
+	<script src="~/js/imagesloaded.pkgd.min.js"></script>
+	<script src="~/js/isotope.pkgd.min.js"></script>
+	<script src="~/js/jquery.magnific-popup.min.js"></script>
+	<script src="~/js/metisMenu.min.js"></script>
+	<script src="~/js/wow.min.js"></script>
+	<script src="~/js/aos.js"></script>
+	<script src="~/js/jquery.counterup.min.js"></script>
+	<script src="~/js/jquery.waypoints.min.js"></script>
+	<script src="~/js/tilt.jquery.min.js"></script>
+	<script src="~/js/jquery.easypiechart.min.js"></script>
+	<script src="~/js/jquery-ui.js"></script>
+	<script src="~/js/jquery.scrollUp.min.js"></script>
+	<script src="~/js/plugins.js"></script>
+
+	<!--Custom JS here -->
+	<script src="~/js/main.js"></script>
+
+</body>
+
+</html>

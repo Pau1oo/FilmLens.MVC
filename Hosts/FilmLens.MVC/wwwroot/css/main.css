@@ -5615,13 +5615,13 @@ ul.slick-dots li.slick-active {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-.team-style-one .team-content {
-  background: white;
-  padding: 25px 0;
-  position: relative;
-  z-index: 2;
-  margin-top: -65px;
-}
+    .team-style-one .team-content {
+        background: white;
+        padding: 25px 0;
+        position: relative;
+        z-index: 2;
+        margin-top: -65px;
+    }
 .team-style-one .team-content p {
   color: #913bff;
 }
@@ -5657,10 +5657,10 @@ ul.slick-dots li.slick-active {
   -o-border-radius: 10px;
   margin: 0 7px;
 }
-.team-social a:hover {
-  color: white;
-  background: #913bff;
-}
+    .team-social a:hover {
+        color: white;
+        background: #913bff;
+    }
 @media (max-width: 1200px) {
   .team-social a {
     font-size: 20px;
@@ -5728,15 +5728,15 @@ ul.slick-dots li.slick-active {
   transition: all 0.3s ease 0s;
 }
 .team-style-two .team-content {
-  background: white;
-  padding: 23px 0 20px 0;
+    background: darkslateblue;
+    padding: 23px 0 20px 0;
 }
 .team-style-two .team-content p {
   color: #913bff;
   margin-bottom: 10px;
 }
     .team-style-two .team-content .sect-title-two a {
-        color: #050d36;
+        color: ghostwhite; 
         font-weight: 700;
         font-family: "ClashDisplay-Bold", Tahoma;
     }
@@ -5755,10 +5755,10 @@ ul.slick-dots li.slick-active {
   border-radius: 5px;
   margin: 0 5px;
 }
-.team-social-two a:hover {
-  color: white;
-  background: #913bff;
-}
+    .team-social-two a:hover {
+        color: white;
+        background: #913bff;
+    }
 
 .team-details-content-top {
   background: rgba(255, 255, 255, 0.05);

@@ -22,7 +22,7 @@ namespace FilmLens.MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddMovie(AddMovieViewModel model)
+        public async Task<IActionResult> AddMovie(MovieGenreViewModel model)
         {
 			var cancellationToken = HttpContext.RequestAborted;
 
@@ -52,8 +52,19 @@ namespace FilmLens.MVC.Controllers
 
 		public IActionResult AddMovie()
 		{
-			var model = new AddMovieViewModel();
+			var model = new MovieGenreViewModel();
 			return View(model);
+		}
+
+		public async Task<IActionResult> MoviesPage(int pageNumber = 1, CancellationToken cancellationToken = default)
+		{
+			var result = await _movieService.GetMoviesAsync(new PagedRequest
+			{ 
+				PageNumber = pageNumber,
+				PageSize = 15 
+			}, cancellationToken);
+
+			return View(result);
 		}
 	}
 }

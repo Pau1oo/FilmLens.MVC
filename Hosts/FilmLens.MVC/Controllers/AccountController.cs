@@ -17,7 +17,7 @@ namespace FilmLens.MVC.Controllers
 		/// Осуществляет регистрацию пользователя.
 		/// </summary>
 		/// <param name="model">Модель с данными для регистрации.</param>
-		/// <param name="cancellation">Токен отменыф операции.</param>
+		/// <param name="cancellation">Токен отмены операции.</param>
 		[HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model, CancellationToken cancellation)
         {
