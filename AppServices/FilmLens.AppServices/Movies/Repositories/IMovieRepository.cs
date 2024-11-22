@@ -8,6 +8,6 @@ namespace FilmLens.AppServices.Movies.Repositories
 	{
 		Task<List<Movie>> GetMoviesAsync(GetMoviesRequest request, CancellationToken cancellation);
 
-		Task<int> GetMoviesTotalCountAsync(CancellationToken cancellation);
+		public Task<int> GetMoviesTotalCountAsync(int? genreId, CancellationToken cancellation);
 	}
 }

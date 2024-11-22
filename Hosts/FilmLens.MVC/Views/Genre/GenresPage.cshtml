@@ -236,7 +236,7 @@
 							<div class="col-lg-4 col-md-6" data-aos="fade-up">
 								<div class="feature-style-five mb-45">
 									<h2 class="mb-20">
-										<a class="sect-title-two" href="services-details.html">@genre.Name</a>
+										<a class="sect-title-two" href="@Url.Action("MoviesPage", "Movie", new {genreId = genre.Id, genreName = genre.Name})">@genre.Name</a>
 									</h2>
 								</div>
 							</div>

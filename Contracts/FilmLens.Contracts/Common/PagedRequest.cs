@@ -14,5 +14,15 @@
 		/// Номер страницы.
 		/// </summary>
 		public int PageNumber { get; set; }
+
+		/// <summary>
+		/// Идентификатор жанра.
+		/// </summary>
+		public int? GenreId { get; set; }
+
+		/// <summary>
+		/// Наименование жанра.
+		/// </summary>
+		public string? GenreName { get; set; }
 	}
 }

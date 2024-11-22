@@ -21,5 +21,16 @@ namespace FilmLens.Contracts.Movies
 		/// Список жанров.
 		/// </summary>
 		public List<Genre> Genres { get; set; }
+
+		/// <summary>
+		/// Идентификатор жанра.
+		/// </summary>
+		public int? GenreId { get; set; }
+		
+		/// <summary>
+		/// Наименование жанра.
+		/// </summary>
+		public string? GenreName { get; set; }
+
 	}
 }

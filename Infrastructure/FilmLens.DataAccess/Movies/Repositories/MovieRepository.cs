@@ -23,11 +23,18 @@ namespace FilmLens.DataAccess.Movies.Repositories
 				.ToListAsync(cancellation);
 		}
 
-		public Task<int> GetMoviesTotalCountAsync(CancellationToken cancellation)
+		public Task<int> GetMoviesTotalCountAsync(int? genreId, CancellationToken cancellation)
 		{
-			return ReadOnlyDbContext
+			var query = ReadOnlyDbContext
 				.Set<Movie>()
-				.CountAsync(cancellation);
+				.AsQueryable();
+
+			if (genreId.HasValue)
+			{
+				query = query.Where(movie => movie.Genres.Any(genre => genre.Id == genreId.Value));
+			}
+
+			return query.CountAsync(cancellation);
 		}
 
 		public Task<List<Movie>> GetMoviesAsync(GetMoviesRequest request, CancellationToken cancellation)
@@ -35,6 +42,11 @@ namespace FilmLens.DataAccess.Movies.Repositories
 			var query = ReadOnlyDbContext
 				.Set<Movie>()
 				.AsQueryable();
+
+			if (request.GenreId.HasValue)
+			{
+				query = query.Where(movie => movie.Genres.Any(genre => genre.Id == request.GenreId.Value));
+			}
 
 			query = query
 				.OrderBy(x => x.Id)

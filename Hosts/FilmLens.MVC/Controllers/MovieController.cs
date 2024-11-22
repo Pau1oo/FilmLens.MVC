@@ -56,12 +56,14 @@ namespace FilmLens.MVC.Controllers
 			return View(model);
 		}
 
-		public async Task<IActionResult> MoviesPage(int pageNumber = 1, CancellationToken cancellationToken = default)
+		public async Task<IActionResult> MoviesPage(int pageNumber = 1, int? genreId = null,string? genreName = null, CancellationToken cancellationToken = default)
 		{
 			var result = await _movieService.GetMoviesAsync(new PagedRequest
 			{ 
 				PageNumber = pageNumber,
-				PageSize = 15 
+				PageSize = 15, 
+				GenreId = genreId,
+				GenreName = genreName
 			}, cancellationToken);
 
 			return View(result);

@@ -74,7 +74,7 @@ namespace FilmLens.AppServices.Movies.Services
 				throw new ArgumentNullException(nameof(request));
 			}
 
-			var totalCount = await _movieRepository.GetMoviesTotalCountAsync(cancellation);
+			var totalCount = await _movieRepository.GetMoviesTotalCountAsync(request.GenreId, cancellation);
 
 			if (totalCount == 0)
 			{
@@ -90,7 +90,9 @@ namespace FilmLens.AppServices.Movies.Services
 			var movies = await _movieRepository.GetMoviesAsync(new GetMoviesRequest
 			{
 				Take = request.PageSize,
-				Skip = (request.PageNumber - 1) * request.PageSize
+				Skip = (request.PageNumber - 1) * request.PageSize,
+				GenreId = request.GenreId,
+				GenreName = request.GenreName
 			}, cancellation);
 
 			var movieList = _mapper.Map<List<MovieDto>>(movies);
@@ -100,7 +102,9 @@ namespace FilmLens.AppServices.Movies.Services
 				PageNumber = request.PageNumber,
 				PageSize = request.PageSize,
 				TotalCount = totalCount,
-				Result = movieList
+				Result = movieList,
+				GenreId = request.GenreId,
+				GenreName = request.GenreName
 			};
 		}
 	}
