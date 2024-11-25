@@ -18,6 +18,11 @@
 		/// <summary>
 		/// Идентификатор жанра.
 		/// </summary>
+		public int MovieId { get; set; }
+
+		/// <summary>
+		/// Идентификатор жанра.
+		/// </summary>
 		public int? GenreId { get; set; }
 
 		/// <summary>

@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html class="no-js" lang="ru">
-@model MovieGenreViewModel
+@model GenresViewModel
 
 <head>
 	<meta charset="utf-8" />
@@ -108,7 +108,7 @@
 											@if (User?.Identity?.IsAuthenticated == true)
 											{
 												<li class="nav-item">
-													<a class="nav-link" href="contact.cshtml">Профиль</a>
+													<a class="nav-link" asp-controller="User" asp-action="Profile">Профиль</a>
 												</li>
 											}
 
@@ -202,7 +202,7 @@
 					<form asp-controller="Movie" asp-action="AddMovie" method="post">
 						<div class="form-group">
 							<label for="TmdbId">ID фильма в TMDb</label>
-							<input type="number" asp-for="TmdbId" class="form-control" required />
+							<input type="number" asp-for="Common.TmdbId" class="form-control" required />
 						</div>
 						<button type="submit" class="btn btn-primary">Добавить фильм</button>
 					</form>

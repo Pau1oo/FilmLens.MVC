@@ -7,10 +7,8 @@ namespace FilmLens.AppServices.Genres.Repositories
 	{
 		Task<List<Genre>> GetGenresByIdsAsync(IEnumerable<int> ids, CancellationToken cancellationToken);
 
-		Task DeleteGenresByIdsAsync(IEnumerable<int> ids, CancellationToken cancellationToken);
-
 		Task<List<Genre>> GetAllGenresAsync(CancellationToken cancellationToken);
 
-		Task AddGenresAsync(IEnumerable<Genre> genres, CancellationToken cancellationToken);
+		Task<List<Genre>> GetGenresByMovieIdAsync(int movieId, CancellationToken cancellationToken);
 	}
 }

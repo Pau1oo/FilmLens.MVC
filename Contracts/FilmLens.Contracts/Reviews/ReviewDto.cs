@@ -26,11 +26,6 @@
 		public string ReviewText { get; set; }
 
 		/// <summary>
-		/// Значение оценки.
-		/// </summary>
-		public int? RatingValue { get; set; }
-
-		/// <summary>
 		/// Дата создания рецензии.
 		/// </summary>
 		public DateTime CreatedAt { get; set; }

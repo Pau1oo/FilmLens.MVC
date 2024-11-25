@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace FilmLens.Domain.Entities
 {
@@ -8,6 +7,14 @@ namespace FilmLens.Domain.Entities
     /// </summary>
     public class User : IdentityUser<int>
     {
-        
+        /// <summary>
+        /// Дата создания.
+        /// </summary>
+        public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// Количество рецензий, написанных пользователем.
+        /// </summary>
+        public int ReviewCount { get; set; } = default!;
     }
 }

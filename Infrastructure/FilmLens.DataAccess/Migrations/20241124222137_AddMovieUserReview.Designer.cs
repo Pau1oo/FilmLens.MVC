@@ -3,6 +3,7 @@ using System;
 using FilmLens.DataAccess.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FilmLens.DataAccess.Migrations
 {
     [DbContext(typeof(MutableFilmLensDbContext))]
-    partial class MutableFilmLensDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241124222137_AddMovieUserReview")]
+    partial class AddMovieUserReview
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -96,13 +99,16 @@ namespace FilmLens.DataAccess.Migrations
 
             modelBuilder.Entity("FilmLens.Domain.Entities.MovieGenre", b =>
                 {
+                    b.Property<int>("GenreId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("GenreId"));
+
                     b.Property<int>("MovieId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("GenreId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("MovieId", "GenreId");
+                    b.HasKey("GenreId");
 
                     b.ToTable("MovieGenre");
                 });
@@ -134,12 +140,15 @@ namespace FilmLens.DataAccess.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("MovieId")
+                    b.Property<int>("MovieId")
                         .HasColumnType("integer");
 
                     b.Property<string>("ReviewText")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -237,7 +246,7 @@ namespace FilmLens.DataAccess.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("ReviewCount")
+                    b.Property<int?>("ReviewCount")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasDefaultValue(0);
@@ -420,7 +429,9 @@ namespace FilmLens.DataAccess.Migrations
                 {
                     b.HasOne("FilmLens.Domain.Entities.Movie", null)
                         .WithMany("Reviews")
-                        .HasForeignKey("MovieId");
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FilmLens.Domain.Entities.UserReview", b =>

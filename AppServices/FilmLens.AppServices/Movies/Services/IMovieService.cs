@@ -20,8 +20,16 @@ namespace FilmLens.AppServices.Movies.Services
 		/// Добавляет фильм.
 		/// </summary>
 		/// <param name="movieDto">Транспортная модель фильма.</param>
-		/// <param name="cancellationToken">Токер отмены операции.</param>
+		/// <param name="cancellationToken">Токен отмены операции.</param>
 		/// <returns></returns>
 		Task AddMovieAsync(MovieDto movieDto, CancellationToken cancellationToken);
+
+		/// <summary>
+		/// Возвращает фильм по идентификатору.
+		/// </summary>
+		/// <param name="movieId">Идентификатор.</param>
+		/// <param name="cancellation">Токен отмены операции.</param>
+		/// <returns></returns>
+		Task<MovieDto> GetMovieAsync(int movieId, CancellationToken cancellation);
 	}
 }

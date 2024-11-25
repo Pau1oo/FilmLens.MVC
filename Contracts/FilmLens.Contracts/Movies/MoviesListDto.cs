@@ -13,16 +13,6 @@ namespace FilmLens.Contracts.Movies
 		public int TmdbId { get; set; }
 
 		/// <summary>
-		/// Сообщение о результате операции.
-		/// </summary>
-		public string? Message { get; set; }
-
-		/// <summary>
-		/// Список жанров.
-		/// </summary>
-		public List<Genre> Genres { get; set; }
-
-		/// <summary>
 		/// Идентификатор жанра.
 		/// </summary>
 		public int? GenreId { get; set; }

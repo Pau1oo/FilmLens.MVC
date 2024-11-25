@@ -29,6 +29,8 @@ using FilmLens.AppServices.Genres.Repositories;
 using FilmLens.DataAccess.Genres.Repositories;
 using FilmLens.AppServices.MovieGenres.Repositories;
 using FilmLens.DataAccess.MovieGenres.Repositories;
+using FilmLens.AppServices.Users.Services;
+using FilmLens.AppServices.Genres.Services;
 
 namespace FilmLens.ComponentRegistrar
 {
@@ -105,6 +107,8 @@ namespace FilmLens.ComponentRegistrar
 			services.AddScoped<IAuthenticationService, AuthenticationService>();
 			services.AddScoped<ITmdbService, TmdbService>();
 			services.AddScoped<IMovieService, MovieService>();
+			services.AddScoped<IGenreService, GenreService>();
+			services.AddScoped<IUserService, UserService>();
 
 			services.AddSingleton<IRedisCache, RedisCache>();
 			services.AddSingleton<ICacheService, RedisCacheService>();

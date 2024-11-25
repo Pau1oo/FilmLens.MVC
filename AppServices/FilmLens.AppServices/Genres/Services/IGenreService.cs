@@ -1,4 +1,5 @@
-﻿using FilmLens.Domain.Entities;
+﻿using FilmLens.Contracts.Genres;
+using FilmLens.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,6 @@ namespace FilmLens.AppServices.Genres.Services
 	/// </summary>
 	public interface IGenreService
 	{
-		
+		Task<List<GenreDto>> GetGenresAsync(int movieId, CancellationToken cancellation);
 	}
 }

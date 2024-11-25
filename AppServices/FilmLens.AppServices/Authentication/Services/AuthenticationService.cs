@@ -40,6 +40,8 @@ namespace FilmLens.AppServices.Authentication.Services
 			{
 				UserName = name,
 				Email = email,
+				CreatedAt = DateTime.UtcNow,
+				ReviewCount = 0
 			};
 
 			return await _userManager.CreateAsync(user, password);

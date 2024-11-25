@@ -1,7 +1,6 @@
-﻿@using FilmLens.Contracts.Movies
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="no-js" lang="ru">
-@model MoviesListDto
+@model MovieViewModel
 
 <head>
 	<meta charset="utf-8" />
@@ -203,7 +202,7 @@
 					<form asp-controller="Movie" asp-action="AddMovie" method="post">
 						<div class="form-group">
 							<label for="TmdbId">ID фильма в TMDb</label>
-							<input type="number" asp-for="TmdbId" class="form-control" required />
+							<input type="number" asp-for="Common.TmdbId" class="form-control" required />
 						</div>
 						<button type="submit" class="btn btn-primary">Добавить фильм</button>
 					</form>
@@ -216,102 +215,163 @@
 		<!-- slide-bar end -->
 
 		<main>
-			<!--our-services start-->
-			<section class="latest-case-work pt-70 pb-150 pt-lg-60 pb-lg-120">
+			<!--product-details-section start-->
+			<section class="product-details-section pt-100 pb-40 pt-lg-60">
 				<div class="container">
-					<div class="row gx-4 gx-xxl-5 align-items-center justify-content-center">
-						<div class="col-xl-5 col-lg-6 col-md-8">
-							<div class="section-title text-center mb-55">
-								<h3 class="sect-title mb-25" data-aos="fade-up">Фильмы</h3>
-								<p data-aos="fade-up" data-aos-delay="100">
-									@Model.GenreName
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="row gx-4 gx-xxl-5">
-
-						@foreach (var movie in Model.Result)
-						{
-							<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-								<div class="team-style-two text-center mb-45">
-									<div class="team-thumb">
-										<a href="@Url.Action("MoviePage", new {id = movie.Id})">
-											<img src="https://image.tmdb.org/t/p/w500@(movie.PosterUrl)"
-																		 alt="@movie.Title" 
-																		 style="width: 370px; height: 513px; object-fit: cover;"
-																		 class="img-fluid">
-										</a>
-									</div>
-									<div class="team-content">
-										<h3 class="sect-title-two"><a href="@Url.Action("MoviePage", new {id = movie.Id})">@movie.Title</a></h3>
+					<div class="row gx-4 gx-xxl-2 align-items-center">
+						<div class="col-lg-6 mb-40">
+							<div class="product-img-slider">
+								<div class="product-item-slider mb-20">
+									<div class="product-item">
+										<img src="https://image.tmdb.org/t/p/w500@(Model.Movie.PosterUrl)" 
+										alt="Big Image"
+											 style="width: 460px; height: 660px; object-fit: cover; margin-left: 120px;"
+					  				    class="img-fluid">
 									</div>
 								</div>
 							</div>
-						}
-	
-						<nav aria-label="Page navigation example">
-							<ul class="pagination justify-content-center">
-								@if (Model.PageNumber > 1)
-								{
-									<li class="page-item">
-										<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = Model.PageNumber - 1, 
-																								   genreId = Model.GenreId, 
-																								   genreName = Model.GenreName })">Назад</a>
-									</li>
-								}
-
-								<!-- Показ нескольких номеров страниц -->
-								@{
-									var pagesCount = Math.Ceiling((decimal)Model.TotalCount / Model.PageSize);
-								}
-								@for (var i = 1; i <= pagesCount; i++)
-								{
-									if (i == Model.PageNumber)
-									{
-										<li class="page-item active">
-											<span class="page-link">@i</span>
-										</li>
-									}
-									else if (i <= 3 || i == Model.TotalCount || (i >= Model.PageNumber - 2 && i <= Model.PageNumber + 2))
-									{
-										<li class="page-item">
-											<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = i, 
-																									   genreId = Model.GenreId, 
-																									   genreName = Model.GenreName })">@i</a>
-										</li>
-									}
-									else if (i == 4)
-									{
-										<li class="page-item">
-											<span class="page-link">...</span>
-										</li>
-									}
-									else if (i == pagesCount)
-									{
-										<li class="page-item">
-											<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = i, 
-																									   genreId = Model.GenreId, 
-																									   genreName = Model.GenreName })">@i</a>
-										</li>
-									}
-								}
-
-								@if (Model.PageNumber < pagesCount)
-								{
-									<li class="page-item">
-										<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = Model.PageNumber + 1, 
-																								   genreId = Model.GenreId, 
-																								   genreName = Model.GenreName })">Вперед</a>
-									</li>
-								}
-							</ul>
-						</nav>
-
+						</div>
+						<div class="col-lg-6 mb-40">
+							<div class="product-details-content pt-lg-4 ps-xl-5">
+								<div class="product-details">
+									<h3 class="product-title">@Model.Movie.Title</h3>
+									<div class="price-list mt-35 mb-10">
+										<span class="old-price">Слоган:</span>
+										<span class="new-price">@Model.Movie.Tagline</span>
+									</div>
+									<div class="price-list mt-10 mb-10">
+										<span class="old-price">Жанр:</span>
+										<span class="new-price">
+											@string.Join(",  ", Model.Genres.Select(genre => genre.Name))
+										</span>
+									</div>
+									<div class="price-list mt-10 mb-10">
+										<span class="old-price">Дата релиза:</span>
+										<span class="new-price">@Model.Movie.ReleaseDate</span>
+									</div>
+									<div class="price-list mt-10 mb-10">
+										<span class="old-price">Продолжительность:</span>
+										<span class="new-price">@Model.Movie.Runtime мин.</span>
+									</div>
+									<div class="price-list mt-10 mb-10">
+										<span class="old-price">Бюджет:</span>
+										<span class="new-price">$@Model.Movie.Budget</span>
+									</div>
+									<div class="price-list mt-10 mb-10">
+										<span class="old-price">Количество оценок:</span>
+										<span class="new-price">@Model.Movie.VoteCount</span>
+									</div>
+									<div class="product-rating mb-35">
+										@for (int i = 1; i <= 10; i++)
+										{
+											if (Model.Movie.VoteAverage >= (i - 1) * 1 && Model.Movie.VoteAverage < i * 1)
+											{
+												<a href="#"><i class="fas fa-star"></i></a>
+											}
+											else if (Model.Movie.VoteAverage >= i * 1)
+											{
+												<a href="#"><i class="fas fa-star"></i></a>
+											}
+											else
+											{
+												<a href="#"><i class="fal fa-star"></i></a>
+											}
+										}
+										<a href="#">(@Model.Movie.VoteAverage)</a>
+									</div>
+									<a href="#" class="cart-btn">Добавить в избранное</a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
-			<!--our-services end-->
+			<!--product-details-section end-->
+			<!--product-review-section start-->
+			<div class="product-review-section pb-100 pb-lg-15">
+				<div class="container">
+					<div class="row align-items-center justify-content-center">
+						<div class="col-lg-12">
+							<ul class="nav nav-tabs product-tab" id="myTab" role="tablist">
+								<li class="nav-item" role="presentation">
+									<button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+											data-bs-target="#home" type="button" role="tab" aria-controls="home"
+											aria-selected="true">
+										Описание
+									</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+											data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
+											aria-selected="false">
+										Комментарии
+									</button>
+								</li>
+							</ul>
+
+						</div>
+						<div class="col-lg-10">
+							<div class="tab-content mt-40 mb-45" id="myTabContent">
+								<div class="tab-pane fade show active text-center" id="home" role="tabpanel"
+									 aria-labelledby="home-tab">
+									<p class="text-white mb-30">
+										@Model.Movie.Overview
+									</p>
+								</div>
+								<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+									<div class="row align-items-center">
+										<div class="col-lg-7 col-md-12">
+											<div class="contact-form-two">
+												<h3 class="post-title mb-20">Оставь свой комментарий</h3>
+												<form class="widget-form" action="#">
+													<div class="row gx-4 gx-xxl-5 px-0">
+														<div class="col-md-12 mb-10">
+															<textarea name="message" placeholder=""></textarea>
+														</div>
+														<div class="col-12">
+															<button class="theme_btn">Отправить</button>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+									<div class="comments-wrapper  mt-55">
+										<h3 class="post-title mb-50">Комментарии</h3>
+										<ul class="comment-list list-none">
+
+
+											<li>
+												<div class="comment-box">
+													<div class="comment-content">
+														<h5>
+															Пользовтаель
+														</h5>
+														<p class="fs-14 mb-15">
+															<i class="far fa-calendar-alt"></i> 24th March
+															2022
+														</p>
+														<p>
+															For all the assets is hard and time-consuming technical work. And, of
+															course, the result needs to be seamless and delightful — dare we
+															say, even fun — to develop and maintain. Regardless of whether
+															you’re ing up a storefront for a new merchant.
+														</p>
+													</div>
+												</div>
+											</li>
+
+
+											
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--product-review-section end-->
 		</main>
 	</div>
 

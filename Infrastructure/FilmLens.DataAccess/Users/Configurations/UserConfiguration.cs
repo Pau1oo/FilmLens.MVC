@@ -11,6 +11,12 @@ namespace FilmLens.DataAccess.Users.Configurations
 			builder.ToTable("users");
 
 			builder.HasKey(t => t.Id);
+
+			builder.Property(u => u.CreatedAt)
+				.IsRequired();
+
+			builder.Property(u => u.ReviewCount)
+				.HasDefaultValue(0);
 		}
 	}
 }

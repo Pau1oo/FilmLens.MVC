@@ -1,9 +1,9 @@
 ﻿namespace FilmLens.Domain.Entities
 {
 	/// <summary>
-	/// Связь фильма и жанра.
+	/// Связь фильма и рецензии.
 	/// </summary>
-	public sealed class MovieGenre
+	public sealed class MovieReview
 	{
 		/// <summary>
 		/// Идентификатор фильма.
@@ -11,8 +11,8 @@
 		public int MovieId { get; set; }
 
 		/// <summary>
-		/// Идентификатор жанра.
+		/// Идентификатор рецензии.
 		/// </summary>
-		public int GenreId { get; set; }
+		public int ReviewId { get; set; }
 	}
 }

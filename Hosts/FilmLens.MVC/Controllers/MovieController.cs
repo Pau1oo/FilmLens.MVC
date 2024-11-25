@@ -1,28 +1,33 @@
 ﻿using AutoMapper;
 using FilmLens.AppServices.Common.TMDb;
+using FilmLens.AppServices.Genres.Services;
 using FilmLens.AppServices.Movies.Services;
 using FilmLens.Contracts.Common;
 using FilmLens.Contracts.Movies;
+using FilmLens.Domain.Entities;
 using FilmLens.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading;
 
 namespace FilmLens.MVC.Controllers
 {
 	public class MovieController : Controller
 	{
 		private readonly IMovieService _movieService;
+		private readonly IGenreService _genreService;
 		private readonly ITmdbService _tmdbService;
 		private readonly IMapper _mapper;
 
-		public MovieController(IMovieService movieService, ITmdbService tmdbService, IMapper mapper)
+		public MovieController(IMovieService movieService, IGenreService genreService, ITmdbService tmdbService, IMapper mapper)
         {
             _movieService = movieService;
+			_genreService = genreService;
             _tmdbService = tmdbService;
 			_mapper = mapper;
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddMovie(MovieGenreViewModel model)
+        public async Task<IActionResult> AddMovie(CommonViewModel model)
         {
 			var cancellationToken = HttpContext.RequestAborted;
 
@@ -46,17 +51,10 @@ namespace FilmLens.MVC.Controllers
 
 			await _movieService.AddMovieAsync(movieDto, cancellationToken);
 
-			TempData["SuccessMessage"] = "Фильм успешно добавлен!";
 			return RedirectToAction("Index", "Home");
 		}
 
-		public IActionResult AddMovie()
-		{
-			var model = new MovieGenreViewModel();
-			return View(model);
-		}
-
-		public async Task<IActionResult> MoviesPage(int pageNumber = 1, int? genreId = null,string? genreName = null, CancellationToken cancellationToken = default)
+		public async Task<IActionResult> MoviesPage(int pageNumber = 1, int? genreId = null, string? genreName = null, CancellationToken cancellationToken = default)
 		{
 			var result = await _movieService.GetMoviesAsync(new PagedRequest
 			{ 
@@ -65,6 +63,20 @@ namespace FilmLens.MVC.Controllers
 				GenreId = genreId,
 				GenreName = genreName
 			}, cancellationToken);
+
+			return View(result);
+		}
+
+		public async Task<IActionResult> MoviePage(int id, CancellationToken cancellationToken)
+		{
+			var movie = await _movieService.GetMovieAsync(id, cancellationToken);
+			var genres = await _genreService.GetGenresAsync(id, cancellationToken);
+
+			var result = new MovieViewModel 
+			{
+				Movie = movie,
+				Genres = genres
+			};
 
 			return View(result);
 		}

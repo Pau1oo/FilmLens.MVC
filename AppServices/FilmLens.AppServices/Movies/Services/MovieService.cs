@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
-using FilmLens.AppServices.Common;
 using FilmLens.AppServices.Common.Events.Common;
 using FilmLens.AppServices.Genres.Repositories;
 using FilmLens.AppServices.MovieGenres.Repositories;
 using FilmLens.AppServices.Movies.Models;
 using FilmLens.AppServices.Movies.Repositories;
 using FilmLens.Contracts.Common;
-using FilmLens.Contracts.MovieGenres;
 using FilmLens.Contracts.Movies;
 using FilmLens.Domain.Entities;
-using System.Data.Entity;
 
 namespace FilmLens.AppServices.Movies.Services
 {
@@ -20,20 +17,17 @@ namespace FilmLens.AppServices.Movies.Services
 	{
 		private readonly IMovieRepository _movieRepository;
 		private readonly IGenreRepository _genreRepository;
-		private readonly IMovieGenresRepository _movieGenresRepository;
 		private readonly IMapper _mapper;
 		private readonly IEventAccumulator _eventContainer;
 
         public MovieService(
 			IMovieRepository movieRepository,
 			IGenreRepository genreRepository,
-			IMovieGenresRepository movieGenresRepository,
 			IMapper mapper,
 			IEventAccumulator eventAccumulator)
         {
             _movieRepository = movieRepository;
 			_genreRepository = genreRepository;
-			_movieGenresRepository = movieGenresRepository;
 			_mapper = mapper;
 			_eventContainer = eventAccumulator;
         }
@@ -106,6 +100,15 @@ namespace FilmLens.AppServices.Movies.Services
 				GenreId = request.GenreId,
 				GenreName = request.GenreName
 			};
+		}
+
+		public async Task<MovieDto> GetMovieAsync(int movieId, CancellationToken cancellation)
+		{
+			var movieEntity = await _movieRepository.GetMovieAsync(movieId, cancellation);
+
+			var movie = _mapper.Map<MovieDto>(movieEntity);
+
+			return movie;
 		}
 	}
 }

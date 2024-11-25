@@ -1,7 +1,7 @@
 ﻿@using FilmLens.Contracts.Movies
 <!DOCTYPE html>
 <html class="no-js" lang="ru">
-@model MoviesListDto
+@model UserProfileViewModel
 
 <head>
 	<meta charset="utf-8" />
@@ -203,7 +203,7 @@
 					<form asp-controller="Movie" asp-action="AddMovie" method="post">
 						<div class="form-group">
 							<label for="TmdbId">ID фильма в TMDb</label>
-							<input type="number" asp-for="TmdbId" class="form-control" required />
+							<input type="number" asp-for="Common.TmdbId" class="form-control" required />
 						</div>
 						<button type="submit" class="btn btn-primary">Добавить фильм</button>
 					</form>
@@ -216,102 +216,71 @@
 		<!-- slide-bar end -->
 
 		<main>
-			<!--our-services start-->
-			<section class="latest-case-work pt-70 pb-150 pt-lg-60 pb-lg-120">
+			<!--team-details-wrapper start-->
+			<section class="team-details-wrapper pt-145 pb-100 pt-lg-60 pb-lg-20">
 				<div class="container">
 					<div class="row gx-4 gx-xxl-5 align-items-center justify-content-center">
-						<div class="col-xl-5 col-lg-6 col-md-8">
-							<div class="section-title text-center mb-55">
-								<h3 class="sect-title mb-25" data-aos="fade-up">Фильмы</h3>
-								<p data-aos="fade-up" data-aos-delay="100">
-									@Model.GenreName
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="row gx-4 gx-xxl-5">
-
-						@foreach (var movie in Model.Result)
-						{
-							<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-								<div class="team-style-two text-center mb-45">
-									<div class="team-thumb">
-										<a href="@Url.Action("MoviePage", new {id = movie.Id})">
-											<img src="https://image.tmdb.org/t/p/w500@(movie.PosterUrl)"
-																		 alt="@movie.Title" 
-																		 style="width: 370px; height: 513px; object-fit: cover;"
-																		 class="img-fluid">
-										</a>
-									</div>
-									<div class="team-content">
-										<h3 class="sect-title-two"><a href="@Url.Action("MoviePage", new {id = movie.Id})">@movie.Title</a></h3>
+						<div class="col-lg-12">
+							<div class="team-details-content-top mb-60 d-xl-flex align-items-center justify-content-space-between">
+								<div class="team-info ps-md-3 ps-xxl-5">
+									<h3 class="team-title mt-20 mb-35">@Model.UserName</h3>
+									<div class="d-md-flex justify-content-space-between">
+										<ul class="list-none pe-5 me-4">
+											<li>
+												<div class="info">
+													<div class="icon">
+														<i class="bi bi-briefcase"></i>
+													</div>
+													<div class="info-content">
+														<h5>Роль</h5>
+														<p>""</p>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="info">
+													<div class="icon">
+														<i class="bi bi-envelope"></i>
+													</div>
+													<div class="info-content">
+														<h5>Почта</h5>
+														<p>@Model.Email</p>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="info">
+													<div class="icon">
+														<i class="bi bi-clock"></i>
+													</div>
+													<div class="info-content">
+														<h5>Дата регистрации</h5>
+														<p>@Model.CreatedAt</p>
+													</div>
+												</div>
+											</li>
+										</ul>
+										<ul class="list-none">
+											<li>
+												<div class="info">
+													<div class="icon">
+														<i class="bi bi-file-bar-graph"></i>
+													</div>
+													<div class="info-content">
+														<h5>Написано комментариев</h5>
+														<p>@Model.ReviewCount</p>
+													</div>
+												</div>
+											</li>
+										</ul>
 									</div>
 								</div>
 							</div>
-						}
-	
-						<nav aria-label="Page navigation example">
-							<ul class="pagination justify-content-center">
-								@if (Model.PageNumber > 1)
-								{
-									<li class="page-item">
-										<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = Model.PageNumber - 1, 
-																								   genreId = Model.GenreId, 
-																								   genreName = Model.GenreName })">Назад</a>
-									</li>
-								}
-
-								<!-- Показ нескольких номеров страниц -->
-								@{
-									var pagesCount = Math.Ceiling((decimal)Model.TotalCount / Model.PageSize);
-								}
-								@for (var i = 1; i <= pagesCount; i++)
-								{
-									if (i == Model.PageNumber)
-									{
-										<li class="page-item active">
-											<span class="page-link">@i</span>
-										</li>
-									}
-									else if (i <= 3 || i == Model.TotalCount || (i >= Model.PageNumber - 2 && i <= Model.PageNumber + 2))
-									{
-										<li class="page-item">
-											<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = i, 
-																									   genreId = Model.GenreId, 
-																									   genreName = Model.GenreName })">@i</a>
-										</li>
-									}
-									else if (i == 4)
-									{
-										<li class="page-item">
-											<span class="page-link">...</span>
-										</li>
-									}
-									else if (i == pagesCount)
-									{
-										<li class="page-item">
-											<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = i, 
-																									   genreId = Model.GenreId, 
-																									   genreName = Model.GenreName })">@i</a>
-										</li>
-									}
-								}
-
-								@if (Model.PageNumber < pagesCount)
-								{
-									<li class="page-item">
-										<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = Model.PageNumber + 1, 
-																								   genreId = Model.GenreId, 
-																								   genreName = Model.GenreName })">Вперед</a>
-									</li>
-								}
-							</ul>
-						</nav>
-
+						</div>
 					</div>
 				</div>
 			</section>
-			<!--our-services end-->
+			<!--team-details-wrapper end-->
 		</main>
 	</div>
 

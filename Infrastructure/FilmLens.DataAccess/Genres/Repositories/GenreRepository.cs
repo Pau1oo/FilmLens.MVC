@@ -1,4 +1,5 @@
 ﻿using FilmLens.AppServices.Genres.Repositories;
+using FilmLens.Contracts.Genres;
 using FilmLens.DataAccess.Common;
 using FilmLens.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -22,19 +23,15 @@ namespace FilmLens.DataAccess.Genres.Repositories
 				.ToListAsync(cancellationToken);
 		}
 
-		public async Task DeleteGenresByIdsAsync(IEnumerable<int> ids, CancellationToken cancellationToken)
+		public async Task<List<Genre>> GetGenresByMovieIdAsync(int movieId, CancellationToken cancellationToken)
 		{
-			// Найти жанры по идентификаторам
-			var genresToDelete = await MutableDbContext
-				.Set<Genre>()
-				.Where(g => ids.Contains(g.Id))
+			var genres = await ReadOnlyDbContext
+				.Set<Movie>()
+				.Where(m => m.Id == movieId)
+				.SelectMany(m => m.Genres)
 				.ToListAsync(cancellationToken);
 
-			// Удалить найденные жанры
-			MutableDbContext.Set<Genre>().RemoveRange(genresToDelete);
-
-			// Сохранить изменения в базе данных
-			await MutableDbContext.SaveChangesAsync(cancellationToken);
+			return genres;
 		}
 
 		public async Task<List<Genre>> GetAllGenresAsync(CancellationToken cancellationToken)
@@ -42,12 +39,6 @@ namespace FilmLens.DataAccess.Genres.Repositories
 			return await ReadOnlyDbContext
 				.Set<Genre>()
 				.ToListAsync(cancellationToken);
-		}
-
-		public async Task AddGenresAsync(IEnumerable<Genre> genres, CancellationToken cancellationToken)
-		{
-			await MutableDbContext.AddRangeAsync(genres, cancellationToken);
-			await MutableDbContext.SaveChangesAsync(cancellationToken);
 		}
 	}
 }

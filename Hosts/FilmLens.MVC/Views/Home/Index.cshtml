@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html class="no-js" lang="ru">
-@model MovieGenreViewModel
+@model CommonViewModel
 
 <head>	
 	<meta charset="utf-8" />
@@ -108,7 +108,7 @@
 									@if (User?.Identity?.IsAuthenticated == true)
 									{
 										<li class="nav-item">
-											<a class="nav-link" href="contact.cshtml">Профиль</a>
+											<a class="nav-link" asp-controller="User" asp-action="Profile">Профиль</a>
 										</li>
 									}
 											

@@ -18,7 +18,7 @@ namespace FilmLens.MVC.Controllers
 		{
 			var genres = await _genreRepository.GetAllGenresAsync(cancellationToken);
 
-			var viewModel = new MovieGenreViewModel
+			var viewModel = new GenresViewModel
 			{ 
 				Genres = genres 
 			};

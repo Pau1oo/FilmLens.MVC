@@ -27,15 +27,5 @@ namespace FilmLens.Contracts.Common
 		/// Сущности.
 		/// </summary>
 		public List<T> Result { get; set; } = [];
-
-		/// <summary>
-		/// Идентификатор жанра.
-		/// </summary>
-		public int? GenreId { get; set; }
-
-		/// <summary>
-		/// Наименование жанра.
-		/// </summary>
-		public string? GenreName { get; set; }
 	}
 }

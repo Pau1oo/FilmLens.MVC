@@ -32,6 +32,7 @@ namespace FilmLens.MVC
 
 			FilmLensRegistrar.RegisterMiddlewares(app);
 
+            app.UseAuthentication();
 			app.UseAuthorization();
 
             app.UseHangfireDashboard("/hangfire", new DashboardOptions
