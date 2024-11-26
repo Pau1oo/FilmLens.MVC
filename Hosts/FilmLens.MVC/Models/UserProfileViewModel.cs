@@ -2,9 +2,8 @@
 
 namespace FilmLens.MVC.Models
 {
-    public class UserProfileViewModel
+    public class UserProfileViewModel : CommonViewModel
     {
-        public CommonViewModel Common { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string AvatarUrl { get; set; }

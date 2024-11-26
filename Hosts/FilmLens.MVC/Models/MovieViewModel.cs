@@ -4,10 +4,8 @@ using FilmLens.Domain.Entities;
 
 namespace FilmLens.MVC.Models
 {
-	public class MovieViewModel
+	public class MovieViewModel : CommonViewModel
 	{
-		public CommonViewModel Common { get; set; }
-
 		/// <summary>
 		/// Фильм.
 		/// </summary>
