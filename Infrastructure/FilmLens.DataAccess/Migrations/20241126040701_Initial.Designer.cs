@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FilmLens.DataAccess.Migrations
 {
     [DbContext(typeof(MutableFilmLensDbContext))]
-    [Migration("20241119200211_AddUniqueIndexToGenres")]
-    partial class AddUniqueIndexToGenres
+    [Migration("20241126040701_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -108,24 +108,29 @@ namespace FilmLens.DataAccess.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("MovieId")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("RatingValue")
+                    b.Property<int?>("MovieId")
                         .HasColumnType("integer");
 
                     b.Property<string>("ReviewText")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(2000)
+                        .HasColumnType("character varying(2000)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("ReviewedMovieId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ReviewerUserId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("Review");
+                    b.HasIndex("ReviewedMovieId");
+
+                    b.HasIndex("ReviewerUserId");
+
+                    b.ToTable("reviews", (string)null);
                 });
 
             modelBuilder.Entity("FilmLens.Domain.Entities.Role", b =>
@@ -184,6 +189,9 @@ namespace FilmLens.DataAccess.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("text");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
@@ -213,6 +221,11 @@ namespace FilmLens.DataAccess.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
+
+                    b.Property<int>("ReviewCount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0);
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
@@ -351,6 +364,9 @@ namespace FilmLens.DataAccess.Migrations
 
                     b.HasIndex("GenreId");
 
+                    b.HasIndex("MovieId", "GenreId")
+                        .IsUnique();
+
                     b.ToTable("MovieGenres", (string)null);
                 });
 
@@ -358,7 +374,17 @@ namespace FilmLens.DataAccess.Migrations
                 {
                     b.HasOne("FilmLens.Domain.Entities.Movie", null)
                         .WithMany("Reviews")
-                        .HasForeignKey("MovieId")
+                        .HasForeignKey("MovieId");
+
+                    b.HasOne("FilmLens.Domain.Entities.Movie", null)
+                        .WithMany()
+                        .HasForeignKey("ReviewedMovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FilmLens.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("ReviewerUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

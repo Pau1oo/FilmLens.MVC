@@ -17,10 +17,6 @@ namespace FilmLens.Infrastructure.Mappings
 			CreateMap<MovieDto, Movie>()
 			.ForMember(dest => dest.Genres, opt => opt.MapFrom(src => src.Genres))
 			.ForMember(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews));
-
-			CreateMap<Genre, GenreDto>();
-
-			CreateMap<Review, ReviewDto>();
 		}
     }
 }

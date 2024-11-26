@@ -94,35 +94,6 @@ namespace FilmLens.DataAccess.Migrations
                     b.ToTable("movies", (string)null);
                 });
 
-            modelBuilder.Entity("FilmLens.Domain.Entities.MovieGenre", b =>
-                {
-                    b.Property<int>("MovieId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("GenreId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("MovieId", "GenreId");
-
-                    b.ToTable("MovieGenre");
-                });
-
-            modelBuilder.Entity("FilmLens.Domain.Entities.MovieReview", b =>
-                {
-                    b.Property<int>("MovieId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ReviewId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("MovieId", "ReviewId");
-
-                    b.HasIndex("ReviewId")
-                        .IsUnique();
-
-                    b.ToTable("MovieReviews", (string)null);
-                });
-
             modelBuilder.Entity("FilmLens.Domain.Entities.Review", b =>
                 {
                     b.Property<int>("Id")
@@ -139,13 +110,24 @@ namespace FilmLens.DataAccess.Migrations
 
                     b.Property<string>("ReviewText")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(2000)
+                        .HasColumnType("character varying(2000)");
+
+                    b.Property<int>("ReviewedMovieId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ReviewerUserId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("Review");
+                    b.HasIndex("ReviewedMovieId");
+
+                    b.HasIndex("ReviewerUserId");
+
+                    b.ToTable("reviews", (string)null);
                 });
 
             modelBuilder.Entity("FilmLens.Domain.Entities.Role", b =>
@@ -262,22 +244,6 @@ namespace FilmLens.DataAccess.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("users", (string)null);
-                });
-
-            modelBuilder.Entity("FilmLens.Domain.Entities.UserReview", b =>
-                {
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ReviewId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("UserId", "ReviewId");
-
-                    b.HasIndex("ReviewId")
-                        .IsUnique();
-
-                    b.ToTable("UserReviews", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -401,39 +367,21 @@ namespace FilmLens.DataAccess.Migrations
                     b.ToTable("MovieGenres", (string)null);
                 });
 
-            modelBuilder.Entity("FilmLens.Domain.Entities.MovieReview", b =>
-                {
-                    b.HasOne("FilmLens.Domain.Entities.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("FilmLens.Domain.Entities.Review", null)
-                        .WithOne()
-                        .HasForeignKey("FilmLens.Domain.Entities.MovieReview", "ReviewId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("FilmLens.Domain.Entities.Review", b =>
                 {
                     b.HasOne("FilmLens.Domain.Entities.Movie", null)
                         .WithMany("Reviews")
                         .HasForeignKey("MovieId");
-                });
 
-            modelBuilder.Entity("FilmLens.Domain.Entities.UserReview", b =>
-                {
-                    b.HasOne("FilmLens.Domain.Entities.Review", null)
-                        .WithOne()
-                        .HasForeignKey("FilmLens.Domain.Entities.UserReview", "ReviewId")
+                    b.HasOne("FilmLens.Domain.Entities.Movie", null)
+                        .WithMany()
+                        .HasForeignKey("ReviewedMovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("FilmLens.Domain.Entities.User", null)
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("ReviewerUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

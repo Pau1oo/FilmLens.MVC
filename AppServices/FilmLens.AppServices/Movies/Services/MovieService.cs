@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using FilmLens.AppServices.Common.Events.Common;
 using FilmLens.AppServices.Genres.Repositories;
-using FilmLens.AppServices.MovieGenres.Repositories;
 using FilmLens.AppServices.Movies.Models;
 using FilmLens.AppServices.Movies.Repositories;
 using FilmLens.Contracts.Common;

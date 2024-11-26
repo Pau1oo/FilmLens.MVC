@@ -4,6 +4,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace FilmLens.DataAccess.Migrations
 {
     /// <inheritdoc />
@@ -33,11 +35,10 @@ namespace FilmLens.DataAccess.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Title = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
                     Overview = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: false),
-                    ReleaseDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ReleaseDate = table.Column<string>(type: "text", nullable: false),
                     VoteAverage = table.Column<double>(type: "numeric(3,1)", nullable: true),
                     VoteCount = table.Column<int>(type: "integer", nullable: true, defaultValue: 0),
-                    PosterPath = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
-                    TrailerUrl = table.Column<string>(type: "text", nullable: true),
+                    PosterUrl = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
                     Tagline = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: true),
                     Runtime = table.Column<int>(type: "integer", nullable: true),
                     Budget = table.Column<long>(type: "bigint", nullable: true),
@@ -69,6 +70,8 @@ namespace FilmLens.DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ReviewCount = table.Column<int>(type: "integer", nullable: false, defaultValue: 0),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -107,29 +110,6 @@ namespace FilmLens.DataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_MovieGenres_movies_MovieId",
-                        column: x => x.MovieId,
-                        principalTable: "movies",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Review",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    MovieId = table.Column<int>(type: "integer", nullable: false),
-                    ReviewText = table.Column<string>(type: "text", nullable: false),
-                    RatingValue = table.Column<int>(type: "integer", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Review", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Review_movies_MovieId",
                         column: x => x.MovieId,
                         principalTable: "movies",
                         principalColumn: "Id",
@@ -242,6 +222,49 @@ namespace FilmLens.DataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "reviews",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ReviewerUserId = table.Column<int>(type: "integer", nullable: false),
+                    ReviewedMovieId = table.Column<int>(type: "integer", nullable: false),
+                    ReviewText = table.Column<string>(type: "character varying(2000)", maxLength: 2000, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    MovieId = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_reviews", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_reviews_movies_MovieId",
+                        column: x => x.MovieId,
+                        principalTable: "movies",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_reviews_movies_ReviewedMovieId",
+                        column: x => x.ReviewedMovieId,
+                        principalTable: "movies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_reviews_users_ReviewerUserId",
+                        column: x => x.ReviewerUserId,
+                        principalTable: "users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "roles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { 1, null, "User", null },
+                    { 2, null, "Admin", null }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -268,9 +291,25 @@ namespace FilmLens.DataAccess.Migrations
                 column: "GenreId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Review_MovieId",
-                table: "Review",
+                name: "IX_MovieGenres_MovieId_GenreId",
+                table: "MovieGenres",
+                columns: new[] { "MovieId", "GenreId" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_reviews_MovieId",
+                table: "reviews",
                 column: "MovieId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_reviews_ReviewedMovieId",
+                table: "reviews",
+                column: "ReviewedMovieId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_reviews_ReviewerUserId",
+                table: "reviews",
+                column: "ReviewerUserId");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
@@ -312,19 +351,19 @@ namespace FilmLens.DataAccess.Migrations
                 name: "MovieGenres");
 
             migrationBuilder.DropTable(
-                name: "Review");
+                name: "reviews");
 
             migrationBuilder.DropTable(
                 name: "roles");
-
-            migrationBuilder.DropTable(
-                name: "users");
 
             migrationBuilder.DropTable(
                 name: "genres");
 
             migrationBuilder.DropTable(
                 name: "movies");
+
+            migrationBuilder.DropTable(
+                name: "users");
         }
     }
 }
