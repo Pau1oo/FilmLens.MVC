@@ -3,6 +3,7 @@ using System;
 using FilmLens.DataAccess.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FilmLens.DataAccess.Migrations
 {
     [DbContext(typeof(MutableFilmLensDbContext))]
-    partial class MutableFilmLensDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241129001005_FixReviewConfiguration")]
+    partial class FixReviewConfiguration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,14 +160,12 @@ namespace FilmLens.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "User",
-                            NormalizedName = "USER"
+                            Name = "User"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
+                            Name = "Admin"
                         });
                 });
 

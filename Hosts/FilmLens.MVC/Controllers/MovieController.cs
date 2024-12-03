@@ -2,6 +2,8 @@
 using FilmLens.AppServices.Common.TMDb;
 using FilmLens.AppServices.Genres.Services;
 using FilmLens.AppServices.Movies.Services;
+using FilmLens.AppServices.Reviews.Services;
+using FilmLens.AppServices.Users.Services;
 using FilmLens.Contracts.Common;
 using FilmLens.Contracts.Movies;
 using FilmLens.Domain.Entities;
@@ -15,22 +17,26 @@ namespace FilmLens.MVC.Controllers
 	{
 		private readonly IMovieService _movieService;
 		private readonly IGenreService _genreService;
+		private readonly IReviewService _reviewService;
 		private readonly ITmdbService _tmdbService;
 		private readonly IMapper _mapper;
 
-		public MovieController(IMovieService movieService, IGenreService genreService, ITmdbService tmdbService, IMapper mapper)
+		public MovieController(IMovieService movieService, 
+							   IGenreService genreService,
+							   IReviewService reviewService,
+							   ITmdbService tmdbService, 
+							   IMapper mapper)
         {
             _movieService = movieService;
 			_genreService = genreService;
+			_reviewService = reviewService;
             _tmdbService = tmdbService;
 			_mapper = mapper;
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddMovie(CommonViewModel model)
+        public async Task<IActionResult> AddMovie(CommonViewModel model, CancellationToken cancellationToken)
         {
-			var cancellationToken = HttpContext.RequestAborted;
-
 			var existingMovie = await _movieService.GetMoviesAsync(new PagedRequest
             { PageNumber = 1, PageSize = int.MaxValue }, cancellationToken);
 
@@ -71,11 +77,13 @@ namespace FilmLens.MVC.Controllers
 		{
 			var movie = await _movieService.GetMovieAsync(id, cancellationToken);
 			var genres = await _genreService.GetGenresAsync(id, cancellationToken);
+			var reviews = await _reviewService.GetMovieReviewsAsync(id, cancellationToken);
 
 			var result = new MovieViewModel 
 			{
 				Movie = movie,
-				Genres = genres
+				Genres = genres,
+				Reviews = reviews
 			};
 
 			return View(result);

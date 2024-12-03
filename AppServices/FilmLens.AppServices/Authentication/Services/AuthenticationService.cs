@@ -1,6 +1,7 @@
 ﻿using FilmLens.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using StackExchange.Redis;
 
 namespace FilmLens.AppServices.Authentication.Services
 {
@@ -44,7 +45,16 @@ namespace FilmLens.AppServices.Authentication.Services
 				ReviewCount = 0
 			};
 
-			return await _userManager.CreateAsync(user, password);
+			var result = await _userManager.CreateAsync(user, password);
+
+			var addRoleResult = await _userManager.AddToRoleAsync(user, "User");
+			if (!addRoleResult.Succeeded)
+			{
+				await _userManager.DeleteAsync(user);
+				return addRoleResult;
+			}
+
+			return IdentityResult.Success;
 		}
 
 		/// <inheritdoc/>

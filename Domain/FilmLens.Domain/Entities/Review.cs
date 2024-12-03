@@ -29,5 +29,8 @@
 		/// Дата создания рецензии.
 		/// </summary>
 		public DateTime CreatedAt { get; set; }
+
+		public Movie Movie { get; set; }
+		public User User { get; set; }
 	}
 }

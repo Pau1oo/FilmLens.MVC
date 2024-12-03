@@ -1,9 +1,6 @@
-﻿namespace FilmLens.Contracts.Reviews
+﻿namespace FilmLens.MVC.Models
 {
-	/// <summary>
-	/// Транспортная модель рецензии.
-	/// </summary>
-	public sealed class ReviewDto
+	public class ReviewViewModel : CommonViewModel	
 	{
 		/// <summary>
 		/// Идентификатор пользователя.
@@ -16,8 +13,6 @@
 		/// Идентификатор фильма.
 		/// </summary>
 		public int ReviewedMovieId { get; set; }
-
-		public string MovieTitle { get; set; }
 
 		/// <summary>
 		/// Текст рецензии.

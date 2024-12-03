@@ -9,5 +9,8 @@ namespace FilmLens.AppServices.Users.Services
     public interface IUserService
     {
         Task<User> GetUserAsync(ClaimsPrincipal user);
-    }
+
+       // Task<string> GetUserNameByIdAsync(int userId, CancellationToken cancellationToken);
+
+	}
 }

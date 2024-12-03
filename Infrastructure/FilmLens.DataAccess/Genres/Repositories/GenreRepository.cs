@@ -1,5 +1,4 @@
 ﻿using FilmLens.AppServices.Genres.Repositories;
-using FilmLens.Contracts.Genres;
 using FilmLens.DataAccess.Common;
 using FilmLens.Domain.Entities;
 using Microsoft.EntityFrameworkCore;

@@ -15,13 +15,13 @@ namespace FilmLens.DataAccess.Reviews.Configurations
 			builder.HasIndex(r => r.ReviewedMovieId);
 			builder.HasIndex(r => r.ReviewerUserId);
 
-			builder.HasOne<User>()
-				   .WithMany()
+			builder.HasOne(r => r.User)
+				   .WithMany(u => u.Reviews)
 				   .HasForeignKey(r => r.ReviewerUserId)
 				   .OnDelete(DeleteBehavior.Cascade);
 
-			builder.HasOne<Movie>()
-				   .WithMany()
+			builder.HasOne(r => r.Movie)
+				   .WithMany(m => m.Reviews)
 				   .HasForeignKey(r => r.ReviewedMovieId)
 				   .OnDelete(DeleteBehavior.Cascade);
 

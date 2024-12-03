@@ -318,53 +318,63 @@
 										@Model.Movie.Overview
 									</p>
 								</div>
+
+
 								<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-									<div class="row align-items-center">
-										<div class="col-lg-7 col-md-12">
-											<div class="contact-form-two">
-												<h3 class="post-title mb-20">Оставь свой комментарий</h3>
-												<form class="widget-form" action="#">
-													<div class="row gx-4 gx-xxl-5 px-0">
-														<div class="col-md-12 mb-10">
-															<textarea name="message" placeholder=""></textarea>
+									
+
+									@if (User?.Identity?.IsAuthenticated == true)
+									{
+										<div class="row align-items-center">
+											<div class="col-lg-7 col-md-12">
+												<div class="contact-form-two">
+													<h3 class="post-title mb-20">Оставь свой комментарий</h3>
+													<form asp-controller="Review" asp-action="AddReview" method="post" class="widget-form">
+														<div class="row gx-4 gx-xxl-5 px-0">
+															<div class="col-md-12 mb-10">
+																<textarea asp-for="Review.ReviewText" placeholder="" class="form-control"></textarea>
+																<span asp-validation-for="Review.ReviewText" class="text-danger"></span>
+															</div>
+
+															<input type="hidden" asp-for="Review.ReviewerUserId" value="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value" />
+															<input type="hidden" asp-for="Review.ReviewedMovieId" value="@Model.Movie.Id" />
+
+															<div class="col-12">
+																<button type="submit" class="theme_btn">Отправить</button>
+															</div>
 														</div>
-														<div class="col-12">
-															<button class="theme_btn">Отправить</button>
-														</div>
-													</div>
-												</form>
+													</form>
+												</div>
 											</div>
 										</div>
-									</div>
+									}
+
+
 									<div class="comments-wrapper  mt-55">
 										<h3 class="post-title mb-50">Комментарии</h3>
 										<ul class="comment-list list-none">
 
-
-											<li>
-												<div class="comment-box">
-													<div class="comment-content">
-														<h5>
-															Пользовтаель
-														</h5>
-														<p class="fs-14 mb-15">
-															<i class="far fa-calendar-alt"></i> 24th March
-															2022
-														</p>
-														<p>
-															For all the assets is hard and time-consuming technical work. And, of
-															course, the result needs to be seamless and delightful — dare we
-															say, even fun — to develop and maintain. Regardless of whether
-															you’re ing up a storefront for a new merchant.
-														</p>
+											@foreach (var review in Model.Reviews.OrderByDescending(r => r.CreatedAt))
+											{
+												<li>
+													<div class="comment-box">
+														<div class="comment-content">
+															<h5>
+																@review.ReviewerName
+															</h5>
+															<p class="fs-14 mb-15">
+																<i class="far fa-calendar-alt"></i> @review.CreatedAt
+															</p>
+															<p>
+																@review.ReviewText
+															</p>
+														</div>
 													</div>
-												</div>
-											</li>
-
-
-											
+												</li>
+											}
 										</ul>
 									</div>
+
 								</div>
 							</div>
 						</div>

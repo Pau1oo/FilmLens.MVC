@@ -16,5 +16,7 @@ namespace FilmLens.Domain.Entities
         /// Количество рецензий, написанных пользователем.
         /// </summary>
         public int ReviewCount { get; set; } = default!;
-    }
+
+        public ICollection<Review> Reviews { get; set; } = [];
+	}
 }

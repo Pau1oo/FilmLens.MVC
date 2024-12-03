@@ -12,15 +12,18 @@ namespace FilmLens.DataAccess.Users.Configurations
 
 			builder.HasKey(x => x.Id);
 
-			builder.HasData(new Role
+			builder.HasData(
+			new Role
 			{
 				Id = 1,
-				Name = "User"
+				Name = "User",
+				NormalizedName = "USER"
 			},
 			new Role
 			{
 				Id = 2,
-				Name = "Admin"
+				Name = "Admin",
+				NormalizedName = "ADMIN"
 			});
 		}
 	}
