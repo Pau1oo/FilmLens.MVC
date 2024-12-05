@@ -34,6 +34,8 @@ using FilmLens.DataAccess.Reviews.Repositories;
 using FilmLens.AppServices.Reviews.Services;
 using FilmLens.AppServices.Users.Repositories;
 using FilmLens.DataAccess.Users.Repositories;
+using FilmLens.AppServices.FavoriteMovies.Repositories;
+using FilmLens.DataAccess.FavoriteMovies.Repositories;
 
 namespace FilmLens.ComponentRegistrar
 {
@@ -95,6 +97,7 @@ namespace FilmLens.ComponentRegistrar
 			);
 
 			services.AddScoped<IMovieRepository, MovieRepository>();
+			services.AddScoped<IFavoriteMovieRepository, FavoriteMovieRepository>();
 			services.AddScoped<IGenreRepository, GenreRepository>();
 			services.AddScoped<IReviewRepository, ReviewRepository>();
 			services.AddScoped<IUserRepository, UserRepository>();

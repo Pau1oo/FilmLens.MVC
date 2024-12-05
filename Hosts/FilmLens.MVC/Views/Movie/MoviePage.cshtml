@@ -279,7 +279,23 @@
 										}
 										<a href="#">(@Model.Movie.VoteAverage)</a>
 									</div>
-									<a href="#" class="cart-btn">Добавить в избранное</a>
+									@if (User?.Identity?.IsAuthenticated == true)
+									{
+										@if(Model.IsFavorite)
+										{
+											<form asp-action="RemoveFromFavorites" asp-controller="Movie" method="post">
+												<input type="hidden" name="movieId" value="@Model.Movie.Id" />
+												<button type="submit" class="cart-btn">Убрать из избранного</button>
+											</form>
+										}
+										else
+										{
+											<form asp-action="AddToFavorites" asp-controller="Movie" method="post">
+												<input type="hidden" name="movieId" value="@Model.Movie.Id" />
+												<button type="submit" class="cart-btn">Добавить в избранное</button>
+											</form>
+										}
+									}
 								</div>
 							</div>
 						</div>

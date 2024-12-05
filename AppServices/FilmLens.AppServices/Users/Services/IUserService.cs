@@ -10,7 +10,6 @@ namespace FilmLens.AppServices.Users.Services
     {
         Task<User> GetUserAsync(ClaimsPrincipal user);
 
-       // Task<string> GetUserNameByIdAsync(int userId, CancellationToken cancellationToken);
-
+        // Task<string> GetUserNameByIdAsync(int userId, CancellationToken cancellationToken);
 	}
 }

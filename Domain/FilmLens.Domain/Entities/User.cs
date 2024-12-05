@@ -18,5 +18,7 @@ namespace FilmLens.Domain.Entities
         public int ReviewCount { get; set; } = default!;
 
         public ICollection<Review> Reviews { get; set; } = [];
+
+        public ICollection<FavoriteMovie> FavoriteMovies { get; set; } = [];
 	}
 }

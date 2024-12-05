@@ -24,9 +24,16 @@ namespace FilmLens.DataAccess.Middlewares
             {
                 using var transaction = await dbContext.Database.BeginTransactionAsync();
 
-                await dbContext.SaveChangesAsync();
+				try
+				{
+					await dbContext.SaveChangesAsync();
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex.Message);
+				}
 
-                await transaction.CommitAsync();
+				await transaction.CommitAsync();
             }
 
             var events = eventAccumulator.GetAllEvents();

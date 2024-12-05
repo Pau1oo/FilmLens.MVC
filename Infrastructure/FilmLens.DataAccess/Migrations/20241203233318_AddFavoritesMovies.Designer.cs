@@ -3,6 +3,7 @@ using System;
 using FilmLens.DataAccess.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FilmLens.DataAccess.Migrations
 {
     [DbContext(typeof(MutableFilmLensDbContext))]
-    partial class MutableFilmLensDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241203233318_AddFavoritesMovies")]
+    partial class AddFavoritesMovies
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,21 +24,6 @@ namespace FilmLens.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("FilmLens.Domain.Entities.FavoriteMovie", b =>
-                {
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MovieId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("UserId", "MovieId");
-
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("favoriteMovies", (string)null);
-                });
 
             modelBuilder.Entity("FilmLens.Domain.Entities.Genre", b =>
                 {
@@ -379,23 +367,22 @@ namespace FilmLens.DataAccess.Migrations
                     b.ToTable("MovieGenres", (string)null);
                 });
 
-            modelBuilder.Entity("FilmLens.Domain.Entities.FavoriteMovie", b =>
+            modelBuilder.Entity("UserFavoriteMovies", b =>
                 {
-                    b.HasOne("FilmLens.Domain.Entities.Movie", "Movie")
-                        .WithMany("FavoriteByUsers")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
 
-                    b.HasOne("FilmLens.Domain.Entities.User", "User")
-                        .WithMany("FavoriteMovies")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("MovieId")
+                        .HasColumnType("integer");
 
-                    b.Navigation("Movie");
+                    b.HasKey("UserId", "MovieId");
 
-                    b.Navigation("User");
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("UserId", "MovieId")
+                        .IsUnique();
+
+                    b.ToTable("favorites", (string)null);
                 });
 
             modelBuilder.Entity("FilmLens.Domain.Entities.Review", b =>
@@ -483,17 +470,28 @@ namespace FilmLens.DataAccess.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("UserFavoriteMovies", b =>
+                {
+                    b.HasOne("FilmLens.Domain.Entities.Movie", null)
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FilmLens.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("FilmLens.Domain.Entities.Movie", b =>
                 {
-                    b.Navigation("FavoriteByUsers");
-
                     b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("FilmLens.Domain.Entities.User", b =>
                 {
-                    b.Navigation("FavoriteMovies");
-
                     b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618

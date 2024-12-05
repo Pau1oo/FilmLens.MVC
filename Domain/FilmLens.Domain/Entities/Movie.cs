@@ -82,5 +82,7 @@ namespace FilmLens.Domain.Entities
 		/// Рецензии фильма.
 		/// </summary>
 		public ICollection<Review> Reviews { get; set; } = [];
+
+		public ICollection<FavoriteMovie> FavoriteByUsers { get; set; } = [];
     }
 }

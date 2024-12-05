@@ -62,7 +62,8 @@ namespace FilmLens.DataAccess.Movies.Repositories
 
 		public async Task<Movie> GetMovieAsync(int movieId, CancellationToken cancellationToken)
 		{
-			return await ReadOnlyDbContext.Set<Movie>()
+			return await ReadOnlyDbContext
+				.Set<Movie>()
 				.FirstOrDefaultAsync(m => m.Id == movieId, cancellationToken);
 		}
 

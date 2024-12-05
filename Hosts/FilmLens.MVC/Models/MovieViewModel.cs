@@ -10,6 +10,11 @@ namespace FilmLens.MVC.Models
 
 		public MovieDto Movie { get; set; }
 
+		/// <summary>
+		/// Флаг для проверки, в избранном ли фильм.
+		/// </summary>
+		public bool IsFavorite { get; set; }
+
 		public List<GenreDto> Genres { get; set; }
 
 		public List<ReviewDto> Reviews { get; set; }

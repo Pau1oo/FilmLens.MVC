@@ -21,6 +21,5 @@ namespace FilmLens.DataAccess.Users.Repositories
 				.Where(u => userIds.Contains(u.Id))
 				.ToListAsync(cancellationToken);
 		}
-
 	}
 }
