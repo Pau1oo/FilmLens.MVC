@@ -8,7 +8,7 @@ namespace FilmLens.AppServices.Movies.Repositories
 	{
 		Task<List<Movie>> GetMoviesAsync(GetMoviesRequest request, CancellationToken cancellation);
 
-		Task<int> GetMoviesTotalCountAsync(int? genreId, CancellationToken cancellation);
+		Task<int> GetMoviesTotalCountAsync(int? genreId, int? userId, CancellationToken cancellation);
 
 		Task<Movie> GetMovieAsync(int movieId, CancellationToken cancellationToken);
 

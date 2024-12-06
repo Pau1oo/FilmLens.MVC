@@ -272,6 +272,18 @@
 													</div>
 												</div>
 											</li>
+											<li>
+												<div class="info">
+													<a class="d-flex align-items-center text-decoration-none" href="@Url.Action("MoviesPage", "Movie", new {userId = Model.UserId, genreName = "Избранное"})">
+													<div class="icon">
+														<i class="bi bi-file-bar-graph"></i>
+													</div>
+													<div class="info-content mt-15">
+														<h5>Избранное</h5>
+													</div>
+													</a>
+												</div>
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -286,17 +298,11 @@
 					<div class="row align-items-center justify-content-center">
 						<div class="col-lg-12">
 							<ul class="nav nav-tabs product-tab" id="myTab" role="tablist">
+								
 								<li class="nav-item" role="presentation">
 									<button class="nav-link active" id="home-tab" data-bs-toggle="tab"
 											data-bs-target="#home" type="button" role="tab" aria-controls="home"
 											aria-selected="true">
-										Избранное
-									</button>
-								</li>
-								<li class="nav-item" role="presentation">
-									<button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-											data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
-											aria-selected="false">
 										Ваши комментарии
 									</button>
 								</li>
@@ -305,15 +311,10 @@
 						</div>
 						<div class="col-lg-10">
 							<div class="tab-content mt-40 mb-45" id="myTabContent">
-								<div class="tab-pane fade show active text-center" id="home" role="tabpanel"
-									 aria-labelledby="home-tab">
-									<p class="text-white mb-30">
-										@* Избранное *@
-									</p>
-								</div>
+								
 
 
-								<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+								<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
 									<div class="comments-wrapper  mt-55">
 										<ul class="comment-list list-none">
@@ -323,9 +324,11 @@
 												<li>
 													<div class="comment-box">
 														<div class="comment-content">
-															<h5>
-																@review.MovieTitle
-															</h5>
+
+															<a href="@Url.Action("MoviePage", "Movie", new {id = review.ReviewedMovieId})">
+															<h5>@review.MovieTitle</h5>
+															</a>
+
 															<p class="fs-14 mb-15">
 																<i class="far fa-calendar-alt"></i> @review.CreatedAt
 															</p>

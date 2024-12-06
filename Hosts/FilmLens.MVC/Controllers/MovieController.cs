@@ -78,14 +78,15 @@ namespace FilmLens.MVC.Controllers
 			return RedirectToAction("Index", "Home");
 		}
 
-		public async Task<IActionResult> MoviesPage(int pageNumber = 1, int? genreId = null, string? genreName = null, CancellationToken cancellationToken = default)
+		public async Task<IActionResult> MoviesPage(int pageNumber = 1, int? genreId = null, int? userId = null, string? genreName = null, CancellationToken cancellationToken = default)
 		{
 			var result = await _movieService.GetMoviesAsync(new PagedRequest
 			{ 
 				PageNumber = pageNumber,
 				PageSize = 15, 
 				GenreId = genreId,
-				GenreName = genreName
+				GenreName = genreName,
+				UserId = userId
 			}, cancellationToken);
 
 			return View(result);
@@ -93,13 +94,17 @@ namespace FilmLens.MVC.Controllers
 
 		public async Task<IActionResult> MoviePage(int id, CancellationToken cancellationToken)
 		{
+			var isFavorite = false;
 			var user = await _userService.GetUserAsync(User);
 			var movie = await _movieService.GetMovieAsync(id, cancellationToken);
 			var genres = await _genreService.GetGenresAsync(id, cancellationToken);
 			var reviews = await _reviewService.GetMovieReviewsAsync(id, cancellationToken);
 
-			var isFavorite = await _favoriteMovieRepository.ExistsAsync(user.Id, movie.Id);
-
+			if(user != null)
+			{
+				isFavorite = await _favoriteMovieRepository.ExistsAsync(user.Id, movie.Id);
+			}
+			
 			var result = new MovieViewModel 
 			{
 				Movie = movie,

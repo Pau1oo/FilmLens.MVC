@@ -229,7 +229,19 @@
 							</div>
 						</div>
 					</div>
+					@if (Model.Result.Count() == 0)
+					{
+						<div class="row gx-4 gx-xxl-5 align-items-center justify-content-center">
+							<div class="col-xl-5 col-lg-6 col-md-8">
+								<div class="section-title text-center mb-90">
+									<h3 class="sect-title mt-100 mb-25" data-aos="fade-up">В избранном пусто</h3>
+								</div>
+							</div>
+						</div>
+					}
 					<div class="row gx-4 gx-xxl-5">
+
+						
 
 						@foreach (var movie in Model.Result)
 						{
@@ -256,7 +268,8 @@
 								{
 									<li class="page-item">
 										<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = Model.PageNumber - 1, 
-																								   genreId = Model.GenreId, 
+																								   genreId = Model.GenreId,
+																								   userId = Model.UserId,
 																								   genreName = Model.GenreName })">Назад</a>
 									</li>
 								}
@@ -277,7 +290,8 @@
 									{
 										<li class="page-item">
 											<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = i, 
-																									   genreId = Model.GenreId, 
+																									   genreId = Model.GenreId,
+																									   userId = Model.UserId,
 																									   genreName = Model.GenreName })">@i</a>
 										</li>
 									}
@@ -292,6 +306,7 @@
 										<li class="page-item">
 											<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = i, 
 																									   genreId = Model.GenreId, 
+																									   userId = Model.UserId,
 																									   genreName = Model.GenreName })">@i</a>
 										</li>
 									}
@@ -302,6 +317,7 @@
 									<li class="page-item">
 										<a class="page-link" href="@Url.Action("MoviesPage", new { pageNumber = Model.PageNumber + 1, 
 																								   genreId = Model.GenreId, 
+																								   userId = Model.UserId,
 																								   genreName = Model.GenreName })">Вперед</a>
 									</li>
 								}

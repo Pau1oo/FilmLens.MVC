@@ -23,7 +23,7 @@ namespace FilmLens.DataAccess.Movies.Repositories
 				.ToListAsync(cancellation);
 		}
 
-		public Task<int> GetMoviesTotalCountAsync(int? genreId, CancellationToken cancellation)
+		public Task<int> GetMoviesTotalCountAsync(int? genreId, int? userId, CancellationToken cancellation)
 		{
 			var query = ReadOnlyDbContext
 				.Set<Movie>()
@@ -32,6 +32,10 @@ namespace FilmLens.DataAccess.Movies.Repositories
 			if (genreId.HasValue)
 			{
 				query = query.Where(movie => movie.Genres.Any(genre => genre.Id == genreId.Value));
+			}
+			else if (userId.HasValue)
+			{
+				query = query.Where(movie => movie.FavoriteByUsers.Any(fav => fav.UserId == userId.Value));
 			}
 
 			return query.CountAsync(cancellation);
@@ -46,6 +50,10 @@ namespace FilmLens.DataAccess.Movies.Repositories
 			if (request.GenreId.HasValue)
 			{
 				query = query.Where(movie => movie.Genres.Any(genre => genre.Id == request.GenreId.Value));
+			}
+			else if(request.UserId.HasValue)
+			{
+				query = query.Where(movie => movie.FavoriteByUsers.Any(fav => fav.UserId == request.UserId.Value));
 			}
 
 			query = query

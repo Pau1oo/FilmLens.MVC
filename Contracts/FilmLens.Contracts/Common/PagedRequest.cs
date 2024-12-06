@@ -24,5 +24,7 @@
 		/// Наименование жанра.
 		/// </summary>
 		public string? GenreName { get; set; }
+
+		public int? UserId { get; set; }
 	}
 }

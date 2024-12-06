@@ -30,6 +30,7 @@ namespace FilmLens.MVC.Controllers
             {
                 Role = User.IsInRole("Admin") ? "Администратор" :
                        User.IsInRole("User") ? "Пользователь": "Неизвестно",
+                UserId = user.Id,
 				UserName = user.UserName,
                 Email = user.Email,
                 CreatedAt = user.CreatedAt,
