@@ -21,9 +21,16 @@ namespace FilmLens.AppServices.Common.TMDb
 		/// <inheritdoc/>
 		public async Task<Movie> GetMovieDetails(int movieId)
 		{
-			var url = $"https://api.themoviedb.org/3/movie/{movieId}?api_key={_apiKey}&language=ru";
-			var response = await _httpClient.GetStringAsync(url);
-			return JsonConvert.DeserializeObject<Movie>(response);
+			try
+			{
+				var url = $"https://api.themoviedb.org/3/movie/{movieId}?api_key={_apiKey}&language=ru";
+				var response = await _httpClient.GetStringAsync(url);
+				return JsonConvert.DeserializeObject<Movie>(response);
+			}
+			catch(HttpRequestException)
+			{
+				return null;
+			}
 		}
 
 		/// <inheritdoc/>

@@ -39,8 +39,15 @@ namespace FilmLens.MVC.Controllers
 		{
 			var review = await _reviewRepository.GetReviewAsync(reviewId, cancellationToken);
 
+			if (review == null)
+			{
+				TempData["ModalMessage"] = "Комментарий с указанным ID не найден.";
+				return Redirect(returnUrl);
+			}
+
 			await _reviewRepository.DeleteAsync(review, cancellationToken);
 
+			TempData["SuccessMessage"] = "Комментарий успешно удален.";
 			return Redirect(returnUrl);
 		}
 	}

@@ -294,6 +294,7 @@
 													<div class="form-group">
 														<label for="TmdbId">ID фильма в TMDb</label>
 														<input type="number" name="TmdbId" class="form-control" required />
+														<input type="hidden" name="returnUrl" value="@Url.Action("Profile", "User")" />
 													</div>
 													<button type="submit" class="theme_btn w-10 mt-2 mb-20">Добавить фильм</button>
 												</form>
@@ -304,6 +305,7 @@
 													<div class="form-group">
 														<label for="movieId">ID фильма</label>
 														<input type="number" name="movieId" class="form-control" required />
+														<input type="hidden" name="returnUrl" value="@Url.Action("Profile", "User")" />
 													</div>
 												<button type="submit" class="theme_btn w-10 mt-2 mb-20">Удалить фильм</button>
 												</form>
@@ -320,12 +322,44 @@
 												</form>
 											</div>
 
+										@if (TempData["ModalMessage"] != null)
+										{
+											<script>
+												document.addEventListener('DOMContentLoaded', function () {
+													showMessage('@Html.Raw(TempData["ModalMessage"])');
+												});
+											</script>
+										}
+
+										@if (TempData["SuccessMessage"] != null)
+										{
+											<script>
+												document.addEventListener('DOMContentLoaded', function () {
+													showMessage('@Html.Raw(TempData["SuccessMessage"])');
+												});
+											</script>
+										}
+
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</section>
+
+				<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="messageModalLabel">Сообщение</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<p id="modalMessage" style="color: black !important;"></p>
+							</div>
+						</div>
+					</div>
+				</div>
 			}
 
 			<div class="product-review-section pb-100 pb-lg-15">
@@ -403,6 +437,16 @@
 	</div>
 
 	<!-- JS here -->
+
+	<script>
+		function showMessage(message) {
+			// Устанавливаем текст сообщения
+			document.getElementById('modalMessage').innerText = message;
+			// Показываем модальное окно
+			var modal = new bootstrap.Modal(document.getElementById('messageModal'));
+			modal.show();
+		}
+	</script>
 
 	<script src="~/js/vendor/modernizr-3.5.0.min.js"></script>
 	<script src="~/js/vendor/jquery-2.2.4.min.js"></script>

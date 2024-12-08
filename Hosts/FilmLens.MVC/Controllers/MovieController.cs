@@ -53,40 +53,49 @@ namespace FilmLens.MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddMovie(int TmdbId, CancellationToken cancellationToken)
+        public async Task<IActionResult> AddMovie(int TmdbId, string returnUrl, CancellationToken cancellationToken)
         {
-			var existingMovie = await _movieService.GetMoviesAsync(new PagedRequest
+			var existingMovies = await _movieService.GetMoviesAsync(new PagedRequest
             { PageNumber = 1, PageSize = int.MaxValue }, cancellationToken);
 
-			if (existingMovie.Result.Any(m => m.TmdbId == TmdbId.ToString()))
+			if (existingMovies.Result.Any(m => m.TmdbId == TmdbId.ToString()))
 			{
-				return Json(new { success = false, message = "Фильм с таким ID уже существует в базе данных." });
+				TempData["ModalMessage"] = "Фильм уже существует в базе данных.";
+				return Redirect(returnUrl);
 			}
 
 			var tmdbMovie = await _tmdbService.GetMovieDetails(TmdbId);
 
 			if (tmdbMovie == null)
 			{
-				ModelState.AddModelError(string.Empty, "Фильм с таким ID не найден в TMDb API.");
-				return Json(new { success = false, message = "Фильм не найден!" });
+				TempData["ModalMessage"] = "Фильм с указанным ID не найден в TMDb API.";
+				return Redirect(returnUrl);
 			}
 
 			var movieDto = _mapper.Map<MovieDto>(tmdbMovie);
 
 			await _movieService.AddMovieAsync(movieDto, cancellationToken);
 
-			return RedirectToAction("Profile", "User");
+			TempData["SuccessMessage"] = "Фильм успешно добавлен.";
+			return Redirect(returnUrl);
 		}
 
-		public async Task<IActionResult> RemoveMovie(int movieId, CancellationToken cancellationToken)
+		public async Task<IActionResult> RemoveMovie(int movieId, string returnUrl, CancellationToken cancellationToken)
 		{
 			var movieDto = await _movieService.GetMovieAsync(movieId, cancellationToken);
+
+			if (movieDto == null)
+			{
+				TempData["ModalMessage"] = "Фильм с указанным ID не найден.";
+				return Redirect(returnUrl);
+			}
 
 			var movie = _mapper.Map<Movie>(movieDto);
 
 			await _movieRepository.DeleteAsync(movie, cancellationToken);
 
-			return RedirectToAction("Profile", "User");
+			TempData["SuccessMessage"] = "Фильм успешно удален.";
+			return Redirect(returnUrl);
 		}
 
 		public async Task<IActionResult> MoviesPage(int pageNumber = 1, int? genreId = null, int? userId = null, string? genreName = null, CancellationToken cancellationToken = default)

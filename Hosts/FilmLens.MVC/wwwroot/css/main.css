@@ -61,6 +61,14 @@ body {
     color: rgba(255, 255, 255, 0.7);
 }
 
+#messageModal .modal-body {
+    color: black;
+}
+
+.custom-modal-content {
+    color: black;
+}
+
 .main-page-wrapper {
   overflow-x: hidden;
   background-color: #050d36;
