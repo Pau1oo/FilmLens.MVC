@@ -19,5 +19,19 @@ namespace FilmLens.DataAccess.Reviews.Repositories
 			return await ReadOnlyDbContext.Set<Review>()
 				.ToListAsync(cancellation);
 		}
+
+		public async Task<Review> GetReviewAsync(int reviewId, CancellationToken cancellationToken)
+		{
+			return await ReadOnlyDbContext
+				.Set<Review>()
+				.FirstOrDefaultAsync(m => m.Id == reviewId, cancellationToken);
+		}
+
+		public async Task DeleteAsync(Review review, CancellationToken cancellationToken)
+		{
+			MutableDbContext.Set<Review>().Remove(review);
+
+			await MutableDbContext.SaveChangesAsync(cancellationToken);
+		}
 	}
 }

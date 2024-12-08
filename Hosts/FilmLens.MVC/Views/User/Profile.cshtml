@@ -195,20 +195,6 @@
 				}
 
 			</div>
-
-			@if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
-			{
-				<div>
-					<h2>Добавить фильм в базу</h2>
-					<form asp-controller="Movie" asp-action="AddMovie" method="post">
-						<div class="form-group">
-							<label for="TmdbId">ID фильма в TMDb</label>
-							<input type="number" asp-for="TmdbId" class="form-control" required />
-						</div>
-						<button type="submit" class="btn btn-primary">Добавить фильм</button>
-					</form>
-				</div>
-			}
 			<!-- offset-sidebar end -->
 
 		</aside>
@@ -217,11 +203,11 @@
 
 		<main>
 			<!--team-details-wrapper start-->
-			<section class="team-details-wrapper pt-145 pb-100 pt-lg-60 pb-lg-20">
+			<section class="team-details-wrapper pt-110 pb-125 pt-lg-60 pb-lg-20">
 				<div class="container">
 					<div class="row gx-4 gx-xxl-5 align-items-center justify-content-center">
 						<div class="col-lg-12">
-							<div class="team-details-content-top mb-60 d-xl-flex align-items-center justify-content-space-between">
+							<div class="team-details-content-top mb-1 d-xl-flex align-items-center justify-content-space-between">
 								<div class="team-info ps-md-3 ps-xxl-5">
 									<h3 class="team-title mt-20 mb-35">@Model.UserName</h3>
 									<div class="d-md-flex justify-content-space-between">
@@ -293,6 +279,55 @@
 				</div>
 			</section>
 			<!--product-review-section start-->
+			@if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
+			{
+				<section class="team-details-wrapper pt-25 pb-110 pt-lg-60 pb-lg-20">
+					<div class="container">
+						<div class="row gx-4 gx-xxl-5 align-items-center justify-content-center">
+							<div class="col-lg-12">
+								<div class="team-details-content-top mb-1 d-xl-flex align-items-center justify-content-space-between">
+									<div class="team-info ps-md-3 ps-xxl-5 mb-25">
+										<h3 class="team-title mt-20 mb-20">Панель администратора</h3>
+
+											<div>
+												<form asp-controller="Movie" asp-action="AddMovie" method="post">
+													<div class="form-group">
+														<label for="TmdbId">ID фильма в TMDb</label>
+														<input type="number" name="TmdbId" class="form-control" required />
+													</div>
+													<button type="submit" class="theme_btn w-10 mt-2 mb-20">Добавить фильм</button>
+												</form>
+											</div>
+
+											<div>
+												<form asp-controller="Movie" asp-action="RemoveMovie" method="post">
+													<div class="form-group">
+														<label for="movieId">ID фильма</label>
+														<input type="number" name="movieId" class="form-control" required />
+													</div>
+												<button type="submit" class="theme_btn w-10 mt-2 mb-20">Удалить фильм</button>
+												</form>
+											</div>
+
+											<div>
+												<form asp-controller="Review" asp-action="RemoveReview" method="post">
+													<div class="form-group">
+														<label for="reviewId">ID комментария</label>
+														<input type="number" name="reviewId" class="form-control" required />
+														<input type="hidden" name="returnUrl" value="@Url.Action("Profile", "User")" />
+													</div>
+													<button type="submit" class="theme_btn w-10 mt-2">Удалить комментарий</button>
+												</form>
+											</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			}
+
 			<div class="product-review-section pb-100 pb-lg-15">
 				<div class="container">
 					<div class="row align-items-center justify-content-center">
@@ -311,8 +346,6 @@
 						</div>
 						<div class="col-lg-10">
 							<div class="tab-content mt-40 mb-45" id="myTabContent">
-								
-
 
 								<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
@@ -329,12 +362,28 @@
 															<h5>@review.MovieTitle</h5>
 															</a>
 
-															<p class="fs-14 mb-15">
+															<p class="fs-14">
 																<i class="far fa-calendar-alt"></i> @review.CreatedAt
 															</p>
+															@if (User.IsInRole("Admin"))
+															{
+																<p class="fs-14 mb-15">
+																	ID: @review.Id
+																</p>
+															}
 															<p>
 																@review.ReviewText
 															</p>
+															@if (User.IsInRole("Admin") || review.ReviewerUserId == Model.UserId)
+															{
+																<form asp-controller="Review" asp-action="RemoveReview" method="post">
+																	<input type="hidden" name="reviewId" value="@review.Id" />
+																	<input type="hidden" name="returnUrl" value="@Url.Action("Profile", "User")"/>
+																	<button type="submit" class="btn btn-danger fs-14 mt-15">
+																		Удалить
+																	</button>
+																</form>
+															}
 														</div>
 													</div>
 												</li>

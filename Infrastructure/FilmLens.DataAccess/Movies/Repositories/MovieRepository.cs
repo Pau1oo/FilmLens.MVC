@@ -82,5 +82,12 @@ namespace FilmLens.DataAccess.Movies.Repositories
 				.Where(u => movieIds.Contains(u.Id))
 				.ToListAsync(cancellationToken);
 		}
+
+		public async Task DeleteAsync(Movie movie, CancellationToken cancellationToken)
+		{
+			MutableDbContext.Set<Movie>().Remove(movie);
+
+			await MutableDbContext.SaveChangesAsync(cancellationToken);
+		}
 	}
 }

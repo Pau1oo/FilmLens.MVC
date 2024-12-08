@@ -4861,6 +4861,8 @@ ul.slick-dots li.slick-active {
 }
 .comment-box .comment-content p {
   color: white;
+  word-wrap: break-word; 
+  word-break: break-word; 
 }
 .comment-box .comment-content p i {
   margin-right: 5px;

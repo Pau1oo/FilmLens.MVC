@@ -195,20 +195,6 @@
 				}
 
 			</div>
-
-			@if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
-			{
-				<div>
-					<h2>Добавить фильм в базу</h2>
-					<form asp-controller="Movie" asp-action="AddMovie" method="post">
-						<div class="form-group">
-							<label for="TmdbId">ID фильма в TMDb</label>
-							<input type="number" asp-for="TmdbId" class="form-control" required />
-						</div>
-						<button type="submit" class="btn btn-primary">Добавить фильм</button>
-					</form>
-				</div>
-			}
 			<!-- offset-sidebar end -->
 
 		</aside>

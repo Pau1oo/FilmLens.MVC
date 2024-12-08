@@ -194,20 +194,6 @@
 				}
 
 			</div>
-
-			@if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
-			{
-				<div>
-					<h2>Добавить фильм в базу</h2>
-					<form asp-controller="Movie" asp-action="AddMovie" method="post">
-						<div class="form-group">
-							<label for="TmdbId">ID фильма в TMDb</label>
-							<input type="number" asp-for="TmdbId" class="form-control" required />
-						</div>
-						<button type="submit" class="btn btn-primary">Добавить фильм</button>
-					</form>
-				</div>
-			}
 			<!-- offset-sidebar end -->
 
 		</aside>
@@ -234,8 +220,14 @@
 						<div class="col-lg-6 mb-40">
 							<div class="product-details-content pt-lg-4 ps-xl-5">
 								<div class="product-details">
-									<h3 class="product-title">@Model.Movie.Title</h3>
-									<div class="price-list mt-35 mb-10">
+									<h3 class="product-title mb-35">@Model.Movie.Title</h3>
+									@if (User.IsInRole("Admin"))
+									{
+										<div class="price-list mt-10 mb-10">
+											<span class="old-price">ID:  @Model.Movie.Id</span>
+										</div>
+									}
+									<div class="price-list mt-10 mb-10">
 										<span class="old-price">Слоган:</span>
 										<span class="new-price">@Model.Movie.Tagline</span>
 									</div>
@@ -378,12 +370,28 @@
 															<h5>
 																@review.ReviewerName
 															</h5>
-															<p class="fs-14 mb-15">
+															<p class="fs-14">
 																<i class="far fa-calendar-alt"></i> @review.CreatedAt
 															</p>
+															@if (User.IsInRole("Admin"))
+															{
+																<p class="fs-14 mb-15">
+																	ID: @review.Id
+																</p>
+															}
 															<p>
 																@review.ReviewText
 															</p>
+															@if (User.IsInRole("Admin") || review.ReviewerUserId.ToString() == User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value)
+															{
+																<form asp-controller="Review" asp-action="RemoveReview" method="post">
+																	<input type="hidden" name="reviewId" value="@review.Id" />
+																	<input type="hidden" name="returnUrl" value="@Url.Action("MoviePage", "Movie")" />
+																	<button type="submit" class="btn btn-danger fs-14 mt-15">
+																		Удалить
+																	</button>
+																</form>
+															}
 														</div>
 													</div>
 												</li>

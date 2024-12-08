@@ -53,17 +53,17 @@ namespace FilmLens.MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddMovie(CommonViewModel model, CancellationToken cancellationToken)
+        public async Task<IActionResult> AddMovie(int TmdbId, CancellationToken cancellationToken)
         {
 			var existingMovie = await _movieService.GetMoviesAsync(new PagedRequest
             { PageNumber = 1, PageSize = int.MaxValue }, cancellationToken);
 
-			if (existingMovie.Result.Any(m => m.TmdbId == model.TmdbId.ToString()))
+			if (existingMovie.Result.Any(m => m.TmdbId == TmdbId.ToString()))
 			{
 				return Json(new { success = false, message = "Фильм с таким ID уже существует в базе данных." });
 			}
 
-			var tmdbMovie = await _tmdbService.GetMovieDetails(model.TmdbId);
+			var tmdbMovie = await _tmdbService.GetMovieDetails(TmdbId);
 
 			if (tmdbMovie == null)
 			{
@@ -75,7 +75,18 @@ namespace FilmLens.MVC.Controllers
 
 			await _movieService.AddMovieAsync(movieDto, cancellationToken);
 
-			return RedirectToAction("Index", "Home");
+			return RedirectToAction("Profile", "User");
+		}
+
+		public async Task<IActionResult> RemoveMovie(int movieId, CancellationToken cancellationToken)
+		{
+			var movieDto = await _movieService.GetMovieAsync(movieId, cancellationToken);
+
+			var movie = _mapper.Map<Movie>(movieDto);
+
+			await _movieRepository.DeleteAsync(movie, cancellationToken);
+
+			return RedirectToAction("Profile", "User");
 		}
 
 		public async Task<IActionResult> MoviesPage(int pageNumber = 1, int? genreId = null, int? userId = null, string? genreName = null, CancellationToken cancellationToken = default)

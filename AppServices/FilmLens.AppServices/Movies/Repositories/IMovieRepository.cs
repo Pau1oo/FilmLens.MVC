@@ -13,5 +13,7 @@ namespace FilmLens.AppServices.Movies.Repositories
 		Task<Movie> GetMovieAsync(int movieId, CancellationToken cancellationToken);
 
 		Task<List<Movie>> GetMoviesByIdsAsync(IEnumerable<int> movieIds, CancellationToken cancellationToken);
+
+		Task DeleteAsync(Movie movie, CancellationToken cancellationToken);
 	}
 }

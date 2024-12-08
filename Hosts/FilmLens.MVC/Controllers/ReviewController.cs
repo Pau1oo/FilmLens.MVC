@@ -1,4 +1,5 @@
-﻿using FilmLens.AppServices.Reviews.Services;
+﻿using FilmLens.AppServices.Reviews.Repositories;
+using FilmLens.AppServices.Reviews.Services;
 using FilmLens.AppServices.Users.Services;
 using FilmLens.Contracts.Reviews;
 using FilmLens.Domain.Entities;
@@ -10,12 +11,13 @@ namespace FilmLens.MVC.Controllers
 	public class ReviewController : Controller
 	{
 		private readonly IReviewService _reviewService;
-        private readonly IUserService _userService;
+        private readonly IReviewRepository _reviewRepository;
 
-        public ReviewController(IReviewService reviewService, IUserService userService)
+        public ReviewController(IReviewService reviewService,
+                                IReviewRepository reviewRepository)
         {
             _reviewService = reviewService;
-            _userService = userService;
+            _reviewRepository = reviewRepository;
         }
 
         public async Task<IActionResult> AddReview(MovieViewModel model, CancellationToken cancellationToken)
@@ -32,5 +34,14 @@ namespace FilmLens.MVC.Controllers
 
             return RedirectToAction("MoviePage", "Movie", new { id = model.Review.ReviewedMovieId });
         }
-    }
+
+		public async Task<IActionResult> RemoveReview(int reviewId, string returnUrl, CancellationToken cancellationToken)
+		{
+			var review = await _reviewRepository.GetReviewAsync(reviewId, cancellationToken);
+
+			await _reviewRepository.DeleteAsync(review, cancellationToken);
+
+			return Redirect(returnUrl);
+		}
+	}
 }

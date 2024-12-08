@@ -5,6 +5,7 @@
 	/// </summary>
 	public sealed class ReviewDto
 	{
+		public int Id { get; set; }
 		/// <summary>
 		/// Идентификатор пользователя.
 		/// </summary>
