@@ -57,7 +57,7 @@ namespace FilmLens.DataAccess.Movies.Repositories
 			}
 
 			query = query
-				.OrderBy(x => x.Id)
+				.OrderByDescending(x => x.VoteAverage)
 				.Skip(request.Skip);
 
 			if (request.Take != default)

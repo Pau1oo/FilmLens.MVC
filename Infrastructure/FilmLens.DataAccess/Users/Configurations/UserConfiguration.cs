@@ -14,9 +14,6 @@ namespace FilmLens.DataAccess.Users.Configurations
 
 			builder.Property(u => u.CreatedAt)
 				.IsRequired();
-
-			builder.Property(u => u.ReviewCount)
-				.HasDefaultValue(0);
 		}
 	}
 }
