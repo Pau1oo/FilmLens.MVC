@@ -14,6 +14,7 @@ namespace FilmLens.DataAccess.Users.Repositories
 		{
 		}
 
+		/// <inheritdoc/>
 		public async Task<List<User>> GetUsersByIdsAsync(IEnumerable<int> userIds, CancellationToken cancellationToken)
 		{
 			return await ReadOnlyDbContext

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using FilmLens.AppServices.Common.Events.Common;
 using FilmLens.AppServices.Genres.Repositories;
 using FilmLens.AppServices.Movies.Models;
 using FilmLens.AppServices.Movies.Repositories;
@@ -17,20 +16,18 @@ namespace FilmLens.AppServices.Movies.Services
 		private readonly IMovieRepository _movieRepository;
 		private readonly IGenreRepository _genreRepository;
 		private readonly IMapper _mapper;
-		private readonly IEventAccumulator _eventContainer;
 
         public MovieService(
 			IMovieRepository movieRepository,
 			IGenreRepository genreRepository,
-			IMapper mapper,
-			IEventAccumulator eventAccumulator)
+			IMapper mapper)
         {
             _movieRepository = movieRepository;
 			_genreRepository = genreRepository;
 			_mapper = mapper;
-			_eventContainer = eventAccumulator;
         }
 
+		/// <inheritdoc/>
 		public async Task AddMovieAsync(MovieDto movieDto, CancellationToken cancellationToken)
 		{
 			var movieEntity = _mapper.Map<Movie>(movieDto);
@@ -60,6 +57,7 @@ namespace FilmLens.AppServices.Movies.Services
 			
 		}
 
+		/// <inheritdoc/>
 		public async Task<MoviesListDto> GetMoviesAsync(PagedRequest request, CancellationToken cancellation)
 		{
 			if (request == null)
@@ -104,6 +102,7 @@ namespace FilmLens.AppServices.Movies.Services
 			};
 		}
 
+		/// <inheritdoc/>
 		public async Task<MovieDto> GetMovieAsync(int movieId, CancellationToken cancellation)
 		{
 			var movieEntity = await _movieRepository.GetMovieAsync(movieId, cancellation);

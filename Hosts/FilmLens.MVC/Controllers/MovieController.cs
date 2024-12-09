@@ -5,17 +5,12 @@ using FilmLens.AppServices.Genres.Services;
 using FilmLens.AppServices.Movies.Repositories;
 using FilmLens.AppServices.Movies.Services;
 using FilmLens.AppServices.Reviews.Services;
-using FilmLens.AppServices.Users.Repositories;
 using FilmLens.AppServices.Users.Services;
 using FilmLens.Contracts.Common;
-using FilmLens.Contracts.FavoriteMovies;
 using FilmLens.Contracts.Movies;
 using FilmLens.Domain.Entities;
 using FilmLens.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.InteropServices;
-using System.Security.Claims;
-using System.Threading;
 
 namespace FilmLens.MVC.Controllers
 {
@@ -23,7 +18,6 @@ namespace FilmLens.MVC.Controllers
 	{
 		private readonly IMovieService _movieService;
 		private readonly IUserService _userService;
-		private readonly IUserRepository _userRepository;
 		private readonly IMovieRepository _movieRepository;
 		private readonly IFavoriteMovieRepository _favoriteMovieRepository;
 		private readonly IGenreService _genreService;
@@ -31,8 +25,7 @@ namespace FilmLens.MVC.Controllers
 		private readonly ITmdbService _tmdbService;
 		private readonly IMapper _mapper;
 
-		public MovieController(IMovieService movieService, 
-							   IUserRepository userRepository,
+		public MovieController(IMovieService movieService,
 							   IMovieRepository movieRepository,
 							   IFavoriteMovieRepository favoriteMovieRepository,
 							   IUserService userService,
@@ -42,7 +35,6 @@ namespace FilmLens.MVC.Controllers
 							   IMapper mapper)
         {
             _movieService = movieService;
-			_userRepository = userRepository;
 			_movieRepository = movieRepository;
 			_favoriteMovieRepository = favoriteMovieRepository;
 			_userService = userService;
@@ -52,6 +44,12 @@ namespace FilmLens.MVC.Controllers
 			_mapper = mapper;
         }
 
+		/// <summary>
+		/// Создает фильм.
+		/// </summary>
+		/// <param name="TmdbId">Идентификатор фильма в TMDb.</param>
+		/// <param name="returnUrl">Путь к странице.</param>
+		/// <param name="cancellationToken">Токен отмены операции.</param>
         [HttpPost]
         public async Task<IActionResult> AddMovie(int TmdbId, string returnUrl, CancellationToken cancellationToken)
         {
@@ -80,6 +78,12 @@ namespace FilmLens.MVC.Controllers
 			return Redirect(returnUrl);
 		}
 
+		/// <summary>
+		/// Удаляет фильм.
+		/// </summary>
+		/// <param name="movieId">Идентификатор фильма.</param>
+		/// <param name="returnUrl">Путь к странице.</param>
+		/// <param name="cancellationToken">Токен отмены операции.</param>
 		public async Task<IActionResult> RemoveMovie(int movieId, string returnUrl, CancellationToken cancellationToken)
 		{
 			var movieDto = await _movieService.GetMovieAsync(movieId, cancellationToken);
@@ -98,6 +102,14 @@ namespace FilmLens.MVC.Controllers
 			return Redirect(returnUrl);
 		}
 
+		/// <summary>
+		/// Заполняет данными пагинируемую страницу с фильмами.
+		/// </summary>
+		/// <param name="pageNumber">Номер страницы (параметр для пагинации).</param>
+		/// <param name="genreId">Идентификатор жанра.</param>
+		/// <param name="userId">Идентификатор пользователя.</param>
+		/// <param name="genreName">Наименование жанра.</param>
+		/// <param name="cancellationToken">Токен отмены операции.</param>
 		public async Task<IActionResult> MoviesPage(int pageNumber = 1, int? genreId = null, int? userId = null, string? genreName = null, CancellationToken cancellationToken = default)
 		{
 			var result = await _movieService.GetMoviesAsync(new PagedRequest
@@ -112,6 +124,11 @@ namespace FilmLens.MVC.Controllers
 			return View(result);
 		}
 
+		/// <summary>
+		/// Заполняет данными страницу с фильмом.
+		/// </summary>
+		/// <param name="id">Идентификатор фильма.</param>
+		/// <param name="cancellationToken">Токен отмены операции.</param>
 		public async Task<IActionResult> MoviePage(int id, CancellationToken cancellationToken)
 		{
 			var isFavorite = false;
@@ -136,6 +153,11 @@ namespace FilmLens.MVC.Controllers
 			return View(result);
 		}
 
+		/// <summary>
+		/// Добавляет фильм в избранное.
+		/// </summary>
+		/// <param name="movieId">Идентификатор фильма.</param>
+		/// <param name="cancellationToken">Токен отмены операции.</param>
 		public async Task<IActionResult> AddToFavorites(int movieId, CancellationToken cancellationToken)
 		{
 			var user = await _userService.GetUserAsync(User);
@@ -151,6 +173,11 @@ namespace FilmLens.MVC.Controllers
 			return RedirectToAction("MoviePage", new { id = movieId });
 		}
 
+		/// <summary>
+		/// Удаляет фильм из избранного.
+		/// </summary>
+		/// <param name="movieId">Идентификатор фильма.</param>
+		/// <param name="cancellationToken">Токен отмены операции.</param>
 		public async Task<IActionResult> RemoveFromFavorites(int movieId, CancellationToken cancellationToken)
 		{
 			var favoriteMovie = await _favoriteMovieRepository.GetFavoriteMovieAsync(movieId, cancellationToken);

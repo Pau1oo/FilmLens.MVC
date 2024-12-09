@@ -2,7 +2,7 @@
 
 namespace FilmLens.MVC.Models
 {
-	public class GenresViewModel : CommonViewModel
+	public class GenresViewModel
 	{
 		/// <summary>
 		/// Список жанров.

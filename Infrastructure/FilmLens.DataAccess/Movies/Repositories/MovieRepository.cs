@@ -23,6 +23,7 @@ namespace FilmLens.DataAccess.Movies.Repositories
 				.ToListAsync(cancellation);
 		}
 
+		/// <inheritdoc/>
 		public Task<int> GetMoviesTotalCountAsync(int? genreId, int? userId, CancellationToken cancellation)
 		{
 			var query = ReadOnlyDbContext
@@ -41,6 +42,7 @@ namespace FilmLens.DataAccess.Movies.Repositories
 			return query.CountAsync(cancellation);
 		}
 
+		/// <inheritdoc/>
 		public Task<List<Movie>> GetMoviesAsync(GetMoviesRequest request, CancellationToken cancellation)
 		{
 			var query = ReadOnlyDbContext
@@ -68,6 +70,7 @@ namespace FilmLens.DataAccess.Movies.Repositories
 			return query.ToListAsync(cancellation);
 		}
 
+		/// <inheritdoc/>
 		public async Task<Movie> GetMovieAsync(int movieId, CancellationToken cancellationToken)
 		{
 			return await ReadOnlyDbContext
@@ -75,6 +78,7 @@ namespace FilmLens.DataAccess.Movies.Repositories
 				.FirstOrDefaultAsync(m => m.Id == movieId, cancellationToken);
 		}
 
+		/// <inheritdoc/>
 		public async Task<List<Movie>> GetMoviesByIdsAsync(IEnumerable<int> movieIds, CancellationToken cancellationToken)
 		{
 			return await ReadOnlyDbContext
@@ -83,6 +87,7 @@ namespace FilmLens.DataAccess.Movies.Repositories
 				.ToListAsync(cancellationToken);
 		}
 
+		/// <inheritdoc/>
 		public async Task DeleteAsync(Movie movie, CancellationToken cancellationToken)
 		{
 			MutableDbContext.Set<Movie>().Remove(movie);

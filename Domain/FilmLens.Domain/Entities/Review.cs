@@ -1,12 +1,12 @@
 ﻿namespace FilmLens.Domain.Entities
 {
     /// <summary>
-    /// Рецензия.
+    /// Комментарий.
     /// </summary>
     public sealed class Review
     {
 		/// <summary>
-		/// Идентификатор.
+		/// Идентификатор комментария.
 		/// </summary>
 		public int Id { get; set; }
 
@@ -21,16 +21,23 @@
 		public int ReviewedMovieId { get; set; }
 
 		/// <summary>
-		/// Текст рецензии.
+		/// Текст комментария.
 		/// </summary>
 		public string ReviewText { get; set; }
 
 		/// <summary>
-		/// Дата создания рецензии.
+		/// Дата создания комментария.
 		/// </summary>
 		public DateTime CreatedAt { get; set; }
 
+		/// <summary>
+		/// Связь с фильмом.
+		/// </summary>
 		public Movie Movie { get; set; }
+
+		/// <summary>
+		/// Связь с пользователем.
+		/// </summary>
 		public User User { get; set; }
 	}
 }

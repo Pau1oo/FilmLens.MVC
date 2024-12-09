@@ -25,6 +25,9 @@
 		/// </summary>
 		public string? GenreName { get; set; }
 
+		/// <summary>
+		/// Идентификатор пользователя.
+		/// </summary>
 		public int? UserId { get; set; }
 	}
 }

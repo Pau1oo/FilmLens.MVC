@@ -1,11 +1,7 @@
 ﻿using FilmLens.AppServices.Reviews.Services;
 using FilmLens.AppServices.Users.Services;
-using FilmLens.Domain.Entities;
 using FilmLens.MVC.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace FilmLens.MVC.Controllers
 {
@@ -20,6 +16,11 @@ namespace FilmLens.MVC.Controllers
             _reviewService = reviewService;
         }
 
+        /// <summary>
+        /// Заполняет данными профиль пользователя.
+        /// </summary>
+        /// <param name="cancellationToken">Токен отмены операции.</param>
+        /// <returns></returns>
         public async Task<IActionResult> Profile(CancellationToken cancellationToken)
         {
 

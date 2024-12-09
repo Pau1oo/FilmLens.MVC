@@ -2,6 +2,9 @@
 
 namespace FilmLens.AppServices.Common.TMDb
 {
+	/// <summary>
+	/// Интерфейс сервиса для взаимодействия с TMDb API, который предоставляет информацию о фильмах.
+	/// </summary>
 	public interface ITmdbService
 	{
 		/// <summary>

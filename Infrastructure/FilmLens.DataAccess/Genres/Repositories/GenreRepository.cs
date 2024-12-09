@@ -14,6 +14,7 @@ namespace FilmLens.DataAccess.Genres.Repositories
         {
         }
 
+		/// <inheritdoc/>
 		public async Task<List<Genre>> GetGenresByIdsAsync(IEnumerable<int> ids, CancellationToken cancellationToken)
 		{
 			return await ReadOnlyDbContext
@@ -22,6 +23,7 @@ namespace FilmLens.DataAccess.Genres.Repositories
 				.ToListAsync(cancellationToken);
 		}
 
+		/// <inheritdoc/>
 		public async Task<List<Genre>> GetGenresByMovieIdAsync(int movieId, CancellationToken cancellationToken)
 		{
 			var genres = await ReadOnlyDbContext
@@ -33,6 +35,7 @@ namespace FilmLens.DataAccess.Genres.Repositories
 			return genres;
 		}
 
+		/// <inheritdoc/>
 		public async Task<List<Genre>> GetAllGenresAsync(CancellationToken cancellationToken)
 		{
 			return await ReadOnlyDbContext

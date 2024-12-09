@@ -14,6 +14,7 @@ namespace FilmLens.DataAccess.FavoriteMovies.Repositories
 		{
 		}
 
+		/// <inheritdoc/>
 		public async Task<FavoriteMovie> GetFavoriteMovieAsync(int movieId, CancellationToken cancellationToken)
 		{
 			return await ReadOnlyDbContext
@@ -21,6 +22,7 @@ namespace FilmLens.DataAccess.FavoriteMovies.Repositories
 				.FirstOrDefaultAsync(fm => fm.MovieId == movieId, cancellationToken);
 		}
 
+		/// <inheritdoc/>
 		public async Task DeleteAsync(FavoriteMovie favoriteMovie, CancellationToken cancellationToken)
 		{
 			MutableDbContext.Set<FavoriteMovie>().Remove(favoriteMovie);
@@ -28,6 +30,7 @@ namespace FilmLens.DataAccess.FavoriteMovies.Repositories
 			await MutableDbContext.SaveChangesAsync(cancellationToken);
 		}
 
+		/// <inheritdoc/>
 		public async Task<bool> ExistsAsync(int userId, int movieId)
 		{
 			return await ReadOnlyDbContext

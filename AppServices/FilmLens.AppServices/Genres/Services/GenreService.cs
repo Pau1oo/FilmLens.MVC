@@ -11,14 +11,16 @@ namespace FilmLens.AppServices.Genres.Services
 	{
 		private readonly IGenreRepository _genreRepository;
 		private readonly IMapper _mapper;
-
-        public GenreService(IGenreRepository genreRepository, IMapper mapper)
+		
+        public GenreService(IGenreRepository genreRepository, 
+						    IMapper mapper)
         {
             _genreRepository = genreRepository;
 			_mapper = mapper;
         }
 
-        public async Task<List<GenreDto>> GetGenresAsync(int movieId, CancellationToken cancellation)
+		/// <inheritdoc/>
+		public async Task<List<GenreDto>> GetGenresAsync(int movieId, CancellationToken cancellation)
 		{
 			var genres = await _genreRepository.GetGenresByMovieIdAsync(movieId, cancellation);
 

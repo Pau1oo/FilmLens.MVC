@@ -5,12 +5,19 @@
 	/// </summary>
 	public sealed class ReviewDto
 	{
+		/// <summary>
+		/// Идентификатор комментария.
+		/// </summary>
 		public int Id { get; set; }
+
 		/// <summary>
 		/// Идентификатор пользователя.
 		/// </summary>
 		public int ReviewerUserId { get; set; }
 
+		/// <summary>
+		/// Имя комментатора.
+		/// </summary>
 		public string ReviewerName { get; set; }
 
 		/// <summary>
@@ -18,6 +25,9 @@
 		/// </summary>
 		public int ReviewedMovieId { get; set; }
 
+		/// <summary>
+		/// Наименование фильма.
+		/// </summary>
 		public string MovieTitle { get; set; }
 
 		/// <summary>

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace FilmLens.Contracts.Common
+﻿namespace FilmLens.Contracts.Common
 {
 	/// <summary>
 	/// Пагинированный ответ.

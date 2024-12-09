@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using FilmLens.AppServices.Authentication.Services;
-using FilmLens.AppServices.Common.CacheService;
-using FilmLens.AppServices.Common.Redis;
 using FilmLens.AppServices.Common.TMDb;
 using FilmLens.DataAccess.Common;
 using FilmLens.Domain.Entities;
@@ -11,8 +9,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using StackExchange.Redis.Extensions.Core.Configuration;
-using StackExchange.Redis.Extensions.Newtonsoft;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using FilmLens.DataAccess.Middlewares;
@@ -105,12 +101,6 @@ namespace FilmLens.ComponentRegistrar
 
 		private static void RegisterServices(IServiceCollection services, IConfiguration configuration)
 		{
-			var redisConfiguration = configuration
-				.GetSection("Redis")
-				.Get<RedisConfiguration>();
-
-			services.AddStackExchangeRedisExtensions<NewtonsoftSerializer>(redisConfiguration);
-
 			services.AddScoped<IAuthenticationService, AuthenticationService>();
 			services.AddScoped<ITmdbService, TmdbService>();
 			services.AddScoped<IMovieService, MovieService>();
@@ -118,8 +108,6 @@ namespace FilmLens.ComponentRegistrar
 			services.AddScoped<IUserService, UserService>();
 			services.AddScoped<IReviewService, ReviewService>();
 
-			services.AddSingleton<IRedisCache, RedisCache>();
-			services.AddSingleton<ICacheService, RedisCacheService>();
 			services.AddSingleton<IJwtGenerator, JwtGenerator>();
 
 			services.AddScoped<IEventDispatcher, EventDispatcher>();

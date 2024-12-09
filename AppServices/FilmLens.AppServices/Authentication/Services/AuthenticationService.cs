@@ -1,7 +1,6 @@
 ﻿using FilmLens.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using StackExchange.Redis;
 
 namespace FilmLens.AppServices.Authentication.Services
 {
@@ -14,7 +13,6 @@ namespace FilmLens.AppServices.Authentication.Services
 		private readonly SignInManager<User> _signInManager;
 		private readonly IHttpContextAccessor _httpContextAccessor;
 
-		/// <inheritdoc/>
 		public AuthenticationService(
 			SignInManager<User> signInManager,
 			UserManager<User> userManager,
@@ -60,7 +58,6 @@ namespace FilmLens.AppServices.Authentication.Services
 		public async Task<bool> SignInAsync(string email, string password, CancellationToken cancellation)
 		{
 			var user = await _userManager.FindByEmailAsync(email);
-				//?? throw new UnauthorizedAccessException("Неправильный email или пароль.");
 
 			var isPasswordMatched = await _userManager.CheckPasswordAsync(user, password);
 			if (isPasswordMatched)

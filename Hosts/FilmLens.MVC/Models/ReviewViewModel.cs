@@ -1,12 +1,18 @@
 ﻿namespace FilmLens.MVC.Models
 {
-	public class ReviewViewModel : CommonViewModel	
+	/// <summary>
+	/// Модель комментария.
+	/// </summary>
+	public class ReviewViewModel
 	{
 		/// <summary>
 		/// Идентификатор пользователя.
 		/// </summary>
 		public int ReviewerUserId { get; set; }
 
+		/// <summary>
+		/// Имя пользователя.
+		/// </summary>
 		public string ReviewerName { get; set; }
 
 		/// <summary>

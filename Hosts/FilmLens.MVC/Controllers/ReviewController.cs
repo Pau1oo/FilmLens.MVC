@@ -1,8 +1,6 @@
 ﻿using FilmLens.AppServices.Reviews.Repositories;
 using FilmLens.AppServices.Reviews.Services;
-using FilmLens.AppServices.Users.Services;
 using FilmLens.Contracts.Reviews;
-using FilmLens.Domain.Entities;
 using FilmLens.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +18,11 @@ namespace FilmLens.MVC.Controllers
             _reviewRepository = reviewRepository;
         }
 
+        /// <summary>
+        /// Создает комментарий.
+        /// </summary>
+        /// <param name="model">Данные о комментарии.</param>
+        /// <param name="cancellationToken">Токен отмены операции.</param>
         public async Task<IActionResult> AddReview(MovieViewModel model, CancellationToken cancellationToken)
         {
             var reviewDto = new ReviewDto
@@ -35,6 +38,12 @@ namespace FilmLens.MVC.Controllers
             return RedirectToAction("MoviePage", "Movie", new { id = model.Review.ReviewedMovieId });
         }
 
+        /// <summary>
+        /// Удаляет комментарий.
+        /// </summary>
+        /// <param name="reviewId">Идентификатор комментария.</param>
+        /// <param name="returnUrl">Путь к странице.</param>
+        /// <param name="cancellationToken">Токен отмены операции.</param>
 		public async Task<IActionResult> RemoveReview(int reviewId, string returnUrl, CancellationToken cancellationToken)
 		{
 			var review = await _reviewRepository.GetReviewAsync(reviewId, cancellationToken);

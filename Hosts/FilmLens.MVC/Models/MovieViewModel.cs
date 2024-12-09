@@ -4,7 +4,10 @@ using FilmLens.Contracts.Reviews;
 
 namespace FilmLens.MVC.Models
 {
-	public class MovieViewModel : CommonViewModel
+	/// <summary>
+	/// Модель фильма.
+	/// </summary>
+	public class MovieViewModel
 	{
 		public ReviewViewModel Review { get; set; }
 

@@ -16,7 +16,7 @@
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// Связанные фильмы.
+        /// Связь с фильмами.
         /// </summary>
         public ICollection<Movie> Movies { get; set; } = [];
     }

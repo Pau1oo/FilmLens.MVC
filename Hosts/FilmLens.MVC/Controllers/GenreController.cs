@@ -1,5 +1,4 @@
 ﻿using FilmLens.AppServices.Genres.Repositories;
-using FilmLens.AppServices.Genres.Services;
 using FilmLens.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +13,10 @@ namespace FilmLens.MVC.Controllers
             _genreRepository = genreRepository;
         }
 
+		/// <summary>
+		/// Заполняет данными страницу с жанрами.
+		/// </summary>
+		/// <param name="cancellationToken">Токен отмены операции.</param>
 		public async Task<IActionResult> GenresPage(CancellationToken cancellationToken)
 		{
 			var genres = await _genreRepository.GetAllGenresAsync(cancellationToken);

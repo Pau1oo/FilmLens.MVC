@@ -8,8 +8,10 @@ namespace FilmLens.AppServices.Users.Services
     /// </summary>
     public interface IUserService
     {
+        /// <summary>
+        /// Получает сущность пользователя.
+        /// </summary>
+        /// <param name="user">Сущность пользователя.</param>
         Task<User> GetUserAsync(ClaimsPrincipal user);
-
-        // Task<string> GetUserNameByIdAsync(int userId, CancellationToken cancellationToken);
 	}
 }

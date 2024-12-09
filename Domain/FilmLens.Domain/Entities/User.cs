@@ -12,8 +12,14 @@ namespace FilmLens.Domain.Entities
         /// </summary>
         public DateTime CreatedAt { get; set; }
 
+        /// <summary>
+        /// Комментарии пользователя.
+        /// </summary>
         public ICollection<Review> Reviews { get; set; } = [];
 
+        /// <summary>
+        /// Избранные фильмы пользователя.
+        /// </summary>
         public ICollection<FavoriteMovie> FavoriteMovies { get; set; } = [];
 	}
 }

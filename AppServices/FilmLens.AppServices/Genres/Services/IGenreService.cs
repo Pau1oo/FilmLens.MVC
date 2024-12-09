@@ -1,10 +1,4 @@
 ﻿using FilmLens.Contracts.Genres;
-using FilmLens.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FilmLens.AppServices.Genres.Services
 {
@@ -13,6 +7,11 @@ namespace FilmLens.AppServices.Genres.Services
 	/// </summary>
 	public interface IGenreService
 	{
+		/// <summary>
+		/// Получает список жанров фильма по его идентификатору.
+		/// </summary>
+		/// <param name="movieId">Идентификатор фильма.</param>
+		/// <param name="cancellation">Токен отмены операции.</param>
 		Task<List<GenreDto>> GetGenresAsync(int movieId, CancellationToken cancellation);
 	}
 }

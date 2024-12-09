@@ -14,12 +14,14 @@ namespace FilmLens.DataAccess.Reviews.Repositories
 		{
 		}
 
+		/// <inheritdoc/>
 		public async override Task<List<Review>> GetAllAsync(CancellationToken cancellation)
 		{
 			return await ReadOnlyDbContext.Set<Review>()
 				.ToListAsync(cancellation);
 		}
 
+		/// <inheritdoc/>
 		public async Task<Review> GetReviewAsync(int reviewId, CancellationToken cancellationToken)
 		{
 			return await ReadOnlyDbContext
@@ -27,6 +29,7 @@ namespace FilmLens.DataAccess.Reviews.Repositories
 				.FirstOrDefaultAsync(m => m.Id == reviewId, cancellationToken);
 		}
 
+		/// <inheritdoc/>
 		public async Task DeleteAsync(Review review, CancellationToken cancellationToken)
 		{
 			MutableDbContext.Set<Review>().Remove(review);
